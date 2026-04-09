@@ -4,20 +4,12 @@ Escreva um ou dois parágrafo resumindo o objetivo do seu projeto.
 
 ## Alunos integrantes da equipe
 
-<<<<<<< HEAD
 * Gustavo Albuquerque Lourenço Mattos de Castro
 * Arthur Moraes Braga Araujo
 * Enzo Fernandes Alcantra
 * Juan Pedro Marques Faria
 * Arthur Gabriel de Oliveira Fonseca Santos
 * Pedro Arthur de Sena Ribeiro
-=======
-* Arthur Gabriel de Oliveira Fonseca Santos
-* Nome completo do aluno 2
-* Nome completo do aluno 3
-* Nome completo do aluno 4
-
->>>>>>> 6a20ff7106ae207a046a07ed805e2fccfd93ff97
 ## Professores responsáveis
 
 * Nome completo do professor 1
