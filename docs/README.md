@@ -103,19 +103,22 @@ Nesse momento, vamos transformar os insights e validações obtidos em soluçõe
 
 Com base na análise das personas foram identificadas as seguintes histórias de usuários:
 
-| EU COMO...`PERSONA` | QUERO/PRECISO ...`FUNCIONALIDADE`        | PARA ...`MOTIVO/VALOR`               |
-| --------------------- | ------------------------------------------ | -------------------------------------- |
-| Usuário do sistema   | Registrar minhas tarefas ⚠️ EXEMPLO ⚠️ | Não esquecer de fazê-las             |
-| Administrador         | Alterar permissões ⚠️ EXEMPLO ⚠️      | Permitir que possam administrar contas |
+![](images/Hist.usuario.jpg)
 
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Apresente aqui as histórias de usuário que são relevantes para o projeto de sua solução. As Histórias de Usuário consistem em uma ferramenta poderosa para a compreensão das necessidades de cada persona. Se possível, agrupe as histórias de usuário por contexto, para facilitar consultas recorrentes à essa parte do documento.
->
-> **Orientações**:
->
-> - [Histórias de usuários com exemplos e template](https://www.atlassian.com/br/agile/project-management/user-stories)
-> - [Como escrever boas histórias de usuário (User Stories)](https://medium.com/vertice/como-escrever-boas-users-stories-hist%C3%B3rias-de-usu%C3%A1rios-b29c75043fac)
+1. Perfil de Coordenação
+Eu como: Coordenador de carreiras universitárias.
+Preciso de: Ter acesso a um banco de talentos com perfis completos dos alunos, incluindo projetos acadêmicos, habilidades e histórico de formação.
+Para: Indicar estudantes mais preparados às empresas e aumentar as chances de contratação dos universitários.
+
+2. Perfil de Empregabilidade
+Eu como: Responsável pela empregabilidade dos estudantes.
+Preciso de: Visualizar um dashboard com o progresso dos alunos nos processos seletivos de estágio.
+Para: Entender em qual etapa os candidatos estão e oferecer orientações para melhorar suas chances de aprovação.
+
+3. Perfil de Integração Institucional
+Eu como: Coordenador de carreiras da universidade.
+Preciso de: Uma plataforma que conecte diretamente empresas e universitários da instituição.
+Para: Facilitar a divulgação de vagas de estágio e aproximar o mercado de trabalho dos alunos.
 
 ## Proposta de Valor
 
