@@ -211,13 +211,7 @@ Dashboard: Uma central de controle visual. Focada em métricas e status, utiliza
 
 ### Protótipo Interativo
 
-**✳️✳️✳️ COLOQUE AQUI UM IFRAME COM SEU PROTÓTIPO INTERATIVO ✳️✳️✳️**
-
-✅ [Protótipo Interativo (MarvelApp)](https://marvelapp.com/prototype/4hd6091?emb=1&iosapp=false&frameless=false)  ⚠️ EXEMPLO ⚠️
-
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Um protótipo interativo apresenta o projeto de interfaces e permite ao usuário navegar pelas funcionalidades como se estivesse lidando com o software pronto. Utilize as mesmas ferramentas de construção de wireframes para montagem do seu protótipo interativo. Inclua o link para o protótipo interativo do projeto.
+[](https://www.figma.com/site/DKoE4yuXm3fAfH3mWurSu5/Untitled?node-id=0-1&t=s3GPR9D6ZUGPbqMK-1)  ⚠️ EXEMPLO ⚠️
 
 # Metodologia
 
@@ -227,17 +221,14 @@ Detalhes sobre a organização do grupo e o ferramental empregado.
 
 Relação de ferramentas empregadas pelo grupo durante o projeto.
 
-| Ambiente                    | Plataforma | Link de acesso                                     |
-| --------------------------- | ---------- | -------------------------------------------------- |
-| Processo de Design Thinking | Miro       | https://miro.com/XXXXXXX ⚠️ EXEMPLO ⚠️        |
-| Repositório de código     | GitHub     | https://github.com/XXXXXXX ⚠️ EXEMPLO ⚠️      |
-| Hospedagem do site          | Render     | https://site.render.com/XXXXXXX ⚠️ EXEMPLO ⚠️ |
-| Protótipo Interativo       | MarvelApp  | https://marvelapp.com/XXXXXXX ⚠️ EXEMPLO ⚠️   |
-|                             |            |                                                    |
+Processo de Deisgn Thinking: https://miro.com/pt/
+O Miro é uma plataforma de lousa virtual (whiteboard) que permite a colaboração em tempo real. No contexto do Design Thinking, ele funciona como o espaço central para o brainstorming e a estruturação de ideias.
 
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Liste as ferramentas empregadas no desenvolvimento do projeto, justificando a escolha delas, sempre que possível. Inclua itens como: (1) Editor de código, (2) )ferramentas de comunicação, (3) )ferramentas de diagramação, (4) )plataformas de hospedagem, entre outras.
+Repositório de código: https://github.com/
+O GitHub é uma plataforma de hospedagem de código-fonte que utiliza o sistema de controle de versões Git. Ele serve como o repositório oficial do projeto, onde os arquivos de HTML, CSS e Python ficam armazenados com segurança.
+
+Protótipo Interativo: https://figma.com/
+O Figma é uma ferramenta de design de interface (UI) e experiência do usuário (UX). Ele é utilizado para transformar aqueles esboços manuais (wireframes) em uma versão digital de alta fidelidade.
 
 ## Gerenciamento do Projeto
 
