@@ -60,17 +60,31 @@ Já as empresas, representadas principalmente por profissionais de recursos huma
 
 ## Etapa de Entendimento
 
-**✳️✳️✳️ APRESENTE OS ARTEFATOS DA ETAPA  ✳️✳️✳️**
+![](images/matriz.csd.png)
+![](images/mapa.stackeholders.png.png)
 
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Nessa etapa, vamos trabalhar com a metdologia de Design Thinking para compreender com maior profundidade o problema a ser tratado. Nesse processo, vamos elaborar:
->
-> * **Matriz CSD**: também conhecida por Matriz de Alinhamento, é uma ferramenta utilizada no Design Thinking para organizar informações e facilitar o processo de tomada de decisão e solução de problemas;
-> * **Mapa de stakeholders**: ferramenta que nos permite compreender o grupo de pessoas e entidades que devemos estudar e conversar para entender mais sobre o problema
-> * **Entrevistas qualitativas**: série de entrevistas qualitativas para validar suposições e solucionar as dúvidas com as principais pessoas envolvidas;
-> * **Highlights de pesquisa**: um compilado do levantamento realizado por meio das entrevistas.
+1. Mapa de Stakeholders
+  O mapa organiza os envolvidos no ecossistema do projeto em três níveis de proximidade e influência:
+  Pessoas Fundamentais (Centro): São os usuários diretos e principais afetados pelo problema. No mapa, este grupo é composto por estudantes universitários e o empregador.
+  Pessoas Importantes (Círculo Intermediário): São entidades que facilitam ou dificultam a viabilidade da solução. Estão listados: faculdade, empresas e cursos.
+  Pessoas Influenciadoras (Círculo Externo): São órgãos ou contextos que devem ser consultados por questões regulatórias ou de mercado. Inclui: ministério do trabalho, opiniões públicas, indicação (networking) e rede social de vagas.
 
+2. Matriz de Alinhamento CSD
+Certezas (O que já sabemos)
+  A concorrência para vagas de entrada é extremamente alta.
+  Existem vagas de estágio que exigem experiência prévia irrealista.
+  A legislação exige vínculo ativo entre estagiário e instituição de ensino.
+  A maioria das empresas não fornece feedback aos candidatos reprovados.
+Suposições (O que achamos, mas não temos certeza)
+  Plataformas genéricas (como LinkedIn) geram ansiedade em alunos do início do curso.
+  Universitários têm dificuldade em criar currículos sem ter experiência profissional.
+  Pequenas e médias empresas (PMEs) precisam de processos de contratação rápidos e menos burocráticos.
+  Reforça-se a ideia de que a maioria das empresas não dá feedback.
+Dúvidas (O que ainda não sabemos)
+  Quais canais os estudantes mais usam para buscar vagas hoje?
+  O que os recrutadores realmente valorizam em quem não tem experiência?
+  Quais seriam os filtros essenciais para o sistema?
+  As empresas estariam dispostas a migrar para uma plataforma nova e exclusiva para universitários?
 ## Etapa de Definição
 
 ### Personas
