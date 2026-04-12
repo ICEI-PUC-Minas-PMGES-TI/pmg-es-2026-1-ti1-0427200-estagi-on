@@ -192,19 +192,22 @@ Dashboard: Uma central de controle visual. Focada em métricas e status, utiliza
 
 ### User Flow
 
-**✳️✳️✳️ COLOQUE AQUI O DIAGRAMA DE FLUXO DE TELAS ✳️✳️✳️**
 
-![Exemplo de fluxo de telas](images/exemplo-userflow.png)
+![](images/userflow.png)
 
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Fluxo de usuário (User Flow) é uma técnica que permite ao desenvolvedor mapear todo fluxo de telas do site ou app. Essa técnica funciona para alinhar os caminhos e as possíveis ações que o usuário pode fazer junto com os membros de sua equipe.
->
-> **Orientações**:
->
-> - [User Flow: O Quê É e Como Fazer?](https://medium.com/7bits/fluxo-de-usu%C3%A1rio-user-flow-o-que-%C3%A9-como-fazer-79d965872534)
-> - [User Flow vs Site Maps](http://designr.com.br/sitemap-e-user-flow-quais-as-diferencas-e-quando-usar-cada-um/)
-> - [Top 25 User Flow Tools &amp; Templates for Smooth](https://www.mockplus.com/blog/post/user-flow-tools)
+1. Acesso e Autenticação
+  O usuário tem dois caminhos primários: realizar o Login (caso já possua cadastro) ou Criar Conta. Ambas as ações convergem para o Menu principal, que funciona como o hub central de acesso após a autenticação.
+
+2. Navegação e Interação
+  A partir do Menu, o usuário entra no ecossistema de funcionalidades da plataforma. O fluxo demonstra uma estrutura de Navegação entre telas altamente conectada, permitindo que o estudante transite livremente entre os módulos centrais:
+  Dashboard: Para visão geral de progresso.
+  Notícias: Para atualização de mercado.
+  Calendário: Para gestão de prazos e entrevistas.
+  Mensagens: Para comunicação.
+  Perfil: Para gestão de dados pessoais e currículo.
+
+3. Encerramento
+  O fluxo é cíclico e seguro. Independente da tela em que o usuário esteja (Dashboard, Notícias, etc.), ele pode optar pelo Logout. Essa ação finaliza a sessão ativa e redireciona o usuário de volta à Tela Inicial, fechando o ciclo de uso da aplicação.
 
 ### Protótipo Interativo
 
