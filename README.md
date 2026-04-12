@@ -12,8 +12,9 @@ Escreva um ou dois parágrafo resumindo o objetivo do seu projeto.
 * Pedro Arthur de Sena Ribeiro
 ## Professores responsáveis
 
-* Nome completo do professor 1
-* Nome completo do professor 2
+* Caroline Rhaian da Silva Jandre
+* Danilo de Quadros Maia Filho
+* Diego Augusto de Faria Barros
 
 
 
