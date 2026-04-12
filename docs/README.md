@@ -17,93 +17,44 @@ A documentação do projeto é estruturada da seguinte forma:
 
 1. Introdução
 2. Contexto
-Estudantes universitários enfrentam dificuldades para encontrar vagas de estágio compatíveis com sua área, devido à dispersão de oportunidades em diferentes plataformas e a dificuldade de encontrar empresas realmente empenhadas em auxiliar a formação do universitário no mercado de trabalho. Do mesmo modo,empresas têm dificuldade em identificar candidatos adequados, enfrentando processos de divulgação limitados e triagem ineficiente.
-A aplicação será feita por meio de um aplicativo que intermediará o estagiário e a empresa.
-
-* Objetivo do projeto:
-O objetivo geral deste trabalho é desenvolver um software capaz de melhorar a conexão entre estudantes universitários e empresas, buscando reduzir as dificuldades encontradas na busca e oferta de vagas de estágio.
-
-* Objetivos específicos:
-Analisar as principais dificuldades enfrentadas por estudantes e empresas no processo de recrutamento de estagiários;
-
-Investigar como as plataformas digitais atuais lidam com a divulgação e seleção de vagas de estágio;
-
-Propor uma solução que otimize a correspondência entre perfis de candidatos e requisitos das empresas;
-
-Avaliar como a tecnologia pode tornar o processo de busca e seleção mais eficiente e acessível.
-
-* Justificativa:
-A motivação para desenvolver esta aplicação está na importância dos estágios para a formação acadêmica e profissional dos estudantes, além das dificuldades enfrentadas na busca por oportunidades adequadas
-Os objetivos específicos foram definidos com foco em compreender as principais falhas no processo atual de recrutamento e identificar formas de melhorar a correspondência entre candidatos e vagas, o aprofundamento nesses aspectos permite propor uma solução mais eficiente e alinhada às necessidades reais dos usuários.
-
-* Público alvo:
-Os principais usuários são estudantes universitários e empresas. Os estudantes, em geral, possuem familiaridade no uso de aplicativos, redes sociais e plataformas online, buscam a praticidade, rapidez e clareza nas informações sobre vagas, além de uma experiência simples de candidatura.
-Já as empresas, representadas principalmente por profissionais de recursos humanos ou gestores, possuem maior experiência com processos seletivos e utilizam sistemas digitais para divulgação de vagas e triagem de candidatos, esses usuários demandam ferramentas que facilitem a organização, filtragem e análise de perfis.
-
 3. Product Discovery
 4. Product Design
 5. Metodologia
 6. Solução
 7. Referências Bibliográficas
 
-✅ [Documentação de Design Thinking (MIRO)](files/processo-dt.pdf)
+✅ [Documentação de Design Thinking (MIRO)](files/Miro.pdf)
 
 # Contexto
 
-Detalhes sobre o espaço de problema, os objetivos do projeto, sua justificativa e público-alvo.
+Estudantes universitários enfrentam dificuldades para encontrar vagas de estágio compatíveis com sua área, devido à dispersão de oportunidades em diferentes plataformas e a dificuldade de encontrar empresas realmente empenhadas em auxiliar a formação do universitário no mercado de trabalho. Do mesmo modo,empresas têm dificuldade em identificar candidatos adequados, enfrentando processos de divulgação limitados e triagem ineficiente.
+A aplicação será feita por meio de um aplicativo que intermediará o estagiário e a empresa.
 
 ## Problema
 
-**✳️✳️✳️ COLOQUE AQUI O SEU TEXTO ✳️✳️✳️**
+O problema central identificado está na ineficiência da conexão entre estudantes universitários e empresas no processo de estágio. Atualmente, as oportunidades estão dispersas em diversas plataformas, dificultando a busca por vagas alinhadas à área de formação dos estudantes. Além disso, muitas empresas enfrentam limitações na divulgação e na triagem de candidatos, o que compromete a identificação de perfis adequados. Como consequência, há um desalinhamento entre oferta e demanda, tornando o processo de recrutamento lento, pouco eficiente e insatisfatório para ambas as partes.
 
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Nesse momento você deve apresentar o problema que a sua aplicação deve resolver. No entanto, não é a hora de comentar sobre a aplicação. Descreva também o contexto em que essa aplicação será usada, se houver: empresa, tecnologias, etc. Novamente, descreva apenas o que de fato existir, pois ainda não é a hora de apresentar requisitos detalhados ou projetos.
->
-> **Orientações**:
->
-> - [Objetivos, Problema de pesquisa e Justificativa](https://medium.com/@versioparole/objetivos-problema-de-pesquisa-e-justificativa-c98c8233b9c3)
-> - [Matriz Certezas, Suposições e Dúvidas](https://medium.com/educa%C3%A7%C3%A3o-fora-da-caixa/matriz-certezas-suposi%C3%A7%C3%B5es-e-d%C3%BAvidas-fa2263633655)
-> - [Brainstorming](https://www.euax.com.br/2018/09/brainstorming/)
 
 ## Objetivos
 
-**✳️✳️✳️ COLOQUE AQUI O SEU TEXTO ✳️✳️✳️**
+Objetivo do projeto:
+O objetivo geral deste trabalho é desenvolver um software capaz de melhorar a conexão entre estudantes universitários e empresas, buscando reduzir as dificuldades encontradas na busca e oferta de vagas de estágio.
 
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Aqui você deve descrever os objetivos do trabalho indicando que o objetivo geral é desenvolver um software para solucionar o problema apresentado acima. Apresente também alguns (pelo menos 2) objetivos específicos dependendo de onde você vai querer concentrar a sua prática investigativa, ou como você vai aprofundar no seu trabalho.
->
-> **Orientações**:
->
-> - [Objetivo geral e objetivo específico: como fazer e quais verbos utilizar](https://blog.mettzer.com/diferenca-entre-objetivo-geral-e-objetivo-especifico/)
+Objetivos específicos:
+Analisar as principais dificuldades enfrentadas por estudantes e empresas no processo de recrutamento de estagiários;
+Investigar como as plataformas digitais atuais lidam com a divulgação e seleção de vagas de estágio;
+Propor uma solução que otimize a correspondência entre perfis de candidatos e requisitos das empresas;
+Avaliar como a tecnologia pode tornar o processo de busca e seleção mais eficiente e acessível.
 
 ## Justificativa
 
-**✳️✳️✳️ COLOQUE AQUI O SEU TEXTO ✳️✳️✳️**
-
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Descreva a importância ou a motivação para trabalhar com esta aplicação que você escolheu. Indique as razões pelas quais você escolheu seus objetivos específicos ou as razões para aprofundar em certos aspectos do software.
->
-> O grupo de trabalho pode fazer uso de questionários, entrevistas e dados estatísticos, que podem ser apresentados, com o objetivo de esclarecer detalhes do problema que será abordado pelo grupo.
->
-> **Orientações**:
->
-> - [Como montar a justificativa](https://guiadamonografia.com.br/como-montar-justificativa-do-tcc/)
+A motivação para desenvolver esta aplicação está na importância dos estágios para a formação acadêmica e profissional dos estudantes, além das dificuldades enfrentadas na busca por oportunidades adequadas
+Os objetivos específicos foram definidos com foco em compreender as principais falhas no processo atual de recrutamento e identificar formas de melhorar a correspondência entre candidatos e vagas, o aprofundamento nesses aspectos permite propor uma solução mais eficiente e alinhada às necessidades reais dos usuários.
 
 ## Público-Alvo
 
-**✳️✳️✳️ COLOQUE AQUI O SEU TEXTO ✳️✳️✳️**
-
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Descreva o mercado para o qual a solução está sendo desenvolvida, detalhando um pouco mais sobre o perfil dos usuários: conhecimentos prévios, relação com a tecnologia, relações hierárquicas, etc. Adicione informações sobre o público-alvo por meio de uma descrição textual ou por meio do mapa de stakeholders, ou como o grupo achar mais conveniente.
->
-> **Orientações**:
->
-> - [Público-alvo: o que é, tipos, como definir seu público e exemplos](https://klickpages.com.br/blog/publico-alvo-o-que-e/)
-> - [Qual a diferença entre público-alvo e persona?](https://rockcontent.com/blog/diferenca-publico-alvo-e-persona/)
+Os principais usuários são estudantes universitários e empresas. Os estudantes, em geral, possuem familiaridade no uso de aplicativos, redes sociais e plataformas online, buscam a praticidade, rapidez e clareza nas informações sobre vagas, além de uma experiência simples de candidatura.
+Já as empresas, representadas principalmente por profissionais de recursos humanos ou gestores, possuem maior experiência com processos seletivos e utilizam sistemas digitais para divulgação de vagas e triagem de candidatos, esses usuários demandam ferramentas que facilitem a organização, filtragem e análise de perfis.
 
 # Product Discovery
 
@@ -124,20 +75,25 @@ Detalhes sobre o espaço de problema, os objetivos do projeto, sua justificativa
 
 ### Personas
 
-**✳️✳️✳️ APRESENTE OS DIAGRAMAS DE PERSONAS ✳️✳️✳️**
 
-![Exemplo de proposta de valor](images/exemplo-persona.png)
+![](images/Persona1.png)
+![](images/Persona2.png)
+![](images/Persona3.png)
 
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Relacione as personas identificadas no seu projeto e os respectivos mapas de empatia. Lembre-se que você deve ser enumerar e descrever precisamente e de forma personalizada todos os principais envolvidos com a solução almeja.
->
-> **Orientações**:
->
-> - [Persona x Público-alvo](https://flammo.com.br/blog/persona-e-publico-alvo-qual-a-diferenca/)
-> - [O que é persona?](https://resultadosdigitais.com.br/blog/persona-o-que-e/)
-> - [Rock Content](https://rockcontent.com/blog/personas/)
-> - [Criar personas (Hotmart)](https://blog.hotmart.com/pt-br/como-criar-persona-negocio/)
+PERSONA 1: 
+Kaio Borges, 21 anos, é um estudante universitário que atualmente se encontra desempregado e busca sua primeira oportunidade de estágio. Possui perfil curioso, autodidata e proativo, além de boa comunicação e interesse em desenvolvimento pessoal e profissional.
+
+Seu principal objetivo é ingressar no mercado de trabalho por meio de um estágio que lhe permita adquirir experiência prática e desenvolver habilidades técnicas e comportamentais. No entanto, enfrenta dificuldades devido à exigência de experiência prévia e à dispersão das vagas em diferentes plataformas, o que torna o processo de busca confuso e ineficiente.
+
+PERSONA 2: 
+Flávia Martin, 34 anos, atua na área de Recursos Humanos e é responsável por processos de recrutamento e seleção em sua empresa. Possui perfil comunicador, exigente e cauteloso, prezando por eficiência e qualidade na contratação de novos talentos.
+
+Seu principal objetivo é atrair candidatos qualificados e estruturar programas de estágio que contribuam para o crescimento da empresa. Entretanto, enfrenta dificuldades relacionadas ao alto volume de currículos desalinhados com as vagas e à ineficiência dos métodos tradicionais de triagem.
+
+PERSONA 3: 
+Ricardo Mendes, 51 anos, é coordenador de carreiras e empregabilidade, com vasta experiência no acompanhamento de estudantes em sua inserção no mercado de trabalho. Possui perfil diplomático, empático e orientado a resultados.
+
+Seu principal objetivo é facilitar o acesso dos alunos a oportunidades de estágio de qualidade, além de acompanhar seu desenvolvimento profissional. Contudo, enfrenta desafios relacionados à falta de integração entre instituições de ensino e empresas, bem como à dificuldade de monitorar o progresso dos estudantes.
 
 # Product Design
 
@@ -163,15 +119,21 @@ Com base na análise das personas foram identificadas as seguintes histórias de
 
 ## Proposta de Valor
 
-**✳️✳️✳️ APRESENTE O DIAGRAMA DA PROPOSTA DE VALOR PARA CADA PERSONA ✳️✳️✳️**
+![](images/prop.valor.1.png)
+![](images/prop.valor.2.png)
+![](images/prop.valor.3.png)
 
-##### Proposta de valor para Persona XPTO ⚠️ EXEMPLO ⚠️
+1. Kaio Borges (Estudante Universitário)
 
-![Exemplo de proposta de valor](images/exemplo-proposta-valor.png)
+A proposta de valor para Kaio Borges consiste em oferecer uma plataforma centralizada e intuitiva que simplifique a busca por estágios, eliminando a dispersão de vagas em múltiplos canais. O sistema utiliza mecanismos inteligentes de correspondência entre o perfil do estudante e os requisitos das vagas, aumentando significativamente suas chances de aprovação, mesmo sem experiência prévia. Além disso, proporciona maior transparência no processo seletivo, comunicação direta com recrutadores e um espaço para exposição de projetos acadêmicos, permitindo que o estudante demonstre seu potencial além do currículo tradicional.
 
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> O mapa da proposta de valor é uma ferramenta que nos ajuda a definir qual tipo de produto ou serviço melhor atende às personas definidas anteriormente.
+2. Flávia Martin (Recrutadora / Empresa)
+
+Para Flávia Martin, a proposta de valor está na otimização do processo de recrutamento por meio de uma plataforma que automatiza a triagem de candidatos e melhora a precisão na seleção de perfis compatíveis com as vagas. O sistema reduz o volume de currículos irrelevantes ao aplicar filtros inteligentes e cruzamento de dados, permitindo decisões mais rápidas e assertivas. Além disso, oferece acesso a um banco qualificado de estudantes, facilitando a construção de programas de estágio mais eficientes e alinhados às necessidades da empresa, reduzindo custos e tempo de contratação.
+
+3. Ricardo Mendes (Coordenador Acadêmico)
+
+A proposta de valor para Ricardo Mendes baseia-se na integração entre universidade, estudantes e empresas, proporcionando uma ferramenta que facilita o acompanhamento da empregabilidade dos alunos e o fortalecimento de programas de carreira. A plataforma permite monitorar o desempenho dos estudantes, identificar oportunidades alinhadas ao perfil acadêmico e ampliar a conexão com o mercado de trabalho. Dessa forma, contribui para aumentar a taxa de inserção profissional dos alunos e fortalecer a reputação da instituição como formadora de talentos qualificados.
 
 ## Requisitos
 
