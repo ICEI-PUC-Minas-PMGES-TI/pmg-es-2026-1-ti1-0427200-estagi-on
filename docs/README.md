@@ -158,33 +158,9 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 
 ### Requisitos Funcionais
 
-| ID     | Descrição do Requisito                                   | Prioridade |
-| ------ | ---------------------------------------------------------- | ---------- |
-| RF-001 | Permitir que o usuário cadastre tarefas ⚠️ EXEMPLO ⚠️ | ALTA       |
-| RF-002 | Emitir um relatório de tarefas no mês ⚠️ EXEMPLO ⚠️ | MÉDIA     |
 
 ### Requisitos não Funcionais
 
-| ID      | Descrição do Requisito                                                              | Prioridade |
-| ------- | ------------------------------------------------------------------------------------- | ---------- |
-| RNF-001 | O sistema deve ser responsivo para rodar em um dispositivos móvel ⚠️ EXEMPLO ⚠️ | MÉDIA     |
-| RNF-002 | Deve processar requisições do usuário em no máximo 3s ⚠️ EXEMPLO ⚠️          | BAIXA      |
-
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Os requisitos de um projeto são classificados em dois grupos:
->
-> - [Requisitos Funcionais (RF)](https://pt.wikipedia.org/wiki/Requisito_funcional):
->   correspondem a uma funcionalidade que deve estar presente na plataforma (ex: cadastro de usuário).
-> - [Requisitos Não Funcionais (RNF)](https://pt.wikipedia.org/wiki/Requisito_n%C3%A3o_funcional):
->   correspondem a uma característica técnica, seja de usabilidade, desempenho, confiabilidade, segurança ou outro (ex: suporte a dispositivos iOS e Android).
->
-> Lembre-se que cada requisito deve corresponder à uma e somente uma característica alvo da sua solução. Além disso, certifique-se de que todos os aspectos capturados nas Histórias de Usuário foram cobertos.
->
-> **Orientações**:
->
-> - [O que são Requisitos Funcionais e Requisitos Não Funcionais?](https://codificar.com.br/requisitos-funcionais-nao-funcionais/)
-> - [O que são requisitos funcionais e requisitos não funcionais?](https://analisederequisitos.com.br/requisitos-funcionais-e-requisitos-nao-funcionais-o-que-sao/)
 
 ## Projeto de Interface
 
@@ -194,24 +170,25 @@ Artefatos relacionados com a interface e a interacão do usuário na proposta de
 
 Estes são os protótipos de telas do sistema.
 
-**✳️✳️✳️ COLOQUE AQUI OS PROTÓTIPOS DE TELAS COM TÍTULO E DESCRIÇÃO ✳️✳️✳️**
+Login: A porta de entrada do sistema. Possui um espaço para o logotipo, um texto motivacional à esquerda e, à direita, os campos de entrada para E-mail e Senha, além de botões para "Entrar" e "Criar Conta".
 
-##### TELA XPTO ⚠️ EXEMPLO ⚠️
+Home: A página principal de navegação. Apresenta uma barra lateral (sidebar) com itens de menu, uma barra de busca ou filtro no topo e uma área central organizada em cards que parecem listar as vagas disponíveis ou candidaturas recentes.
 
-Descrição para a tela XPTO
+Menu: Uma visão detalhada da navegação lateral. Contém seções como "Meu Perfil" e links rápidos para as funções principais do sistema, facilitando o acesso direto a diferentes módulos.
 
-![Exemplo de wireframe](images/exemplo-wireframe.png)
+Perfil: Área dedicada às informações do usuário. Inclui um espaço para foto de perfil, dados de contato ("Info") e campos para edição de biografia ou competências, permitindo que o aluno mantenha seu currículo atualizado.
 
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Wireframes são protótipos das telas da aplicação usados em design de interface para sugerir a estrutura de um site web e seu relacionamentos entre suas páginas. Um wireframe web é uma ilustração semelhante ao layout de elementos fundamentais na interface.
->
-> **Orientações**:
->
-> - [Ferramentas de Wireframes](https://rockcontent.com/blog/wireframes/)
-> - [Figma](https://www.figma.com/)
-> - [Adobe XD](https://www.adobe.com/br/products/xd.html#scroll)
-> - [MarvelApp](https://marvelapp.com/developers/documentation/tutorials/)
+Calendário: Uma tela focada em organização temporal. Exibe uma visualização em grade (estilo mensal ou semanal) para que o usuário acompanhe datas importantes, como prazos de processos seletivos ou entrevistas agendadas.
+
+Notícias: Um feed de atualizações. Organizado com uma área de destaque para a notícia principal e uma lista lateral ou inferior com tópicos relevantes sobre o mercado de trabalho e dicas de carreira.
+
+Mensagens: O canal de comunicação direta. Possui uma lista de conversas à esquerda e a janela de chat à direita, permitindo que o estudante interaja com recrutadores ou coordenadores.
+
+Dashboard: Uma central de controle visual. Focada em métricas e status, utiliza elementos gráficos e resumos para mostrar o progresso das candidaturas, visualizações de perfil e outras estatísticas relevantes para o usuário.
+
+![](images/wireframe1.jpeg)
+![](images/wireframe2.jpeg)
+
 
 ### User Flow
 
