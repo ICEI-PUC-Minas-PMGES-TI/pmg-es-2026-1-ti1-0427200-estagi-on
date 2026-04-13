@@ -7,8 +7,8 @@ Informações básicas do projeto.
 * **Membros da equipe:**
 
 * Gustavo Albuquerque Lourenço Mattos de Castro 
-* Arthur Moraes Braga Araujo
-* Enzo Fernandes Alcantra
+* Arthur Moraes Braga Araujo 
+* Enzo Fernandes Alcantra https://github.com/enzofernandesnz
 * Juan Pedro Marques Faria
 * Arthur Gabriel de Oliveira Fonseca Santos
 * Pedro Arthur de Sena Ribeiro
@@ -211,7 +211,7 @@ Dashboard: Uma central de controle visual. Focada em métricas e status, utiliza
 
 ### Protótipo Interativo
 
-[](https://www.figma.com/site/DKoE4yuXm3fAfH3mWurSu5/Untitled?node-id=0-1&t=s3GPR9D6ZUGPbqMK-1)  ⚠️ EXEMPLO ⚠️
+![Protóripo interativo](images/Protótipo-interativo.jpeg)
 
 # Metodologia
 
