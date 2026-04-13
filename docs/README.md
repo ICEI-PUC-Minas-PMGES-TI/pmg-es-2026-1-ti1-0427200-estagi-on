@@ -8,7 +8,7 @@ Informações básicas do projeto.
 
 * Gustavo Albuquerque Lourenço Mattos de Castro 
 * Arthur Moraes Braga Araujo 
-* Enzo Fernandes Alcantra https://github.com/enzofernandesnz
+* Enzo Fernandes Alcantra 
 * Juan Pedro Marques Faria
 * Arthur Gabriel de Oliveira Fonseca Santos
 * Pedro Arthur de Sena Ribeiro
