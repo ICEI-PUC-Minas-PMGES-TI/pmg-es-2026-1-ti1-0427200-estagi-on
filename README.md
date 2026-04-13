@@ -1,6 +1,6 @@
-# Nome do projeto
+# Estagi.ON
+O objetivo geral deste trabalho é desenvolver um software capaz de melhorar a conexão entre estudantes universitários e empresas, buscando reduzir as dificuldades encontradas na busca e oferta de vagas de estágio.
 
-Escreva um ou dois parágrafo resumindo o objetivo do seu projeto.
 
 ## Alunos integrantes da equipe
 
