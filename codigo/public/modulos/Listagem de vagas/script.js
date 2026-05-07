@@ -1,93 +1,64 @@
 let vagas = [
-    {
-        titulo: "Vaga 1",
-        empresa: "Empresa K",
-        bolsa: "1500",
-        localizacao: "Betim",
-        turno: "Manhã"
-    },
-    {
-        titulo: "Vaga 2",
-        empresa: "Empresa J",
-        bolsa: "1800",
-        localizacao: "Contagem",
-        turno: "Tarde"
-    }
+    { titulo: "Dev Front-end", area: "TI", local: "Betim" },
+    { titulo: "Analista RH", area: "RH", local: "Contagem" },
+    { titulo: "Suporte TI", area: "TI", local: "Belo Horizonte" },
+    { titulo: "Designer", area: "Design", local: "Betim" }
 ]
-function atualizarLista(){
 
-    const lista = document.getElementById("listaVagas")
+// MOSTRAR VAGAS
+function mostrarVagas(lista){
+    const container = document.getElementById("listaVagas")
 
-    lista.innerHTML = ""
+    container.innerHTML = "<h3>Lista de vagas</h3>"
 
-    vagas.forEach((vaga, indice) => {
-
-        lista.innerHTML += `
-            <div class="item-vaga">
-                <span>${vaga.titulo}</span>
-                <span>${vaga.empresa}</span>
-                <span>R$ ${vaga.bolsa}</span>
-
-                <div class="acoes">
-                    <button class="editar" onclick="editarVaga(${indice})">Editar</button>
-                    <button class="excluir" onclick="excluirVaga(${indice})">Excluir</button>
-                </div>
+    lista.forEach(vaga => {
+        container.innerHTML += `
+            <div class="vaga">
+                <strong>${vaga.titulo}</strong><br>
+                Área: ${vaga.area} <br>
+                Local: ${vaga.local}
             </div>
         `
     })
 }
-function criarVaga(){
 
-    const titulo = document.getElementById("titulo").value
-    const empresa = document.getElementById("empresa").value
-    const bolsa = document.getElementById("bolsa").value
-    const localizacao = document.getElementById("localizacao").value
-    const turno = document.getElementById("turno").value
+// 🔍 BUSCA
+document.getElementById("busca").addEventListener("input", function(){
 
-    if(titulo === "" || empresa === ""){
-        alert("Preencha os campos!")
-        return
-    }
+    const valor = this.value.toLowerCase()
 
-    const novaVaga = {
-        titulo,
-        empresa,
-        bolsa,
-        localizacao,
-        turno
-    }
+    const filtradas = vagas.filter(vaga =>
+        vaga.titulo.toLowerCase().includes(valor)
+    )
 
-    vagas.push(novaVaga)
+    mostrarVagas(filtradas)
+})
 
-    atualizarLista()
+// 🎯 FILTROS
+document.getElementById("aplicar").addEventListener("click", () => {
 
-    limparCampos()
-}
-function excluirVaga(indice){
+    const checkboxes = document.querySelectorAll(".filtros input:checked")
 
-    vagas.splice(indice,1)
+    let filtros = []
+    checkboxes.forEach(c => filtros.push(c.value))
+    const filtradas = vagas.filter(vaga =>
+        filtros.length === 0 ||
+        filtros.includes(vaga.area) ||
+        filtros.includes(vaga.local)
+    )
 
-    atualizarLista()
-}
+    mostrarVagas(filtradas)
+})
 
-function editarVaga(indice){
+// 🧹 LIMPAR
+document.getElementById("limpar").addEventListener("click", () => {
 
-    const vaga = vagas[indice]
+    document.querySelectorAll(".filtros input").forEach(c => c.checked = false)
 
-    document.getElementById("titulo").value = vaga.titulo
-    document.getElementById("empresa").value = vaga.empresa
-    document.getElementById("bolsa").value = vaga.bolsa
-    document.getElementById("localizacao").value = vaga.localizacao
-    document.getElementById("turno").value = vaga.turno
+    document.getElementById("busca").value = ""
 
-    vagas.splice(indice,1)
+    mostrarVagas(vagas)
+})
 
-    atualizarLista()
-}
-function limparCampos(){
-
-    document.getElementById("titulo").value = ""
-    document.getElementById("empresa").value = ""
-    document.getElementById("bolsa").value = ""
-    document.getElementById("localizacao").value = ""
-}
+// iniciar
+mostrarVagas(vagas)

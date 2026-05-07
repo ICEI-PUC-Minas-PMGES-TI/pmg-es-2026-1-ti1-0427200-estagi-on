@@ -2,70 +2,52 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro de Vagas</title>
+    <title>Vagas</title>
     <link rel="stylesheet" href="estilo.css">
 </head>
 <body>
+
 <div class="container">
 
-        <h1>Cadastro de vagas</h1>
+    <h1>VAGAS</h1>
 
-        <div class="formulario">
+    <!-- BUSCA -->
+    <div class="topo">
+        <input type="text" id="busca" placeholder="🔍 Buscar vagas">
+    </div>
 
-            <div class="campo">
-                <label>Título:</label>
-                <input type="text" id="titulo" placeholder="Estagiário para TI">
-            </div>
+    <!-- CARDS -->
+    <div class="cards-topo">
+        <div class="card">Vagas salvas</div>
+        <div class="card">Situação das vagas</div>
+    </div>
 
-            <div class="campo">
-                <label>Empresa:</label>
-                <input type="text" id="empresa" placeholder="Empresa X">
-            </div>
+    <div class="conteudo">
 
-            <div class="campo">
-                <label>Bolsa:</label>
-                <input type="number" id="bolsa" placeholder="1200">
-            </div>
+        <!-- FILTROS -->
+        <div class="filtros">
+            <h3>Filtros</h3>
 
-            <div class="campo">
-                <label>Turno:</label>
-                <select id="turno">
-                    <option>Manhã</option>
-                    <option>Tarde</option>
-                    <option>Noite</option>
-                </select>
-            </div>
+            <label><input type="checkbox" value="TI"> TI</label>
+            <label><input type="checkbox" value="RH"> RH</label>
+            <label><input type="checkbox" value="Design"> Design</label>
+            <label><input type="checkbox" value="Betim"> Betim</label>
+            <label><input type="checkbox" value="Contagem"> Contagem</label>
+            <label><input type="checkbox" value="Belo Horizonte"> Belo Horizonte</label>
 
-            <div class="campo">
-                <label>Localização:</label>
-                <input type="text" id="localizacao" placeholder="Betim">
-            </div>
-
+            <button id="aplicar">Aplicar filtros</button>
+            <button id="limpar" class="limpar">Limpar filtros</button>
         </div>
 
-        <div class="botoes">
-            <button class="btn criar" onclick="criarVaga()">Criar</button>
-            <button class="btn atualizar" onclick="atualizarLista()">Atualizar</button>
-            <button class="btn limpar" onclick="limparCampos()">Limpar</button>
-        </div>
-
-        <div class="lista">
-
-            <div class="cabecalho-lista">
-                <span>Título</span>
-                <span>Empresa</span>
-                <span>Bolsa</span>
-                <span>Ações</span>
-            </div>
-
-            <div id="listaVagas"></div>
-
+        <!-- LISTA -->
+        <div class="lista" id="listaVagas">
+            <h3>Lista de vagas</h3>
         </div>
 
     </div>
 
-    <script src="dados.json" type="application/json"></script>
-    <script src="script.js"></script>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
