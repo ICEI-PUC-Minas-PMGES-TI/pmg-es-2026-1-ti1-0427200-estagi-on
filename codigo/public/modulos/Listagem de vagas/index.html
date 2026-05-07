@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Vagas</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+<div class="container">
+
+        <h1>Cadastro de vagas</h1>
+
+        <div class="formulario">
+
+            <div class="campo">
+                <label>Título:</label>
+                <input type="text" id="titulo" placeholder="Estagiário para TI">
+            </div>
+
+            <div class="campo">
+                <label>Empresa:</label>
+                <input type="text" id="empresa" placeholder="Empresa X">
+            </div>
+
+            <div class="campo">
+                <label>Bolsa:</label>
+                <input type="number" id="bolsa" placeholder="1200">
+            </div>
+
+            <div class="campo">
+                <label>Turno:</label>
+                <select id="turno">
+                    <option>Manhã</option>
+                    <option>Tarde</option>
+                    <option>Noite</option>
+                </select>
+            </div>
+
+            <div class="campo">
+                <label>Localização:</label>
+                <input type="text" id="localizacao" placeholder="Betim">
+            </div>
+
+        </div>
+
+        <div class="botoes">
+            <button class="btn criar" onclick="criarVaga()">Criar</button>
+            <button class="btn atualizar" onclick="atualizarLista()">Atualizar</button>
+            <button class="btn limpar" onclick="limparCampos()">Limpar</button>
+        </div>
+
+        <div class="lista">
+
+            <div class="cabecalho-lista">
+                <span>Título</span>
+                <span>Empresa</span>
+                <span>Bolsa</span>
+                <span>Ações</span>
+            </div>
+
+            <div id="listaVagas"></div>
+
+        </div>
+
+    </div>
+
+    <script src="dados.json" type="application/json"></script>
+    <script src="script.js"></script>
+</body>
+</html>
