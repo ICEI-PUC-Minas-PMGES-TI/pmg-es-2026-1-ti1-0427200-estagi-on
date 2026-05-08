@@ -24,10 +24,18 @@
       }
 
       .app-header .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
         font-size: 1.5rem;
         font-weight: 700;
         color: var(--color-primary);
         letter-spacing: -0.5px;
+      }
+
+      .app-header .logo img {
+        height: 50px;
+        width: auto;
       }
 
       .app-header .logo span {
@@ -98,7 +106,9 @@
   <body>
     <!-- Navegação Principal -->
     <header class="app-header">
-      <div class="logo">Estagi.<span>ON</span></div>
+      <div class="logo">
+        <img src="./assets/images/Logo.png" alt="Logo Estagi.ON" />
+      </div>
       <!-- Espaço para um botão de Logout ou Foto de Perfil no futuro -->
     </header>
 

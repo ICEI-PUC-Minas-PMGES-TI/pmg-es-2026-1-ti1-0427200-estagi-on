@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Estagi.ON - Mensagens</title>
+
+    <link rel="stylesheet" href="../../assets/css/global.css" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <header
+      class="app-header"
+      style="
+        background-color: var(--color-surface);
+        padding: 1rem 2rem;
+        box-shadow: var(--shadow-sm);
+        position: sticky;
+        top: 0;
+      "
+    >
+      <div
+        class="logo"
+        style="font-size: 1.5rem; font-weight: 700; color: var(--color-primary)"
+      >
+        <a href="../../index.html" style="text-decoration: none; color: inherit"
+          >Estagi.<span style="color: var(--color-text-main)">ON</span></a
+        >
+      </div>
+    </header>
+
+    <div class="chat-container">
+      <header class="chat-header">
+        <h2 id="contact-name">Recrutador / Empresa</h2>
+      </header>
+
+      <main id="chat-box" class="chat-box"></main>
+
+      <footer class="chat-footer">
+        <input
+          type="text"
+          id="message-input"
+          placeholder="Digite sua mensagem..."
+          autocomplete="off"
+        />
+        <button id="send-button">Enviar</button>
+      </footer>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
