@@ -76,22 +76,45 @@
       </nav>
     </header>
 
-    <div class="chat-container">
-      <header class="chat-header">
-        <h2 id="contact-name">Recrutador / Empresa</h2>
-      </header>
+    <div class="messaging-container">
+      <aside class="contacts-sidebar">
+        <div class="contacts-header">
+          <h3>Conversas</h3>
+          <input
+            type="text"
+            id="search-contacts"
+            placeholder="Buscar..."
+            class="search-input"
+          />
+        </div>
+        <ul id="contacts-list" class="contacts-list"></ul>
+      </aside>
 
-      <main id="chat-box" class="chat-box"></main>
+      <section class="chat-section">
+        <header class="chat-header">
+          <div>
+            <h2 id="contact-name">Selecione uma conversa</h2>
+            <p id="contact-type" class="contact-type"></p>
+          </div>
+        </header>
 
-      <footer class="chat-footer">
-        <input
-          type="text"
-          id="message-input"
-          placeholder="Digite sua mensagem..."
-          autocomplete="off"
-        />
-        <button id="send-button">Enviar</button>
-      </footer>
+        <main id="chat-box" class="chat-box">
+          <div class="empty-state">
+            <p>Selecione uma conversa para começar a trocar mensagens</p>
+          </div>
+        </main>
+
+        <footer class="chat-footer">
+          <input
+            type="text"
+            id="message-input"
+            placeholder="Digite sua mensagem..."
+            autocomplete="off"
+            disabled
+          />
+          <button id="send-button" disabled>Enviar</button>
+        </footer>
+      </section>
     </div>
 
     <script src="./script.js"></script>
