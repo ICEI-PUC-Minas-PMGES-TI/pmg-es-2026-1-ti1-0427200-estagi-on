@@ -1,10 +1,19 @@
 let vagas = [
-    { titulo: "Dev Front-end", area: "TI", local: "Betim" },
+    { titulo: "Dev Front-end", area: "Desenvolvedor", local: "Betim" },
     { titulo: "Analista RH", area: "RH", local: "Contagem" },
-    { titulo: "Suporte TI", area: "TI", local: "Belo Horizonte" },
+    { titulo: "Suporte TI", area: "Desenvolvedor", local: "Belo Horizonte" },
     { titulo: "Designer", area: "Design", local: "Betim" }
 ]
+let filtroArea=""
+let filtroCidade=""
 
+function selecionarArea(area) {
+    filtroArea = area;
+}
+
+function selecionarCidade(cidade) {
+    filtroCidade = cidade;
+}
 // MOSTRAR VAGAS
 function mostrarVagas(lista){
     const container = document.getElementById("listaVagas")
@@ -35,25 +44,27 @@ document.getElementById("busca").addEventListener("input", function(){
 })
 
 // 🎯 FILTROS
-document.getElementById("aplicar").addEventListener("click", () => {
+function toggleMenu(button) {
+    const menu = button.nextElementSibling;
+    menu.classList.toggle("show");
+}
 
-    const checkboxes = document.querySelectorAll(".filtros input:checked")
-
-    let filtros = []
-    checkboxes.forEach(c => filtros.push(c.value))
-    const filtradas = vagas.filter(vaga =>
-        filtros.length === 0 ||
-        filtros.includes(vaga.area) ||
-        filtros.includes(vaga.local)
-    )
-
+// Aplicar filtros
+document.getElementById("aplicar").addEventListener("click", () =>{
+    const filtradas= vagas.filter(vaga=>{
+        const matchArea = filtroArea === "" || vaga.area ===filtroArea;
+        const matchCidade = filtroCidade === "" || vaga.local ===filtroCidade;
+        return matchArea && matchCidade;
+    });
     mostrarVagas(filtradas)
 })
 
 // 🧹 LIMPAR
 document.getElementById("limpar").addEventListener("click", () => {
 
-    document.querySelectorAll(".filtros input").forEach(c => c.checked = false)
+
+    filtroArea = "";
+    filtroCidade = "";
 
     document.getElementById("busca").value = ""
 
