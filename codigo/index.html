@@ -5,12 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Estagi.ON - Dashboard Inicial</title>
 
-    <!-- Importação do Design System -->
     <link rel="stylesheet" href="./assets/css/global.css" />
 
-    <!-- Estilos Escopados para o Dashboard -->
     <style>
-      /* Header Navbar */
       .app-header {
         background-color: var(--color-surface);
         padding: var(--spacing-sm) var(--spacing-lg);
@@ -24,17 +21,48 @@
       }
 
       .app-header .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
         font-size: 1.5rem;
         font-weight: 700;
         color: var(--color-primary);
         letter-spacing: -0.5px;
       }
 
+      .app-header .logo img {
+        height: 50px;
+        width: auto;
+      }
+
       .app-header .logo span {
         color: var(--color-text-main);
       }
 
-      /* Layout Principal */
+      .navbar-links {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+      }
+
+      .navbar-links a {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--color-text-main);
+        font-weight: 500;
+        transition: color 0.2s ease;
+        font-size: 1.1rem;
+      }
+
+      .navbar-links a:hover {
+        color: var(--color-primary);
+      }
+
+      .navbar-links a .icon {
+        font-size: 1.5rem;
+      }
+
       .container {
         max-width: 1200px;
         margin: 0 auto;
@@ -52,14 +80,12 @@
         margin-bottom: var(--spacing-xl);
       }
 
-      /* Grid Responsivo para os Cards */
       .dashboard-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
         gap: var(--spacing-lg);
       }
 
-      /* Cards Elegantes */
       .module-card {
         background-color: var(--color-surface);
         border-radius: var(--radius-lg);
@@ -96,43 +122,41 @@
     </style>
   </head>
   <body>
-    <!-- Navegação Principal -->
     <header class="app-header">
-      <div class="logo">Estagi.<span>ON</span></div>
-      <!-- Espaço para um botão de Logout ou Foto de Perfil no futuro -->
+      <div class="logo">
+        <img src="./assets/images/Logo.png" alt="Logo Estagi.ON" />
+      </div>
+      <nav class="navbar-links">
+        <a href="./pages/login/index.html">
+          <span class="icon">🔐</span>
+          <span>Login</span>
+        </a>
+        <a href="./pages/mensagens/index.html">
+          <span class="icon">💬</span>
+          <span>Chat</span>
+        </a>
+        <a href="#">
+          <span class="icon">👤</span>
+          <span>Perfil</span>
+        </a>
+      </nav>
     </header>
 
-    <!-- Conteúdo Principal / Dashboard -->
     <main class="container">
       <h1 class="page-title">Bem-vindo(a) ao Dashboard</h1>
       <p class="page-subtitle">
         Acesso rápido aos módulos principais do sistema.
       </p>
 
-      <!-- Grid de Atalhos -->
       <div class="dashboard-grid">
-        <!-- Card: Login/Cadastro -->
-        <a href="./pages/login/index.html" class="module-card">
-          <h2>Fazer Login / Cadastro</h2>
-          <p>Acesse sua conta ou crie um novo perfil no sistema.</p>
-        </a>
-
-        <!-- Card: Mural de Vagas -->
         <a href="./pages/mural/index.html" class="module-card">
           <h2>Mural de Vagas</h2>
           <p>Explore e encontre as melhores oportunidades.</p>
         </a>
 
-        <!-- Card: Cadastrar Nova Vaga -->
         <a href="#" class="module-card">
           <h2>Cadastrar Nova Vaga</h2>
           <p>Área para empresas publicarem novos estágios.</p>
-        </a>
-
-        <!-- Card: Meu Perfil -->
-        <a href="#" class="module-card">
-          <h2>Meu Perfil</h2>
-          <p>Gerencie suas informações pessoais e currículo.</p>
         </a>
       </div>
     </main>
