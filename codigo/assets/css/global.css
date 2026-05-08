@@ -1,56 +1,73 @@
-@import url("https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"); 
-@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
 
-h3 {
-    color: #093070;
-    border-bottom: 1px solid #c1c1c1;
-}
-h4 {
-    color: #ff7645;
-}
+:root {
+  /* Cores Principais - Tema Tech Moderno */
+  --color-primary: #6366f1; /* Roxo/Indigo Vibrante */
+  --color-primary-dark: #4f46e5;
+  --color-secondary: #06b6d4; /* Cyan */
 
-.banner img {
-    width: 100%;
-}
+  /* Cores de Fundo e Superfície */
+  --color-bg: #f8fafc; /* Fundo cinza super claro */
+  --color-surface: #ffffff; /* Fundo de cards/header */
 
-.barra-info {
-    height: 2em;
-    background-color: #f0f0f0;
-    display: flex;
-    justify-content: space-between;
-}
+  /* Cores de Texto */
+  --color-text-main: #0f172a;
+  --color-text-light: #64748b;
 
-.menu ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
+  /* Tipografia */
+  --font-family-base: "Inter", system-ui, -apple-system, sans-serif;
 
-.menu li {
-    display: inline;
-    margin: 0px;
-    padding: 0.5em 1em; 
-    height: 2em;
-    line-height: 2em;
-}
+  /* Espaçamentos e Medidas */
+  --spacing-xs: 0.5rem; /* 8px */
+  --spacing-sm: 1rem; /* 16px */
+  --spacing-md: 1.5rem; /* 24px */
+  --spacing-lg: 2rem; /* 32px */
+  --spacing-xl: 3rem; /* 48px */
 
-.menu li a {
-    text-decoration: none;
-    color: #ff7645;
-    font-weight: bold;
+  /* Sombras Modernas (Soft Shadows) */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg:
+    0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+
+  /* Bordas */
+  --radius-md: 12px;
+  --radius-lg: 16px;
 }
 
-.menu li:hover {
-    background-color: darkblue;
-    color: white;
+/* ==================================================
+   CSS RESET BÁSICO
+   ================================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-.dados-usuario {
-    height: 2em;
-    line-height: 2em;
-    margin-right: 20px;
+body {
+  font-family: var(--font-family-base);
+  background-color: var(--color-bg);
+  color: var(--color-text-main);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
 }
 
-main {
-    padding: 20px;
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.2s ease;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
 }
