@@ -1,4 +1,39 @@
 {
+  "vagas": [
+    {
+      "id": 1,
+      "titulo": "Estágio em Desenvolvimento Web",
+      "empresa": "TechSolutions Ltda",
+      "descricao": "Buscamos estudante de TI para atuar no desenvolvimento de interfaces web modernas, participando de projetos reais com equipe ágil.",
+      "bolsa": 1200,
+      "cargaHoraria": "20h semanais",
+      "requisitos": ["HTML/CSS", "JavaScript", "Git"],
+      "local": "Belo Horizonte - MG",
+      "modalidade": "Híbrido"
+    },
+    {
+      "id": 2,
+      "titulo": "Estágio em Análise de Dados",
+      "empresa": "DataMind S.A.",
+      "descricao": "Oportunidade para estudantes de Ciência da Computação, Estatística ou áreas afins para atuar com análise e visualização de dados.",
+      "bolsa": 1500,
+      "cargaHoraria": "30h semanais",
+      "requisitos": ["Python", "Excel", "SQL"],
+      "local": "Remoto",
+      "modalidade": "Remoto"
+    },
+    {
+      "id": 3,
+      "titulo": "Estágio em UX/UI Design",
+      "empresa": "Criativa Agency",
+      "descricao": "Vaga para estudante com interesse em design de experiência do usuário, criação de protótipos e pesquisa com usuários.",
+      "bolsa": 1000,
+      "cargaHoraria": "20h semanais",
+      "requisitos": ["Figma", "Noções de UX", "Criatividade"],
+      "local": "São Paulo - SP",
+      "modalidade": "Presencial"
+    }
+  ],
   "usuarios": [
     {
       "id": 1,
