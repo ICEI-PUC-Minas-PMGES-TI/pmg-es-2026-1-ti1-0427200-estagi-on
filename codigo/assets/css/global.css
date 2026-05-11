@@ -1,15 +1,28 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
-
+@import url("./sidebar.css");
 :root {
-  --color-primary: #6366f1;
-  --color-primary-dark: #4f46e5;
-  --color-secondary: #06b6d4;
+  --primary-color: #06b9fc;
+  --primary-hover: #0598ce;
+  --secondary-color: #1e293b;
+
+  --bg-light: #f8fafc;
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+
+  --chat-bg-me: #06b9fc;
+  --chat-text-me: #ffffff;
+  --chat-bg-other: #e2e8f0;
+  --chat-text-other: #0f172a;
 
   --color-bg: #f8fafc;
   --color-surface: #ffffff;
 
   --color-text-main: #0f172a;
   --color-text-light: #64748b;
+
+  --color-primary: #06b9fc;
+  --color-primary-dark: #0598ce;
+  --color-secondary: #1e293b;
 
   --font-family-base: "Inter", system-ui, -apple-system, sans-serif;
 
