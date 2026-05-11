@@ -556,22 +556,21 @@
 }
 .main-content {
     width: 100%;
-    background: white;
+    background: rgb(255, 255, 255);
     padding: 30px;
 }
-body{
-    background: white;
-    margin:0;
-    padding: 0;
-}
+
 
 .container{
     width: 100%;
     min-height: 100vh;
-    background: white;
+    background: rgb(255, 255, 255);
     padding: 30px;
 }
 
+.titulo-vagas{
+    color: #0f172a;
+}
 h1{
     text-align: center;
     margin-bottom: 20px;
@@ -597,8 +596,8 @@ h1{
 
 .card{
     width: 45%;
-    background: #888;
-    color: white;
+    background: #0F2D52;
+    color: #ffffff;
     text-align: center;
     padding: 20px;
     border-radius: 8px;
@@ -608,50 +607,54 @@ h1{
 .conteudo{
     display: flex;
     gap: 30px;
+    align-items: flex-start;
 }
 /* FILTROS */
 .dropdown {
     position: relative;
     display: inline-block;
-    background-color: #333;
+    background-color: #0F2D52;
 }
 
 .dropdown-btn {
     padding: 10px 15px;
     border: none;
-    background-color: #333;
-    color: white;
+    background-color: #0F2D52;
+    color: rgb(218, 215, 215);
     cursor: pointer;
 }
 
 .dropdown-btn:hover {
-    background-color: #555;
+    background-color: #6366f1;
 }
 
 .dropdown-content {
     display: none;
-    background-color: #f1f1f1;
+    background-color: #0F2D52;
     min-width: 150px;
-    box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+    box-shadow: 0px 4px 8px rgba(248, 5, 5, 0.2);
 }
 
 .dropdown-content a {
     display: block;
     padding: 10px;
     text-decoration: none;
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
     color: white;
-    background-color: gray;
+    background-color: #6366f1;
 }
 
 .dropdown-content a:hover {
-    background-color: #ddd;
+    background-color: #06b6d4;;
 }
 .filtros {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    height: 470px;
     width: 200px;
-    background-color: #333;
+    background-color: #0F2D52;
 }
 
 .show {
@@ -673,7 +676,7 @@ h1{
 }
 
 .vaga{
-    background: #777;
+    background: #0F2D52;
     color: white;
     padding: 15px;
     margin-bottom: 15px;

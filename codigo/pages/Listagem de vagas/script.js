@@ -9,10 +9,12 @@ let filtroCidade=""
 
 function selecionarArea(area) {
     filtroArea = area;
+    filtroArea();
 }
 
 function selecionarCidade(cidade) {
     filtroCidade = cidade;
+    filtroCidade();
 }
 // MOSTRAR VAGAS
 function mostrarVagas(lista){
@@ -31,7 +33,7 @@ function mostrarVagas(lista){
     })
 }
 
-// 🔍 BUSCA
+// BUSCA
 document.getElementById("busca").addEventListener("input", function(){
 
     const valor = this.value.toLowerCase()
