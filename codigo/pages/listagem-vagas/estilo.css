@@ -91,6 +91,8 @@ h1 {
   color: #333;
   font-family: "DM Sans", sans-serif;
   font-size: 14px;
+  position: relative;
+  padding-left: 30px;
 }
 
 .dropdown-content a:hover {
@@ -159,4 +161,20 @@ button#limpar:hover {
   border: 1px solid #eee;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
   font-family: "DM Sans", sans-serif;
+}
+.dropdown-content a::before {
+  content: "";
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 12px;
+  height: 12px;
+  border: 2px solid #06b9fc;
+  border-radius: 50%;
+}
+
+/* quando estiver ativo */
+.dropdown-content a.ativo::before {
+  background-color: #06b9fc;
 }

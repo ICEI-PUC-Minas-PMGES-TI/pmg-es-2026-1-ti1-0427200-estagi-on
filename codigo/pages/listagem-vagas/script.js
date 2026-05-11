@@ -8,13 +8,44 @@ let filtroArea=""
 let filtroCidade=""
 
 function selecionarArea(area) {
-    filtroArea = area;
-    filtroArea();
+    if (filtroArea == area){
+        filtroArea= "";
+    }
+    else{
+        filtroArea= area;
+    }
+    atualizarSelecao();
 }
 
 function selecionarCidade(cidade) {
-    filtroCidade = cidade;
-    filtroCidade();
+    if (filtroCidade == cidade){
+        filtroCidade=""
+    }
+    else {
+        filtroCidade=cidade
+    }
+    atualizarSelecao();
+}
+function atualizarSelecao(){
+    document.querySelectorAll("[data-area]").forEach(element=>{
+        const area = element.getAttribute("data-area");
+        if (area ===filtroArea){
+            element.classList.add("ativo")
+        }
+        else {
+            element.classList.remove("ativo");
+        }
+    }
+    )
+    document.querySelectorAll("[data-cidade]").forEach(element=>{
+        const cidade = element.getAttribute("data-cidade");
+        if (cidade===filtroCidade){
+            element.classList.add("ativo")
+        }
+        else {
+            element.classList.remove("ativo")
+        }
+    })
 }
 // MOSTRAR VAGAS
 function mostrarVagas(lista){

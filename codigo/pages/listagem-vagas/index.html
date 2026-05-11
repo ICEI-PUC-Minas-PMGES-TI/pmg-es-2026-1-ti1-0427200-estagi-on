@@ -127,13 +127,9 @@
                   </button>
 
                   <div class="dropdown-content">
-                    <a href="#" onclick="selecionarArea('Desenvolvedor')"
-                      >Desenvolvedor</a
-                    >
-                    <a href="#" onclick="selecionarArea('RH')"> RH</a>
-                    <a href="#" onclick="selecionarArea('Designer')"
-                      >Designer</a
-                    >
+                    <a href="#" data-area="Desenvolvedor" onclick="selecionarArea('Desenvolvedor')">Desenvolvedor</a>
+                    <a href="#" data-area="RH" onclick="selecionarArea('RH')"> RH</a>
+                    <a href="#" data-area="Design" onclick="selecionarArea('Design')">Designer</a>
                   </div>
                 </div>
                 <div class="dropdown">
@@ -141,13 +137,9 @@
                     Cidade ▼
                   </button>
                   <div class="dropdown-content">
-                    <a href="#" onclick="selecionarCidade('Contagem')"
-                      >Contagem</a
-                    >
-                    <a href="#" onclick="selecionarCidade('Betim')">Betim</a>
-                    <a href="#" onclick="selecionarCidade('Belo Horizonte')"
-                      >Belo Horizonte</a
-                    >
+                    <a href="#" data-cidade="Contagem" onclick="selecionarCidade('Contagem')">Contagem</a>
+                    <a href="#" data-cidade="Betim" onclick="selecionarCidade('Betim')">Betim</a>
+                    <a href="#" data-cidade="Belo Horizonte" onclick="selecionarCidade('Belo Horizonte')">Belo Horizonte</a>
                   </div>
                 </div>
                 <button id="aplicar">Aplicar filtros</button>
