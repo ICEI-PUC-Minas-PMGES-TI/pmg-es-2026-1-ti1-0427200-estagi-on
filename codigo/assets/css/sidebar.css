@@ -1,6 +1,5 @@
 .sidebar {
   width: 250px;
-  background: #0f2d52;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -72,7 +71,7 @@
 .sb-section-label {
   font-size: 0.7rem;
   font-weight: 600;
-  color: #85b7eb;
+  color: #4a7aaa;
   letter-spacing: 1.4px;
   text-transform: uppercase;
   padding: 10px 20px 6px;
@@ -112,7 +111,7 @@
 .sb-item-icon svg {
   width: 18px;
   height: 18px;
-  stroke: #85b7eb;
+  stroke: #4a7aaa;
   fill: none;
   stroke-width: 1.6;
   stroke-linecap: round;
@@ -121,26 +120,26 @@
 }
 
 .sb-item.active .sb-item-icon svg {
-  stroke: #fff;
+  stroke: #4a7aaa;
 }
 .sb-item:hover:not(.active) .sb-item-icon svg {
-  stroke: #b5d4f4;
+  stroke: #6a9cc4;
 }
 
 .sb-item-label {
   font-size: 0.9rem;
   font-weight: 400;
-  color: #85b7eb;
+  color: #4a7aaa;
   transition: color 0.14s;
   flex: 1;
 }
 
 .sb-item.active .sb-item-label {
-  color: #fff;
+  color: #4a7aaa;
   font-weight: 600;
 }
 .sb-item:hover:not(.active) .sb-item-label {
-  color: #b5d4f4;
+  color: #6a9cc4;
 }
 
 .sb-divider {
@@ -185,11 +184,11 @@
 .sb-user-name {
   font-size: 0.85rem;
   font-weight: 500;
-  color: #fff;
+  color: #4a7aaa;
 }
 .sb-user-role {
   font-size: 0.75rem;
-  color: #85b7eb;
+  color: #4a7aaa;
   margin-top: 2px;
 }
 
