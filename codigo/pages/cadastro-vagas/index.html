@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Cadastro de Vagas</title>
+</head>
+<body>
+    <header>
+        <h1 class="titulo">Cadastro de Vagas</h1>
+    </header>
+    <main>
+        <input type="hidden" id="vaga-id">
+
+        <section class="secao-preencher">
+            <div class="vagas">
+                <h2 class="titulo-vaga">Vaga: </h2>
+                <input class="espaco-vaga" id="input-vaga">
+            </div>
+            <div class="salarios">
+                <h2 class="titulo-salario">Salário: </h2>
+                <input class="espaco-salario" id="input-salario">
+            </div>
+            <div class="empresa">
+                <h2 class="titulo-empresa">Empresa: </h2>
+                <input class="espaco-empresa" id="input-empresa">
+            </div>
+            <div class="turno">
+                <h2 class="titulo-turno">Turno: </h2>
+                <input class="espaco-turno" id="input-turno">
+            </div>
+            <div class="localizacao">
+                <h2 class="localizacao">Localização: </h2>
+                <input class="espaco-localizacao" id="input-localizacao">
+            </div>
+            <div class="descricao">
+                <h2 class="titulo-descricao">Descrição: </h2>
+                <textarea class="espaco-descricao" id="input-descricao"></textarea>
+            </div>
+            <div class="requisitos">
+                <h2 class="titulo-requisitos">Requisitos: </h2>
+                <textarea class="espaco-requisitos" id="input-requisitos"></textarea>
+            </div>
+        </section>
+
+        <div id="mensagem" class="mensagem oculto"></div>
+
+        <section class="secao-botao">
+            <div class="botoes">
+                <button class="criar" onclick="criarVaga()">Criar</button>
+                <button class="atualizar" onclick="atualizarVaga()">Atualizar</button>
+                <button class="limpar" onclick="limparFormulario()">Limpar</button>
+            </div>
+        </section>
+
+        <section class="secao-grid">
+            <table class="tabela-vagas" id="tabela-vagas">
+                <thead>
+                    <tr>
+                        <th>Título</th>
+                        <th>Empresa</th>
+                        <th>Salário</th>
+                        <th>Turno</th>
+                        <th>Localização</th>
+                        <th>Descrição</th>
+                        <th>Requisitos</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="corpo-tabela">
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

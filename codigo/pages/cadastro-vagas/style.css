@@ -1,0 +1,133 @@
+.titulo{
+    text-align: center;
+    justify-content: center;
+    margin: 0px;
+    text-decoration: underline;
+}
+.criar{
+    background-color: gray;
+}
+.atualizar{
+    background-color: white;
+}
+.limpar{
+    background-color: red;
+}
+.secao-preencher {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+    align-items: center;
+    justify-content: center;
+}
+.vagas, .salarios, .empresa, .turno{
+    width: 50%;
+    box-sizing: border-box;
+    padding: 10px;
+}
+.localizacao{
+    width: 50%;
+    padding: 10px;
+    align-items: center;
+    justify-content: center;
+}
+.espaco-vaga, .espaco-salario, .espaco-empresa, .espaco-turno, .espaco-localizacao {
+    width: 90%; 
+    height: 25px;
+}
+.botoes{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    margin-right: 70px;
+}
+.criar, .atualizar, .limpar{
+    width: 300px;
+    height: 100px;
+    font-size: 25px;
+}
+.descricao, .requisitos {
+    width: 50%;
+    box-sizing: border-box;
+    padding: 10px;
+}
+.espaco-descricao, .espaco-requisitos {
+    width: 90%;
+    height: 80px;
+    resize: vertical;
+}
+.mensagem {
+    text-align: center;
+    margin: 10px auto;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-weight: bold;
+    max-width: 600px;
+}
+.mensagem.sucesso {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+.mensagem.erro {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+.oculto {
+    display: none;
+}
+.secao-grid {
+    padding: 30px 20px;
+    overflow-x: auto;
+}
+.tabela-vagas {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+}
+.tabela-vagas thead tr {
+    background-color: #333;
+    color: white;
+}
+.tabela-vagas th, .tabela-vagas td {
+    border: 1px solid #ccc;
+    padding: 10px 14px;
+    text-align: left;
+}
+.tabela-vagas tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+.tabela-vagas tbody tr:hover {
+    background-color: #e8e8e8;
+}
+.btn-editar {
+    background-color: #4a90d9;
+    color: white;
+    border: none;
+    padding: 5px 12px;
+    cursor: pointer;
+    border-radius: 3px;
+    margin-right: 5px;
+}
+.btn-editar:hover {
+    background-color: #2f72b5;
+}
+.btn-excluir {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 5px 12px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+.btn-excluir:hover {
+    background-color: darkred;
+}
+.linha-vazia td {
+    text-align: center;
+    color: #888;
+    font-style: italic;
+}
