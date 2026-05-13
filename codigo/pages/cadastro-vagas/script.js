@@ -136,3 +136,16 @@ function criarVaga() {
         listarVagas();
     });
 }
+
+function excluirVaga(id) {
+    const confirmado = confirm("Deseja excluir esta vaga?");
+    if (!confirmado) return;
+
+    fetch(API_URL + "/" + id, {
+        method: "DELETE"
+    })
+    .then(function() {
+        alert("Vaga excluída com sucesso!");
+        listarVagas();
+    });
+}
