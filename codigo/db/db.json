@@ -9,7 +9,8 @@
       "cargaHoraria": "20h semanais",
       "requisitos": ["HTML/CSS", "JavaScript", "Git"],
       "local": "Belo Horizonte - MG",
-      "modalidade": "Híbrido"
+      "modalidade": "Híbrido",
+      "empresaId": 1
     },
     {
       "id": 2,
@@ -20,7 +21,8 @@
       "cargaHoraria": "30h semanais",
       "requisitos": ["Python", "Excel", "SQL"],
       "local": "Remoto",
-      "modalidade": "Remoto"
+      "modalidade": "Remoto",
+      "empresaId": 1
     },
     {
       "id": 3,
@@ -31,7 +33,8 @@
       "cargaHoraria": "20h semanais",
       "requisitos": ["Figma", "Noções de UX", "Criatividade"],
       "local": "São Paulo - SP",
-      "modalidade": "Presencial"
+      "modalidade": "Presencial",
+      "empresaId": 1
     }
   ],
   "usuarios": [
