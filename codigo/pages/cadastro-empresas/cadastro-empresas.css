@@ -1,0 +1,50 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body.fundo-cadastro {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "DM Sans", sans-serif;
+  background: linear-gradient(135deg, #0f2d52 0%, #1a4a7a 50%, #0d3b6e 100%);
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Círculos decorativos no fundo */
+body.fundo-cadastro::before,
+body.fundo-cadastro::after {
+  content: "";
+  position: fixed;
+  border-radius: 50%;
+  opacity: 0.07;
+  background: #fff;
+  pointer-events: none;
+}
+body.fundo-cadastro::before {
+  width: 500px;
+  height: 500px;
+  top: -150px;
+  right: -150px;
+}
+body.fundo-cadastro::after {
+  width: 350px;
+  height: 350px;
+  bottom: -100px;
+  left: -100px;
+}
+
+/* ── Container ── */
+.cadastro-container {
+  width: 100%;
+  max-width: 480px;
+  position: relative;
+  z-index: 1;
+}
