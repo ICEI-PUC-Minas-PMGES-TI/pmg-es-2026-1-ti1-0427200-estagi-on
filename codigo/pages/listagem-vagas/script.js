@@ -15,6 +15,7 @@ function selecionarArea(area) {
         filtroArea= area;
     }
     atualizarSelecao();
+    aplicarFiltros();
 }
 
 function selecionarCidade(cidade) {
@@ -25,6 +26,7 @@ function selecionarCidade(cidade) {
         filtroCidade=cidade
     }
     atualizarSelecao();
+    aplicarFiltros();
 }
 function atualizarSelecao(){
     document.querySelectorAll("[data-area]").forEach(element=>{
@@ -69,39 +71,43 @@ document.getElementById("busca").addEventListener("input", function(){
 
     const valor = this.value.toLowerCase()
 
-    const filtradas = vagas.filter(vaga =>
-        vaga.titulo.toLowerCase().includes(valor)
-    )
+    aplicarFiltros();
+});
 
-    mostrarVagas(filtradas)
-})
 
-// 🎯 FILTROS
+//  FILTROS
 function toggleMenu(button) {
     const menu = button.nextElementSibling;
     menu.classList.toggle("show");
 }
 
 // Aplicar filtros
-document.getElementById("aplicar").addEventListener("click", () =>{
-    const filtradas= vagas.filter(vaga=>{
-        const matchArea = filtroArea === "" || vaga.area ===filtroArea;
-        const matchCidade = filtroCidade === "" || vaga.local ===filtroCidade;
-        return matchArea && matchCidade;
-    });
-    mostrarVagas(filtradas)
-})
+function aplicarFiltros() {
+    const busca = document.getElementById("busca").value.toLowerCase();
 
-// 🧹 LIMPAR
+    const filtradas = vagas.filter(vaga => {
+        const matchBusca = vaga.titulo.toLowerCase().includes(busca);
+        const matchArea = filtroArea === "" || vaga.area === filtroArea;
+        const matchCidade = filtroCidade === "" || vaga.local === filtroCidade;
+
+        return matchBusca && matchArea && matchCidade;
+    });
+
+    mostrarVagas(filtradas);
+}
+
+// LIMPAR
 document.getElementById("limpar").addEventListener("click", () => {
 
 
     filtroArea = "";
     filtroCidade = "";
-
+    
     document.getElementById("busca").value = ""
-
-    mostrarVagas(vagas)
+    document.querySelectorAll(".dropdown-content a").forEach(item => {
+        item.classList.remove("ativo"); 
+    });
+    aplicarFiltros();
 })
 
 // iniciar
