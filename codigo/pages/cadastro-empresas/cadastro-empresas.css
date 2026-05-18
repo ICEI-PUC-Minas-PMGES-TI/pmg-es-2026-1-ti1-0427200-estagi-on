@@ -1,4 +1,3 @@
-/* ── Reset & Base ── */
 *,
 *::before,
 *::after {
@@ -19,7 +18,6 @@ body.fundo-cadastro {
   overflow: hidden;
 }
 
-/* Círculos decorativos no fundo */
 body.fundo-cadastro::before,
 body.fundo-cadastro::after {
   content: "";
@@ -42,7 +40,6 @@ body.fundo-cadastro::after {
   left: -100px;
 }
 
-/* ── Container ── */
 .cadastro-container {
   width: 100%;
   max-width: 480px;
@@ -50,7 +47,6 @@ body.fundo-cadastro::after {
   z-index: 1;
 }
 
-/* ── Card ── */
 @keyframes surgirDeBaixo {
   from {
     opacity: 0;
@@ -83,7 +79,6 @@ body.fundo-cadastro::after {
   box-shadow: 0 32px 72px rgba(0, 0, 0, 0.26);
 }
 
-/* ── Cabeçalho ── */
 .cadastro-cabecalho {
   text-align: center;
   margin-bottom: 32px;
@@ -124,7 +119,6 @@ body.fundo-cadastro::after {
   color: #7ec8f7;
 }
 
-/* ── Campos ── */
 .campo-grupo {
   margin-bottom: 18px;
 }
@@ -183,7 +177,6 @@ body.fundo-cadastro::after {
   color: #1a6fc4;
 }
 
-/* ── Estado de erro ── */
 .campo-erro .campo-entrada {
   border-color: #ef4444;
   background: #fff5f5;
@@ -202,7 +195,6 @@ body.fundo-cadastro::after {
   display: block;
 }
 
-/* ── Botão ── */
 .btn-cadastro-corporativo,
 .btn-salvar.btn-largo {
   width: 100%;
@@ -238,7 +230,6 @@ body.fundo-cadastro::after {
   box-shadow: 0 2px 8px rgba(15, 45, 82, 0.3);
 }
 
-/* ── Animação de erro (shake) ── */
 @keyframes tremer {
   0%,
   100% {
@@ -258,7 +249,6 @@ body.fundo-cadastro::after {
   animation: tremer 0.4s ease-in-out;
 }
 
-/* ── Responsivo ── */
 @media (max-width: 520px) {
   .cadastro-card {
     padding: 32px 24px 28px;
