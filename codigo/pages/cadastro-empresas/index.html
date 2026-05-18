@@ -13,9 +13,82 @@
   </head>
   <body class="fundo-cadastro">
     <div class="cadastro-container">
-     
+      <div class="cadastro-card">
+        <div class="card-linha-acento"></div>
+
+        <div class="cadastro-cabecalho">
+          <h1 class="cadastro-titulo">Cadastro Corporativo</h1>
+          <p class="cadastro-subtitulo">
+            Insira os dados da sua empresa para acessar a plataforma
+          </p>
+        </div>
+
+        <form id="form-empresa">
+          <div class="campo-grupo">
+            <label class="campo-rotulo" for="razao-social"
+              >Razão Social *</label
+            >
+            <input
+              class="campo-entrada"
+              type="text"
+              id="razao-social"
+              placeholder="Ex: TechSolutions Ltda"
+              required
+            />
+          </div>
+
+          <div class="campo-grupo">
+            <label class="campo-rotulo" for="cnpj">CNPJ *</label>
+            <input
+              class="campo-entrada"
+              type="text"
+              id="cnpj"
+              placeholder="00.000.000/0000-00"
+            />
+            <span class="erro-mensagem" id="erro-cnpj"
+              >O campo CNPJ não pode estar vazio.</span
+            >
+          </div>
+
+          <div class="campo-grupo">
+            <label class="campo-rotulo" for="area-atuacao"
+              >Área de Atuação</label
+            >
+            <input
+              class="campo-entrada"
+              type="text"
+              id="area-atuacao"
+              placeholder="Ex: Tecnologia da Informação"
+            />
+          </div>
+
+          <div class="campo-grupo">
+            <label class="campo-rotulo" for="email">E-mail Corporativo *</label>
+            <input
+              class="campo-entrada"
+              type="email"
+              id="email"
+              placeholder="nome@empresa.com"
+              required
+            />
+          </div>
+
+          <div class="campo-grupo">
+            <label class="campo-rotulo" for="senha">Senha de Acesso *</label>
+            <input
+              class="campo-entrada"
+              type="password"
+              id="senha"
+              placeholder="No mínimo 6 caracteres"
+              required
+            />
+          </div>
+
+          <button type="submit" class="btn-cadastro-corporativo">
+            Criar Conta Corporativa
+          </button>
+        </form>
+      </div>
     </div>
-
-
   </body>
 </html>
