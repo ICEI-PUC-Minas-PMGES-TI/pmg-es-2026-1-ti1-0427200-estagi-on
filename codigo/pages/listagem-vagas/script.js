@@ -1,8 +1,11 @@
 let vagas = [
-    { titulo: "Dev Front-end", area: "Desenvolvedor", local: "Betim" },
-    { titulo: "Analista RH", area: "RH", local: "Contagem" },
-    { titulo: "Suporte TI", area: "Desenvolvedor", local: "Belo Horizonte" },
-    { titulo: "Designer", area: "Design", local: "Betim" }
+    { id: 1, titulo: "Estágio em Desenvolvimento Web", empresa: "TechSolutions Ltda", area: "Desenvolvedor", local: "Belo Horizonte - MG", modalidade: "Híbrido", cargaHoraria: "20h semanais", bolsa: 1200, descricao: "Buscamos estudante de TI para atuar no desenvolvimento de interfaces web modernas, participando de projetos reais com equipe ágil.", requisitos: ["HTML/CSS", "JavaScript", "Git"], contato: "rh@techsolutions.com.br" },
+    { id: 2, titulo: "Estágio em Análise de Dados", empresa: "DataMind S.A.", area: "Dados", local: "Remoto", modalidade: "Remoto", cargaHoraria: "30h semanais", bolsa: 1500, descricao: "Oportunidade para estudantes de Ciência da Computação, Estatística ou áreas afins para atuar com análise e visualização de dados.", requisitos: ["Python", "Excel", "SQL"], contato: "vagas@datamind.com.br" },
+    { id: 3, titulo: "Estágio em UX/UI Design", empresa: "Criativa Agency", area: "Design", local: "São Paulo - SP", modalidade: "Presencial", cargaHoraria: "20h semanais", bolsa: 1000, descricao: "Vaga para estudante com interesse em design de experiência do usuário, criação de protótipos e pesquisa com usuários.", requisitos: ["Figma", "Noções de UX", "Criatividade"], contato: "design@criativaagency.com.br" },
+    { id: 4, titulo: "Dev Front-end", empresa: "InovaTech Sistemas", area: "Desenvolvedor", local: "Betim - MG", modalidade: "Presencial", cargaHoraria: "20h semanais", bolsa: 1100, descricao: "Vaga para estudante de TI com interesse em desenvolvimento front-end, atuando na criação de interfaces responsivas e modernas.", requisitos: ["HTML", "CSS", "JavaScript"], contato: "rh@inovatech.com.br" },
+    { id: 5, titulo: "Analista RH", empresa: "Grupo Conecta", area: "RH", local: "Contagem - MG", modalidade: "Presencial", cargaHoraria: "30h semanais", bolsa: 900, descricao: "Oportunidade para estudantes de Administração ou Psicologia para atuar no setor de Recursos Humanos, apoiando processos seletivos e integração de colaboradores.", requisitos: ["Comunicação", "Excel", "Organização"], contato: "pessoas@grupoconecta.com.br" },
+    { id: 6, titulo: "Suporte TI", empresa: "NetBase Soluções", area: "Desenvolvedor", local: "Belo Horizonte - MG", modalidade: "Híbrido", cargaHoraria: "20h semanais", bolsa: 950, descricao: "Vaga para estudante de TI para atuar no suporte técnico interno, auxiliando na manutenção de equipamentos e resolução de chamados.", requisitos: ["Windows", "Redes", "Lógica"], contato: "ti@netbase.com.br" },
+    { id: 7, titulo: "Designer", empresa: "Pixel Studio", area: "Design", local: "Betim - MG", modalidade: "Remoto", cargaHoraria: "20h semanais", bolsa: 1050, descricao: "Buscamos estudante de Design ou áreas criativas para atuar na produção de peças gráficas digitais e materiais de marketing.", requisitos: ["Photoshop", "Illustrator", "Criatividade"], contato: "contato@pixelstudio.com.br" }
 ]
 let filtroArea=""
 let filtroCidade=""
@@ -57,13 +60,19 @@ function mostrarVagas(lista){
 
     lista.forEach(vaga => {
         container.innerHTML += `
-            <div class="vaga">
+            <div class="vaga" onclick="abrirVaga(${vaga.id})" style="cursor: pointer;">
                 <strong>${vaga.titulo}</strong><br>
                 Área: ${vaga.area} <br>
                 Local: ${vaga.local}
             </div>
         `
     })
+}
+
+function abrirVaga(id) {
+    const vaga = vagas.find(v => v.id === id);
+    localStorage.setItem('vagaSelecionada', JSON.stringify(vaga));
+    window.location.href = '../detalhes-vaga/index.html';
 }
 
 // BUSCA
