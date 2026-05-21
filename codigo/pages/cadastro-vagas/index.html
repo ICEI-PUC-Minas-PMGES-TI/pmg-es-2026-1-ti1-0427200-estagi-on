@@ -13,7 +13,7 @@
       <aside class="sidebar">
         <div class="sb-logo">
           <img
-            src="../../assets/images/Logo.png"
+            src="./../../assets/images/Logo.png"
             alt="Logo Estagi.ON"
             style="height: 50px; width: auto"
           />
@@ -22,7 +22,7 @@
         <nav class="sb-body">
           <div class="sb-section-label">Principal</div>
 
-          <a href="../../index.html" class="sb-item">
+          <a href="./../../index.html" class="sb-item">
             <div class="sb-item-icon">
               <svg viewBox="0 0 24 24">
                 <rect x="3" y="3" width="7" height="7" rx="1" />
@@ -34,18 +34,16 @@
             <span class="sb-item-label">Dashboard</span>
           </a>
 
-          <a href="../../pages/mensagens/index.html" class="sb-item">
+          <a href="./../../pages/mensagens/index.html" class="sb-item">
             <div class="sb-item-icon">
               <svg viewBox="0 0 24 24">
-                <path
-                  d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
-                />
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
               </svg>
             </div>
             <span class="sb-item-label">Mensagens</span>
           </a>
 
-          <a href="../../pages/calendario/index.html" class="sb-item">
+          <a href="./../../pages/calendario/index.html" class="sb-item">
             <div class="sb-item-icon">
               <svg viewBox="0 0 24 24">
                 <rect x="3" y="4" width="18" height="18" rx="2" />
@@ -57,7 +55,7 @@
             <span class="sb-item-label">Calendário</span>
           </a>
 
-          <a href="../../pages/listagem-vagas/index.html" class="sb-item active">
+          <a href="./../../pages/listagem-vagas/index.html" class="sb-item">
             <div class="sb-item-icon">
               <svg viewBox="0 0 24 24">
                 <path d="M4 22V12a8 8 0 0 1 16 0v10" />
@@ -71,7 +69,7 @@
           <div class="sb-divider"></div>
           <div class="sb-section-label">Conta</div>
 
-          <a href="#" class="sb-item">
+          <a href="./../../pages/perfil/index.html" class="sb-item">
             <div class="sb-item-icon">
               <svg viewBox="0 0 24 24">
                 <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
@@ -81,11 +79,12 @@
             <span class="sb-item-label">Meu Perfil</span>
           </a>
         </nav>
-        <a href="../../pages/login/index.html" class="sb-footer">
-          <div class="sb-user-av">AM</div>
+
+        <a href="./../../pages/login/index.html" class="sb-footer">
+          <div class="sb-user-av" id="sb-avatar">??</div>
           <div class="sb-user-info">
-            <div class="sb-user-name">Ana Martins</div>
-            <div class="sb-user-role">Aluna · USP</div>
+            <div class="sb-user-name" id="sb-nome">Visitante</div>
+            <div class="sb-user-role" id="sb-tipo">---</div>
           </div>
           <div class="sb-logout-icon">
             <svg viewBox="0 0 24 24">
@@ -167,6 +166,7 @@
     </div>
 
     <script src="script.js"></script>
-</body>
+  <script src="./../../assets/js/auth.js"></script>
+  </body>
 
 </html>
