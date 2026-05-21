@@ -1,8 +1,8 @@
 let vagas = [
-    { id: 1, titulo: "Dev Front-end", area: "Desenvolvedor", local: "Betim" },
-    { id: 2, titulo: "Analista RH", area: "RH", local: "Contagem" },
-    { id: 3, titulo: "Suporte TI", area: "Desenvolvedor", local: "Belo Horizonte" },
-    { id: 4, titulo: "Designer", area: "Design", local: "Betim" }
+    { titulo: "Dev Front-end", area: "Desenvolvedor", local: "Betim" },
+    { titulo: "Analista RH", area: "RH", local: "Contagem" },
+    { titulo: "Suporte TI", area: "Desenvolvedor", local: "Belo Horizonte" },
+    { titulo: "Designer", area: "Design", local: "Betim" }
 ]
 let filtroArea=""
 let filtroCidade=""
@@ -57,7 +57,7 @@ function mostrarVagas(lista){
 
     lista.forEach(vaga => {
         container.innerHTML += `
-            <div class="vaga" onclick="window.location.href='../detalhes-vaga/index.html?id=${vaga.id}'" style="cursor: pointer;">
+            <div class="vaga">
                 <strong>${vaga.titulo}</strong><br>
                 Área: ${vaga.area} <br>
                 Local: ${vaga.local}
