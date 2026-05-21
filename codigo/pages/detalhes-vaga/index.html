@@ -1,11 +1,15 @@
 <!doctype html>
-<html lang="pt-BR">
+<html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Detalhes da Vaga - Estagi.ON</title>
-    <link rel="stylesheet" href="../../assets/css/styles.css" />
-    <script src="../../assets/js/login.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../assets/css/global.css" />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -68,11 +72,12 @@
     </a>
 </aside>
 <div class="main-content">
-<main>
+<main class="container">
       <div id="loading">Carregando vaga...</div>
       <div id="erro">Vaga não encontrada.</div>
 
       <div class="vaga-card" id="vaga-container" style="display: none">
+        <a href="../../pages/listagem-vagas/index.html" class="voltar">← Voltar para vagas</a>
         <h1 id="vaga-titulo"></h1>
         <div class="vaga-empresa" id="vaga-empresa"></div>
 
@@ -107,7 +112,7 @@
       </div>
     </main>
 
-    <script src="detalhes-vaga.js"></script>
+    <script src="script.js"></script>
 </div>
 </div>
 </body>
