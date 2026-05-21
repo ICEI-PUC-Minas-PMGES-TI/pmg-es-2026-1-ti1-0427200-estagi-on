@@ -3,24 +3,21 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Calendário</title>
+    <title>Calendário – Estagi.ON</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="calendario.css" />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="shell">
-      <aside class="sidebar">
-        <div class="sb-logo">
-          <div class="sb-logo-mark">
-            <svg
-              viewBox="0 0 20 20"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
+    <div class="pagina">
+      <!-- BARRA LATERAL -->
+      <aside class="lateral">
+        <div class="lateral-logo">
+          <div class="lateral-logo-icone">
+            <svg viewBox="0 0 20 20" fill="none">
               <path
                 d="M10 2L18 7V13L10 18L2 13V7L10 2Z"
                 fill="white"
@@ -29,20 +26,14 @@
               <path d="M10 6L14 8.5V13L10 15.5L6 13V8.5L10 6Z" fill="#0F2D52" />
             </svg>
           </div>
-          <span class="sb-logo-name">Estagi.ON</span>
+          <span class="lateral-logo-nome">Estagi.ON</span>
         </div>
 
-        <nav class="sb-body">
-          <div class="sb-section-label">Principal</div>
+        <nav class="lateral-menu">
+          <div class="lateral-secao">Principal</div>
 
-          <input
-            type="radio"
-            name="sb-nav"
-            id="nav-dashboard"
-            class="sb-radio"
-          />
-          <label class="sb-item" for="nav-dashboard">
-            <div class="sb-item-icon">
+          <a class="lateral-item" href="#">
+            <div class="lateral-item-icone">
               <svg viewBox="0 0 24 24">
                 <rect x="3" y="3" width="7" height="7" rx="1" />
                 <rect x="14" y="3" width="7" height="7" rx="1" />
@@ -50,35 +41,22 @@
                 <rect x="14" y="14" width="7" height="7" rx="1" />
               </svg>
             </div>
-            <span class="sb-item-label">Dashboard</span>
-          </label>
+            <span class="lateral-item-nome">Dashboard</span>
+          </a>
 
-          <input
-            type="radio"
-            name="sb-nav"
-            id="nav-mensagens"
-            class="sb-radio"
-          />
-          <label class="sb-item" for="nav-mensagens">
-            <div class="sb-item-icon">
+          <a class="lateral-item" href="#">
+            <div class="lateral-item-icone">
               <svg viewBox="0 0 24 24">
                 <path
                   d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
                 />
               </svg>
             </div>
-            <span class="sb-item-label">Mensagens</span>
-          </label>
+            <span class="lateral-item-nome">Mensagens</span>
+          </a>
 
-          <input
-            type="radio"
-            name="sb-nav"
-            id="nav-calendario"
-            class="sb-radio"
-            checked
-          />
-          <label class="sb-item" for="nav-calendario">
-            <div class="sb-item-icon">
+          <a class="lateral-item ativo" href="#">
+            <div class="lateral-item-icone">
               <svg viewBox="0 0 24 24">
                 <rect x="3" y="4" width="18" height="18" rx="2" />
                 <line x1="16" y1="2" x2="16" y2="6" />
@@ -86,29 +64,22 @@
                 <line x1="3" y1="10" x2="21" y2="10" />
               </svg>
             </div>
-            <span class="sb-item-label">Calendário</span>
-          </label>
+            <span class="lateral-item-nome">Calendário</span>
+          </a>
 
-          <input type="radio" name="sb-nav" id="nav-vagas" class="sb-radio" />
-          <label class="sb-item" for="nav-vagas">
-            <div class="sb-item-icon">
+          <a class="lateral-item" href="#">
+            <div class="lateral-item-icone">
               <svg viewBox="0 0 24 24">
                 <path d="M4 22V12a8 8 0 0 1 16 0v10" />
                 <line x1="2" y1="22" x2="22" y2="22" />
                 <path d="M10 22v-4a2 2 0 1 1 4 0v4" />
               </svg>
             </div>
-            <span class="sb-item-label">Vagas</span>
-          </label>
+            <span class="lateral-item-nome">Vagas</span>
+          </a>
 
-          <input
-            type="radio"
-            name="sb-nav"
-            id="nav-candidaturas"
-            class="sb-radio"
-          />
-          <label class="sb-item" for="nav-candidaturas">
-            <div class="sb-item-icon">
+          <a class="lateral-item" href="#">
+            <div class="lateral-item-icone">
               <svg viewBox="0 0 24 24">
                 <path
                   d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
@@ -118,39 +89,31 @@
                 <line x1="9" y1="17" x2="15" y2="17" />
               </svg>
             </div>
-            <span class="sb-item-label">Candidaturas</span>
-          </label>
+            <span class="lateral-item-nome">Candidaturas</span>
+          </a>
 
-          <input
-            type="radio"
-            name="sb-nav"
-            id="nav-noticias"
-            class="sb-radio"
-          />
-          <label class="sb-item" for="nav-noticias">
-            <div class="sb-item-icon">
+          <a class="lateral-item" href="#">
+            <div class="lateral-item-icone">
               <svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h8M4 18h16" /></svg>
             </div>
-            <span class="sb-item-label">Notícias</span>
-          </label>
+            <span class="lateral-item-nome">Notícias</span>
+          </a>
 
-          <div class="sb-divider"></div>
-          <div class="sb-section-label">Conta</div>
+          <div class="lateral-divisor"></div>
+          <div class="lateral-secao">Conta</div>
 
-          <input type="radio" name="sb-nav" id="nav-perfil" class="sb-radio" />
-          <label class="sb-item" for="nav-perfil">
-            <div class="sb-item-icon">
+          <a class="lateral-item" href="#">
+            <div class="lateral-item-icone">
               <svg viewBox="0 0 24 24">
                 <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
                 <circle cx="12" cy="7" r="4" />
               </svg>
             </div>
-            <span class="sb-item-label">Meu Perfil</span>
-          </label>
+            <span class="lateral-item-nome">Meu Perfil</span>
+          </a>
 
-          <input type="radio" name="sb-nav" id="nav-config" class="sb-radio" />
-          <label class="sb-item" for="nav-config">
-            <div class="sb-item-icon">
+          <a class="lateral-item" href="#">
+            <div class="lateral-item-icone">
               <svg viewBox="0 0 24 24">
                 <circle cx="12" cy="12" r="3" />
                 <path
@@ -158,17 +121,17 @@
                 />
               </svg>
             </div>
-            <span class="sb-item-label">Configurações</span>
-          </label>
+            <span class="lateral-item-nome">Configurações</span>
+          </a>
         </nav>
 
-        <div class="sb-footer">
-          <div class="sb-user-av">AM</div>
-          <div class="sb-user-info">
-            <div class="sb-user-name">Ana Martins</div>
-            <div class="sb-user-role">Aluna · USP</div>
+        <div class="lateral-rodape">
+          <div class="lateral-usuario-avatar">AM</div>
+          <div class="lateral-usuario-info">
+            <div class="lateral-usuario-nome">Ana Martins</div>
+            <div class="lateral-usuario-tipo">Aluna · USP</div>
           </div>
-          <div class="sb-logout-icon">
+          <div class="lateral-sair-icone">
             <svg viewBox="0 0 24 24">
               <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
               <polyline points="16,17 21,12 16,7" />
@@ -178,71 +141,142 @@
         </div>
       </aside>
 
-      <header class="topbar">
-        <div class="tb-page">
-          <span class="tb-page-title">Calendário</span>
-          <!-- <span class="tb-page-sub">Entrevistas, prazos e eventos</span> -->
-        </div>
-
-        <div class="tb-sep"></div>
-
-        <div class="tb-view-switcher">
-          <input
-            type="radio"
-            name="tb-view"
-            id="view-mes"
-            class="tb-view-radio"
-            checked
-          />
-          <label class="tb-view-btn" for="view-mes">Mês</label>
-
-          <input
-            type="radio"
-            name="tb-view"
-            id="view-semana"
-            class="tb-view-radio"
-          />
-          <label class="tb-view-btn" for="view-semana">Semana</label>
-
-          <input
-            type="radio"
-            name="tb-view"
-            id="view-dia"
-            class="tb-view-radio"
-          />
-          <label class="tb-view-btn" for="view-dia">Dia</label>
-
-          <input
-            type="radio"
-            name="tb-view"
-            id="view-agenda"
-            class="tb-view-radio"
-          />
-          <label class="tb-view-btn" for="view-agenda">Agenda</label>
-        </div>
-
-        <!-- <button class="tb-today-btn">Hoje</button> -->
-
-        <div class="tb-flex"></div>
-        <!-- 
-    <div class="tb-search">
-      <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-      <input type="text" placeholder="Buscar evento..." />
-    </div> -->
-
-        <button class="tb-add-btn">
+      <header class="topo">
+        <div class="topo-titulo">Calendário</div>
+        
+        <span class="topo-periodo" id="topo-periodo"></span>
+        
+        <div class="topo-espaco"></div>
+        
+        <button class="topo-novo-btn" id="btn-novo-evento">
           <svg viewBox="0 0 24 24">
             <line x1="12" y1="5" x2="12" y2="19" />
             <line x1="5" y1="12" x2="19" y2="12" />
           </svg>
           Novo evento
         </button>
-
-        <div class="tb-user">
-          <span class="tb-user-name">Ana Martins</span>
-          <div class="tb-user-av">AM</div>
-        </div>
       </header>
+
+      <!-- ÁREA PRINCIPAL DO CALENDÁRIO -->
+      <main class="conteudo" id="conteudo"></main>
     </div>
+
+    <!-- MODAL – NOVO / EDITAR EVENTO -->
+    <div class="modal-fundo" id="modal-fundo">
+      <div class="modal">
+        <div class="modal-cabecalho">
+          <span class="modal-titulo" id="modal-titulo">Novo evento</span>
+          <button class="modal-fechar" id="modal-fechar">✕</button>
+        </div>
+        <div class="modal-corpo">
+          <div class="campo-grupo">
+            <label class="campo-rotulo">Título *</label>
+            <input
+              class="campo-entrada"
+              id="campo-titulo"
+              type="text"
+              placeholder="Ex: Entrevista TechSolutions"
+            />
+          </div>
+          <div class="campo-linha">
+            <div class="campo-grupo">
+              <label class="campo-rotulo">Data</label>
+              <input class="campo-entrada" id="campo-data" type="date" />
+            </div>
+            <div class="campo-grupo">
+              <label class="campo-rotulo">Tipo</label>
+              <select class="campo-entrada" id="campo-tipo">
+                <option value="entrevista">Entrevista</option>
+                <option value="prazo">Prazo</option>
+                <option value="teste">Teste Técnico</option>
+                <option value="resultado">Resultado</option>
+                <option value="inicio">Início de Estágio</option>
+                <option value="outro">Outro</option>
+              </select>
+            </div>
+          </div>
+          <div class="campo-linha">
+            <div class="campo-grupo">
+              <label class="campo-rotulo">Hora início</label>
+              <input
+                class="campo-entrada"
+                id="campo-hora-inicio"
+                type="time"
+                value="09:00"
+              />
+            </div>
+            <div class="campo-grupo">
+              <label class="campo-rotulo">Hora fim</label>
+              <input
+                class="campo-entrada"
+                id="campo-hora-fim"
+                type="time"
+                value="10:00"
+              />
+            </div>
+          </div>
+          <div class="campo-grupo">
+            <label class="campo-rotulo">Modalidade</label>
+            <select class="campo-entrada" id="campo-modalidade">
+              <option value="Online">Online</option>
+              <option value="Presencial">Presencial</option>
+              <option value="Remoto">Remoto</option>
+            </select>
+          </div>
+          <div class="campo-grupo">
+            <label class="campo-rotulo">Descrição</label>
+            <textarea
+              class="campo-area"
+              id="campo-descricao"
+              placeholder="Detalhes do evento..."
+            ></textarea>
+          </div>
+        </div>
+        <div class="modal-rodape">
+          <button class="btn-cancelar" id="btn-cancelar">Cancelar</button>
+          <button class="btn-salvar" id="btn-salvar">Salvar evento</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- POPUP – DETALHE DO EVENTO -->
+    <div class="popup-evento" id="popup-evento">
+      <div class="popup-barra-cor" id="popup-barra-cor"></div>
+      <div class="popup-corpo">
+        <div class="popup-titulo" id="popup-titulo"></div>
+        <div class="popup-info">
+          <svg viewBox="0 0 24 24">
+            <rect x="3" y="4" width="18" height="18" rx="2" />
+            <line x1="16" y1="2" x2="16" y2="6" />
+            <line x1="8" y1="2" x2="8" y2="6" />
+            <line x1="3" y1="10" x2="21" y2="10" />
+          </svg>
+          <span id="popup-data"></span>
+        </div>
+        <div class="popup-info">
+          <svg viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10" />
+            <polyline points="12 6 12 12 16 14" />
+          </svg>
+          <span id="popup-hora"></span>
+        </div>
+        <div class="popup-info" id="popup-modalidade-linha">
+          <svg viewBox="0 0 24 24">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+            <circle cx="12" cy="10" r="3" />
+          </svg>
+          <span id="popup-modalidade"></span>
+        </div>
+        <div class="popup-descricao" id="popup-descricao"></div>
+      </div>
+      <div class="popup-acoes">
+        <button class="popup-btn" id="popup-btn-editar">Editar</button>
+        <button class="popup-btn vermelho" id="popup-btn-excluir">
+          Excluir
+        </button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
   </body>
 </html>
