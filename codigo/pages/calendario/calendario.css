@@ -10,231 +10,32 @@ html,
 body {
   height: 100%;
   font-family: "DM Sans", sans-serif;
-  background: #f5f4f0;
-  color: #444441;
+  background: #f8fafc;
+  color: #0f172a;
 }
 
-.shell {
-  display: grid;
-  grid-template-columns: 240px 1fr;
-  grid-template-rows: 58px 1fr;
+.app-layout {
+  display: flex;
   min-height: 100vh;
 }
 
-.sidebar {
-  grid-row: 1 / -1;
-  background: #0f2d52;
+.main-content {
+  flex: 1;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
-  position: relative;
-}
-
-.sidebar::after {
-  content: "";
-  position: absolute;
-  bottom: -70px;
-  right: -70px;
-  width: 220px;
-  height: 220px;
-  border-radius: 50%;
-  background: #ef9f27;
-  opacity: 0.06;
-  pointer-events: none;
-}
-
-.sb-logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 24px 20px 20px;
-  border-bottom: 0.5px solid rgba(255, 255, 255, 0.08);
-  flex-shrink: 0;
-}
-
-.sb-logo-mark {
-  width: 34px;
-  height: 34px;
-  background: #ef9f27;
-  border-radius: 9px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-.sb-logo-mark svg {
-  width: 18px;
-  height: 18px;
-}
-
-.sb-logo-name {
-  font-family: "DM Sans", sans-serif;
-  font-size: 15px;
-  font-weight: 500;
-  color: #fff;
-  letter-spacing: -0.3px;
-}
-
-.sb-body {
-  flex: 1;
-  padding: 16px 0;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  overflow-y: auto;
-  scrollbar-width: none;
-}
-.sb-body::-webkit-scrollbar {
-  display: none;
-}
-
-.sb-section-label {
-  font-size: 9px;
-  font-weight: 500;
-  color: #378add;
-  letter-spacing: 1.4px;
-  text-transform: uppercase;
-  padding: 10px 20px 6px;
-}
-
-.sb-item {
-  display: flex;
-  align-items: center;
-  gap: 11px;
-  padding: 10px 20px;
-  cursor: pointer;
-  border-right: 2.5px solid transparent;
-  transition:
-    background 0.14s,
-    border-color 0.14s;
-  position: relative;
-}
-
-.sb-item:hover {
-  background: rgba(255, 255, 255, 0.06);
-}
-
-.sb-item.active {
-  background: rgba(239, 159, 39, 0.13);
-  border-right-color: #ef9f27;
-}
-
-.sb-item-icon {
-  width: 20px;
-  height: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-.sb-item-icon svg {
-  width: 17px;
-  height: 17px;
-  stroke: #85b7eb;
-  fill: none;
-  stroke-width: 1.6;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  transition: stroke 0.14s;
-}
-
-.sb-item.active .sb-item-icon svg {
-  stroke: #fff;
-}
-.sb-item:hover:not(.active) .sb-item-icon svg {
-  stroke: #b5d4f4;
-}
-
-.sb-item-label {
-  font-size: 13px;
-  font-weight: 400;
-  color: #85b7eb;
-  transition: color 0.14s;
-  flex: 1;
-}
-
-.sb-item.active .sb-item-label {
-  color: #fff;
-  font-weight: 500;
-}
-.sb-item:hover:not(.active) .sb-item-label {
-  color: #b5d4f4;
-}
-
-.sb-divider {
-  height: 0.5px;
-  background: rgba(255, 255, 255, 0.08);
-  margin: 8px 20px;
-}
-
-.sb-footer {
-  flex-shrink: 0;
-  padding: 16px 20px;
-  border-top: 0.5px solid rgba(255, 255, 255, 0.08);
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  cursor: pointer;
-}
-
-.sb-footer:hover {
-  background: rgba(255, 255, 255, 0.04);
-}
-
-.sb-user-av {
-  width: 34px;
-  height: 34px;
-  border-radius: 50%;
-  background: #ef9f27;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 12px;
-  font-weight: 500;
-  color: #633806;
-  flex-shrink: 0;
-}
-
-.sb-user-info {
-  flex: 1;
-  min-width: 0;
-}
-.sb-user-name {
-  font-size: 12px;
-  font-weight: 500;
-  color: #fff;
-}
-.sb-user-role {
-  font-size: 10px;
-  color: #85b7eb;
-  margin-top: 1px;
-}
-
-.sb-logout-icon {
-  opacity: 0.4;
-}
-.sb-logout-icon svg {
-  width: 15px;
-  height: 15px;
-  stroke: #fff;
-  fill: none;
-  stroke-width: 1.6;
-  stroke-linecap: round;
-  stroke-linejoin: round;
+  background: #f8fafc;
 }
 
 .topbar {
-  grid-column: 2;
   background: #ffffff;
-  border-bottom: 0.5px solid #d3d1c7;
+  border-bottom: 1px solid #e2e8f0;
   display: flex;
   align-items: center;
   padding: 0 28px;
   gap: 16px;
-  height: 58px;
+  min-height: 60px;
   position: relative;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
 }
 
 .tb-page {
@@ -246,26 +47,26 @@ body {
 .tb-page-title {
   font-family: "DM Serif Display", serif;
   font-size: 17px;
-  color: #0f2d52;
+  color: #0f172a;
   line-height: 1;
 }
 
 .tb-page-sub {
   font-size: 11px;
-  color: #888780;
+  color: #64748b;
 }
 
 .tb-sep {
-  width: 0.5px;
+  width: 1px;
   height: 28px;
-  background: #d3d1c7;
+  background: #e2e8f0;
   margin: 0 4px;
 }
 
 .tb-view-switcher {
   display: flex;
-  background: #f5f4f0;
-  border: 0.5px solid #d3d1c7;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
   border-radius: 9px;
   padding: 3px;
   gap: 2px;
@@ -276,7 +77,7 @@ body {
   border-radius: 6px;
   font-size: 12px;
   font-weight: 400;
-  color: #888780;
+  color: #64748b;
   cursor: pointer;
   border: none;
   background: transparent;
@@ -288,13 +89,13 @@ body {
 }
 
 .tb-view-btn:hover {
-  color: #444441;
+  color: #0f172a;
   background: rgba(0, 0, 0, 0.04);
 }
 
 .tb-view-btn.active {
   background: #ffffff;
-  color: #0f2d52;
+  color: #06b9fc;
   font-weight: 500;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
 }
@@ -309,13 +110,13 @@ body {
   width: 30px;
   height: 30px;
   border-radius: 7px;
-  border: 0.5px solid #d3d1c7;
+  border: 1px solid #e2e8f0;
   background: #ffffff;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #444441;
+  color: #0f172a;
   font-size: 15px;
   transition:
     background 0.12s,
@@ -323,33 +124,33 @@ body {
 }
 
 .tb-nav-btn:hover {
-  background: #f5f4f0;
-  border-color: #b4b2a9;
+  background: #f8fafc;
+  border-color: #cbd5e1;
 }
 
 .tb-today-btn {
   height: 30px;
   padding: 0 14px;
   border-radius: 7px;
-  border: 0.5px solid #d3d1c7;
+  border: 1px solid #e2e8f0;
   background: #ffffff;
   cursor: pointer;
   font-size: 12px;
   font-weight: 500;
-  color: #185fa5;
+  color: #06b9fc;
   font-family: "DM Sans", sans-serif;
   transition: background 0.12s;
 }
 
 .tb-today-btn:hover {
-  background: #e6f1fb;
-  border-color: #185fa5;
+  background: #f0f9ff;
+  border-color: #06b9fc;
 }
 
 .tb-month-label {
   font-size: 14px;
   font-weight: 500;
-  color: #0f2d52;
+  color: #0f172a;
   min-width: 110px;
   text-align: center;
 }
@@ -362,21 +163,21 @@ body {
   display: flex;
   align-items: center;
   gap: 8px;
-  background: #f5f4f0;
-  border: 0.5px solid #d3d1c7;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
   border-radius: 9px;
   padding: 6px 14px;
   transition: border-color 0.14s;
 }
 
 .tb-search:focus-within {
-  border-color: #185fa5;
+  border-color: #06b9fc;
 }
 
 .tb-search svg {
   width: 15px;
   height: 15px;
-  stroke: #888780;
+  stroke: #64748b;
   fill: none;
   stroke-width: 1.8;
   stroke-linecap: round;
@@ -389,13 +190,13 @@ body {
   background: transparent;
   font-size: 13px;
   font-family: "DM Sans", sans-serif;
-  color: #444441;
+  color: #0f172a;
   outline: none;
   width: 170px;
 }
 
 .tb-search input::placeholder {
-  color: #b4b2a9;
+  color: #94a3b8;
 }
 
 .tb-add-btn {
@@ -403,7 +204,7 @@ body {
   padding: 0 16px;
   border-radius: 9px;
   border: none;
-  background: #0f2d52;
+  background: #06b9fc;
   color: #fff;
   font-size: 13px;
   font-weight: 500;
@@ -417,7 +218,7 @@ body {
 }
 
 .tb-add-btn:hover {
-  background: #185fa5;
+  background: #0598ce;
 }
 .tb-add-btn svg {
   width: 14px;
@@ -432,7 +233,7 @@ body {
   width: 34px;
   height: 34px;
   border-radius: 50%;
-  border: 0.5px solid #d3d1c7;
+  border: 1px solid #e2e8f0;
   background: #ffffff;
   display: flex;
   align-items: center;
@@ -443,12 +244,12 @@ body {
 }
 
 .tb-notif:hover {
-  background: #f5f4f0;
+  background: #f8fafc;
 }
 .tb-notif svg {
   width: 16px;
   height: 16px;
-  stroke: #444441;
+  stroke: #0f172a;
   fill: none;
   stroke-width: 1.7;
   stroke-linecap: round;
@@ -462,7 +263,7 @@ body {
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: #e24b4a;
+  background: #ef4444;
   border: 1.5px solid #ffffff;
 }
 
@@ -472,47 +273,47 @@ body {
   gap: 8px;
   padding: 4px 4px 4px 10px;
   border-radius: 20px;
-  border: 0.5px solid #d3d1c7;
+  border: 1px solid #e2e8f0;
   background: #ffffff;
   cursor: pointer;
   transition: background 0.12s;
 }
 
 .tb-user:hover {
-  background: #f5f4f0;
+  background: #f8fafc;
 }
 
 .tb-user-name {
   font-size: 12px;
   font-weight: 500;
-  color: #0f2d52;
+  color: #0f172a;
 }
 
 .tb-user-av {
   width: 26px;
   height: 26px;
   border-radius: 50%;
-  background: #ef9f27;
+  background: #06b9fc;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 10px;
   font-weight: 500;
-  color: #633806;
+  color: #ffffff;
 }
 
 .content-area {
-  grid-column: 2;
-  background: #f5f4f0;
+  background: #f8fafc;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   gap: 14px;
+  flex: 1;
 }
 
 .placeholder-box {
-  border: 1.5px dashed #d3d1c7;
+  border: 2px dashed #e2e8f0;
   border-radius: 14px;
   padding: 48px 64px;
   text-align: center;
@@ -524,7 +325,7 @@ body {
   width: 52px;
   height: 52px;
   border-radius: 14px;
-  background: #e6f1fb;
+  background: #f0f9ff;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -534,7 +335,7 @@ body {
 .placeholder-icon svg {
   width: 26px;
   height: 26px;
-  stroke: #185fa5;
+  stroke: #06b9fc;
   fill: none;
   stroke-width: 1.6;
   stroke-linecap: round;
@@ -544,37 +345,23 @@ body {
 .placeholder-title {
   font-family: "DM Serif Display", serif;
   font-size: 18px;
-  color: #0f2d52;
+  color: #0f172a;
   margin-bottom: 8px;
 }
 
 .placeholder-sub {
   font-size: 13px;
-  color: #888780;
+  color: #64748b;
   line-height: 1.7;
 }
 
-.sb-radio,
 .tb-view-radio {
   display: none;
 }
 
-.sb-radio:checked + .sb-item {
-  background: rgba(239, 159, 39, 0.13);
-  border-right-color: #ef9f27;
-}
-
-.sb-radio:checked + .sb-item .sb-item-icon svg {
-  stroke: #fff;
-}
-.sb-radio:checked + .sb-item .sb-item-label {
-  color: #fff;
-  font-weight: 500;
-}
-
 .tb-view-radio:checked + .tb-view-btn {
   background: #ffffff;
-  color: #0f2d52;
+  color: #06b9fc;
   font-weight: 500;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
 }
