@@ -1,8 +1,7 @@
 let vagas = [
-    { titulo: "Dev Front-end", area: "Desenvolvedor", local: "Betim" },
-    { titulo: "Analista RH", area: "RH", local: "Contagem" },
-    { titulo: "Suporte TI", area: "Desenvolvedor", local: "Belo Horizonte" },
-    { titulo: "Designer", area: "Design", local: "Betim" }
+    { id: 1, titulo: "Estágio em Desenvolvimento Web", empresa: "TechSolutions Ltda", area: "Desenvolvedor", local: "Belo Horizonte - MG", modalidade: "Híbrido", cargaHoraria: "20h semanais", bolsa: 1200, descricao: "Buscamos estudante de TI para atuar no desenvolvimento de interfaces web modernas, participando de projetos reais com equipe ágil.", requisitos: ["HTML/CSS", "JavaScript", "Git"] },
+    { id: 2, titulo: "Estágio em Análise de Dados", empresa: "DataMind S.A.", area: "Dados", local: "Remoto", modalidade: "Remoto", cargaHoraria: "30h semanais", bolsa: 1500, descricao: "Oportunidade para estudantes de Ciência da Computação, Estatística ou áreas afins para atuar com análise e visualização de dados.", requisitos: ["Python", "Excel", "SQL"] },
+    { id: 3, titulo: "Estágio em UX/UI Design", empresa: "Criativa Agency", area: "Design", local: "São Paulo - SP", modalidade: "Presencial", cargaHoraria: "20h semanais", bolsa: 1000, descricao: "Vaga para estudante com interesse em design de experiência do usuário, criação de protótipos e pesquisa com usuários.", requisitos: ["Figma", "Noções de UX", "Criatividade"] }
 ]
 let filtroArea=""
 let filtroCidade=""
@@ -57,13 +56,19 @@ function mostrarVagas(lista){
 
     lista.forEach(vaga => {
         container.innerHTML += `
-            <div class="vaga">
+            <div class="vaga" onclick="abrirVaga(${vaga.id})" style="cursor: pointer;">
                 <strong>${vaga.titulo}</strong><br>
                 Área: ${vaga.area} <br>
                 Local: ${vaga.local}
             </div>
         `
     })
+}
+
+function abrirVaga(id) {
+    const vaga = vagas.find(v => v.id === id);
+    localStorage.setItem('vagaSelecionada', JSON.stringify(vaga));
+    window.location.href = '../detalhes-vaga/index.html';
 }
 
 // BUSCA
