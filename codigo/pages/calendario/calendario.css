@@ -1,3 +1,6 @@
+/* ═══════════════════════════════════════════
+   RESET E BASE
+═══════════════════════════════════════════ */
 *,
 *::before,
 *::after {
@@ -10,201 +13,65 @@ html,
 body {
   height: 100%;
   font-family: "DM Sans", sans-serif;
-  background: #f8fafc;
-  color: #0f172a;
+  background: #f5f4f0;
+  color: #444441;
+  overflow: hidden;
 }
 
-.app-layout {
-  display: flex;
-  min-height: 100vh;
-}
-
+/* ═══════════════════════════════════════════
+   LAYOUT PRINCIPAL
+═══════════════════════════════════════════ */
 .main-content {
-  flex: 1;
   display: flex;
   flex-direction: column;
-  background: #f8fafc;
+  height: 100vh;
+  overflow: hidden;
+  flex: 1;
 }
 
-.topbar {
-  background: #ffffff;
-  border-bottom: 1px solid #e2e8f0;
+/* ═══════════════════════════════════════════
+   TOPO
+═══════════════════════════════════════════ */
+.topo {
+  background: #fff;
+  border-bottom: 0.5px solid #d3d1c7;
   display: flex;
   align-items: center;
   padding: 0 28px;
   gap: 16px;
-  min-height: 60px;
+  height: 58px;
+  flex-shrink: 0;
   position: relative;
-  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
 }
 
-.tb-page {
-  display: flex;
-  flex-direction: column;
-  gap: 1px;
-}
-
-.tb-page-title {
+.topo-titulo {
   font-family: "DM Serif Display", serif;
   font-size: 17px;
-  color: #0f172a;
+  color: #0f2d52;
   line-height: 1;
-}
-
-.tb-page-sub {
-  font-size: 11px;
-  color: #64748b;
-}
-
-.tb-sep {
-  width: 1px;
-  height: 28px;
-  background: #e2e8f0;
-  margin: 0 4px;
-}
-
-.tb-view-switcher {
-  display: flex;
-  background: #f8fafc;
-  border: 1px solid #e2e8f0;
-  border-radius: 9px;
-  padding: 3px;
-  gap: 2px;
-}
-
-.tb-view-btn {
-  padding: 5px 14px;
-  border-radius: 6px;
-  font-size: 12px;
-  font-weight: 400;
-  color: #64748b;
-  cursor: pointer;
-  border: none;
-  background: transparent;
-  font-family: "DM Sans", sans-serif;
-  transition:
-    background 0.14s,
-    color 0.14s;
   white-space: nowrap;
 }
 
-.tb-view-btn:hover {
-  color: #0f172a;
-  background: rgba(0, 0, 0, 0.04);
-}
-
-.tb-view-btn.active {
-  background: #ffffff;
-  color: #06b9fc;
+.topo-periodo {
   font-weight: 500;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
-}
-
-.tb-nav {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-}
-
-.tb-nav-btn {
-  width: 30px;
-  height: 30px;
-  border-radius: 7px;
-  border: 1px solid #e2e8f0;
-  background: #ffffff;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #0f172a;
-  font-size: 15px;
-  transition:
-    background 0.12s,
-    border-color 0.12s;
-}
-
-.tb-nav-btn:hover {
-  background: #f8fafc;
-  border-color: #cbd5e1;
-}
-
-.tb-today-btn {
-  height: 30px;
-  padding: 0 14px;
-  border-radius: 7px;
-  border: 1px solid #e2e8f0;
-  background: #ffffff;
-  cursor: pointer;
-  font-size: 12px;
-  font-weight: 500;
-  color: #06b9fc;
-  font-family: "DM Sans", sans-serif;
-  transition: background 0.12s;
-}
-
-.tb-today-btn:hover {
-  background: #f0f9ff;
-  border-color: #06b9fc;
-}
-
-.tb-month-label {
-  font-size: 14px;
-  font-weight: 500;
-  color: #0f172a;
-  min-width: 110px;
+  color: #0f2d52;
   text-align: center;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 16px;
 }
 
-.tb-flex {
+.topo-espaco {
   flex: 1;
 }
 
-.tb-search {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  background: #f8fafc;
-  border: 1px solid #e2e8f0;
-  border-radius: 9px;
-  padding: 6px 14px;
-  transition: border-color 0.14s;
-}
-
-.tb-search:focus-within {
-  border-color: #06b9fc;
-}
-
-.tb-search svg {
-  width: 15px;
-  height: 15px;
-  stroke: #64748b;
-  fill: none;
-  stroke-width: 1.8;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  flex-shrink: 0;
-}
-
-.tb-search input {
-  border: none;
-  background: transparent;
-  font-size: 13px;
-  font-family: "DM Sans", sans-serif;
-  color: #0f172a;
-  outline: none;
-  width: 170px;
-}
-
-.tb-search input::placeholder {
-  color: #94a3b8;
-}
-
-.tb-add-btn {
+.topo-novo-btn {
   height: 34px;
   padding: 0 16px;
   border-radius: 9px;
   border: none;
-  background: #06b9fc;
+  background: #0f2d52;
   color: #fff;
   font-size: 13px;
   font-weight: 500;
@@ -217,10 +84,11 @@ body {
   white-space: nowrap;
 }
 
-.tb-add-btn:hover {
-  background: #0598ce;
+.topo-novo-btn:hover {
+  background: #185fa5;
 }
-.tb-add-btn svg {
+
+.topo-novo-btn svg {
   width: 14px;
   height: 14px;
   stroke: #fff;
@@ -229,176 +97,765 @@ body {
   stroke-linecap: round;
 }
 
-.tb-notif {
-  width: 34px;
-  height: 34px;
-  border-radius: 50%;
-  border: 1px solid #e2e8f0;
-  background: #ffffff;
+/* ═══════════════════════════════════════════
+   ÁREA DE CONTEÚDO
+═══════════════════════════════════════════ */
+.conteudo {
+  background: #f5f4f0;
+  overflow: hidden;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  position: relative;
-  transition: background 0.12s;
-}
-
-.tb-notif:hover {
-  background: #f8fafc;
-}
-.tb-notif svg {
-  width: 16px;
-  height: 16px;
-  stroke: #0f172a;
-  fill: none;
-  stroke-width: 1.7;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
-.tb-notif-dot {
-  position: absolute;
-  top: 7px;
-  right: 7px;
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: #ef4444;
-  border: 1.5px solid #ffffff;
-}
-
-.tb-user {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 4px 4px 4px 10px;
-  border-radius: 20px;
-  border: 1px solid #e2e8f0;
-  background: #ffffff;
-  cursor: pointer;
-  transition: background 0.12s;
-}
-
-.tb-user:hover {
-  background: #f8fafc;
-}
-
-.tb-user-name {
-  font-size: 12px;
-  font-weight: 500;
-  color: #0f172a;
-}
-
-.tb-user-av {
-  width: 26px;
-  height: 26px;
-  border-radius: 50%;
-  background: #06b9fc;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 10px;
-  font-weight: 500;
-  color: #ffffff;
-}
-
-.content-area {
-  background: #f8fafc;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   flex-direction: column;
-  gap: 14px;
   flex: 1;
 }
 
-.placeholder-box {
-  border: 2px dashed #e2e8f0;
-  border-radius: 14px;
-  padding: 48px 64px;
-  text-align: center;
-  background: rgba(255, 255, 255, 0.5);
-  max-width: 380px;
+/* ═══════════════════════════════════════════
+   CORES DOS TIPOS DE EVENTO
+═══════════════════════════════════════════ */
+.tipo-entrevista {
+  background: #dbeafd;
+  color: #185fa5;
+}
+.tipo-prazo {
+  background: #fde8c8;
+  color: #9d5700;
+}
+.tipo-teste {
+  background: #ead5f9;
+  color: #7b2fbe;
+}
+.tipo-resultado {
+  background: #d4edda;
+  color: #198754;
+}
+.tipo-inicio {
+  background: #c9f0ec;
+  color: #157069;
+}
+.tipo-outro {
+  background: #fcdada;
+  color: #c0392b;
 }
 
-.placeholder-icon {
-  width: 52px;
-  height: 52px;
-  border-radius: 14px;
-  background: #f0f9ff;
+/* ═══════════════════════════════════════════
+   VISUALIZAÇÃO: MÊS
+═══════════════════════════════════════════ */
+.cal-mes {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow: hidden;
+  padding: 16px 20px;
+}
+
+.cal-dias-semana {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  margin-bottom: 4px;
+}
+
+.cal-dia-semana {
+  text-align: center;
+  font-size: 11px;
+  font-weight: 500;
+  color: #888780;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  padding: 6px 0 8px;
+}
+
+.cal-grade {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  gap: 4px;
+  flex: 1;
+  min-height: 0;
+}
+
+.cal-celula {
+  background: #fff;
+  border-radius: 10px;
+  border: 0.5px solid #e4e2d9;
+  padding: 6px 8px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  overflow: hidden;
+  transition:
+    border-color 0.14s,
+    box-shadow 0.14s;
+  min-height: 0;
+}
+
+.cal-celula:hover {
+  border-color: #185fa5;
+  box-shadow: 0 0 0 1px rgba(24, 95, 165, 0.12);
+}
+
+.cal-celula.outro-mes {
+  background: #f9f8f5;
+}
+
+.cal-celula.outro-mes .cal-numero-dia {
+  color: #cccbc4;
+}
+
+.cal-celula.hoje {
+  border-color: #185fa5;
+  border-width: 1.5px;
+}
+
+.cal-celula.hoje .cal-numero-dia {
+  background: #0f2d52;
+  color: #fff;
+  border-radius: 50%;
+}
+
+.cal-numero-dia {
+  font-size: 12px;
+  font-weight: 500;
+  color: #444441;
+  width: 22px;
+  height: 22px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto 16px;
+  flex-shrink: 0;
+  line-height: 1;
 }
 
-.placeholder-icon svg {
-  width: 26px;
-  height: 26px;
-  stroke: #06b9fc;
-  fill: none;
-  stroke-width: 1.6;
-  stroke-linecap: round;
-  stroke-linejoin: round;
+.cal-eventos-dia {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  overflow: hidden;
+  flex: 1;
 }
 
-.placeholder-title {
+.cal-evento-chip {
+  font-size: 10px;
+  font-weight: 500;
+  padding: 2px 6px;
+  border-radius: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: opacity 0.1s;
+}
+
+.cal-evento-chip:hover {
+  opacity: 0.8;
+}
+
+.cal-mais-eventos {
+  font-size: 10px;
+  color: #888780;
+  padding: 1px 2px;
+  cursor: pointer;
+}
+
+.cal-mais-eventos:hover {
+  color: #185fa5;
+}
+
+/* ═══════════════════════════════════════════
+   VISUALIZAÇÃO: SEMANA
+═══════════════════════════════════════════ */
+.cal-semana {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow: hidden;
+  padding: 16px 20px;
+}
+
+.semana-cabecalho {
+  display: grid;
+  grid-template-columns: 52px repeat(7, 1fr);
+  gap: 4px;
+  margin-bottom: 4px;
+  flex-shrink: 0;
+}
+
+.semana-cabecalho-dia {
+  text-align: center;
+  padding: 6px 4px;
+}
+
+.semana-cabecalho-dia .nome-dia {
+  font-size: 10px;
+  color: #888780;
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 0.6px;
+}
+
+.semana-cabecalho-dia .numero-dia {
+  font-size: 20px;
+  font-weight: 400;
+  color: #444441;
+  line-height: 1.2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  margin: 2px auto 0;
+  border-radius: 50%;
+}
+
+.semana-cabecalho-dia.hoje .numero-dia {
+  background: #0f2d52;
+  color: #fff;
+}
+
+.semana-corpo {
+  display: grid;
+  grid-template-columns: 52px repeat(7, 1fr);
+  gap: 4px;
+  flex: 1;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #d3d1c7 transparent;
+}
+
+.semana-coluna-horas {
+  display: flex;
+  flex-direction: column;
+}
+
+.semana-hora {
+  height: 52px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding-right: 8px;
+  font-size: 10px;
+  color: #b4b2a9;
+}
+
+.semana-coluna-dia {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border-radius: 10px;
+  border: 0.5px solid #e4e2d9;
+  overflow: hidden;
+  position: relative;
+}
+
+.semana-slot {
+  height: 52px;
+  flex-shrink: 0;
+  border-bottom: 0.5px solid #f0efe9;
+  cursor: pointer;
+  transition: background 0.1s;
+}
+
+.semana-slot:hover {
+  background: #f5f4f0;
+}
+.semana-slot:last-child {
+  border-bottom: none;
+}
+
+.semana-evento {
+  position: absolute;
+  left: 3px;
+  right: 3px;
+  border-radius: 5px;
+  padding: 3px 6px;
+  font-size: 10px;
+  font-weight: 500;
+  overflow: hidden;
+  cursor: pointer;
+  z-index: 1;
+  transition: opacity 0.1s;
+}
+
+.semana-evento:hover {
+  opacity: 0.85;
+}
+
+/* ═══════════════════════════════════════════
+   VISUALIZAÇÃO: DIA
+═══════════════════════════════════════════ */
+.cal-dia {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow: hidden;
+  padding: 16px 20px;
+}
+
+.dia-cabecalho {
+  display: grid;
+  grid-template-columns: 52px 1fr;
+  gap: 4px;
+  margin-bottom: 4px;
+  flex-shrink: 0;
+}
+
+.dia-info {
+  padding: 6px 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.dia-nome-completo {
+  font-family: "DM Serif Display", serif;
+  font-size: 24px;
+  color: #0f2d52;
+}
+
+.dia-data-completa {
+  font-size: 13px;
+  color: #888780;
+}
+
+.dia-corpo {
+  display: grid;
+  grid-template-columns: 52px 1fr;
+  gap: 4px;
+  flex: 1;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #d3d1c7 transparent;
+}
+
+.dia-coluna-horas {
+  display: flex;
+  flex-direction: column;
+}
+
+.dia-hora {
+  height: 60px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding-right: 8px;
+  font-size: 10px;
+  color: #b4b2a9;
+}
+
+.dia-coluna {
+  background: #fff;
+  border-radius: 10px;
+  border: 0.5px solid #e4e2d9;
+  position: relative;
+  overflow: hidden;
+}
+
+.dia-slot {
+  height: 60px;
+  border-bottom: 0.5px solid #f0efe9;
+  cursor: pointer;
+  transition: background 0.1s;
+}
+
+.dia-slot:hover {
+  background: #f5f4f0;
+}
+.dia-slot:last-child {
+  border-bottom: none;
+}
+
+.dia-evento {
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  border-radius: 7px;
+  padding: 5px 10px;
+  font-size: 11px;
+  font-weight: 500;
+  overflow: hidden;
+  cursor: pointer;
+  z-index: 1;
+  transition: opacity 0.1s;
+}
+
+.dia-evento:hover {
+  opacity: 0.85;
+}
+
+.dia-evento-titulo {
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.dia-evento-hora {
+  font-size: 10px;
+  opacity: 0.75;
+}
+
+/* ═══════════════════════════════════════════
+   VISUALIZAÇÃO: AGENDA
+═══════════════════════════════════════════ */
+.cal-agenda {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px 20px;
+  scrollbar-width: thin;
+  scrollbar-color: #d3d1c7 transparent;
+}
+
+.agenda-grupo {
+  margin-bottom: 20px;
+}
+
+.agenda-data-titulo {
+  font-size: 11px;
+  font-weight: 600;
+  color: #888780;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.agenda-data-titulo.hoje {
+  color: #0f2d52;
+}
+
+.agenda-ponto-hoje {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #0f2d52;
+  flex-shrink: 0;
+}
+
+.agenda-evento {
+  background: #fff;
+  border: 0.5px solid #e4e2d9;
+  border-radius: 10px;
+  padding: 12px 16px;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  cursor: pointer;
+  transition:
+    border-color 0.14s,
+    box-shadow 0.14s;
+}
+
+.agenda-evento:hover {
+  border-color: #185fa5;
+  box-shadow: 0 2px 8px rgba(24, 95, 165, 0.08);
+}
+
+.agenda-evento-cor {
+  width: 3px;
+  border-radius: 2px;
+  align-self: stretch;
+  flex-shrink: 0;
+}
+
+.agenda-evento-hora {
+  font-size: 11px;
+  color: #888780;
+  min-width: 72px;
+  flex-shrink: 0;
+}
+
+.agenda-evento-titulo {
+  font-size: 13px;
+  font-weight: 500;
+  color: #0f2d52;
+  flex: 1;
+}
+
+.agenda-evento-tipo {
+  font-size: 10px;
+  font-weight: 500;
+  padding: 3px 8px;
+  border-radius: 20px;
+}
+
+.agenda-vazio {
+  text-align: center;
+  padding: 48px 0;
+  color: #b4b2a9;
+  font-size: 13px;
+}
+
+/* ═══════════════════════════════════════════
+   MODAL DE EVENTO
+═══════════════════════════════════════════ */
+.modal-fundo {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.38);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+  backdrop-filter: blur(2px);
+}
+
+.modal-fundo.aberto {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.modal {
+  background: #fff;
+  border-radius: 16px;
+  width: 440px;
+  max-width: calc(100vw - 40px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.18);
+  overflow: hidden;
+  transform: translateY(12px) scale(0.98);
+  transition: transform 0.2s;
+}
+
+.modal-fundo.aberto .modal {
+  transform: translateY(0) scale(1);
+}
+
+.modal-cabecalho {
+  padding: 20px 24px 16px;
+  border-bottom: 0.5px solid #e4e2d9;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.modal-titulo {
   font-family: "DM Serif Display", serif;
   font-size: 18px;
-  color: #0f172a;
+  color: #0f2d52;
+}
+
+.modal-fechar {
+  width: 28px;
+  height: 28px;
+  border-radius: 7px;
+  border: 0.5px solid #d3d1c7;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #888780;
+  font-size: 16px;
+  transition: background 0.12s;
+}
+
+.modal-fechar:hover {
+  background: #f5f4f0;
+}
+
+.modal-corpo {
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.campo-grupo {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.campo-rotulo {
+  font-size: 12px;
+  font-weight: 500;
+  color: #888780;
+}
+
+.campo-entrada {
+  height: 38px;
+  border: 0.5px solid #d3d1c7;
+  border-radius: 9px;
+  padding: 0 12px;
+  font-size: 13px;
+  font-family: "DM Sans", sans-serif;
+  color: #444441;
+  background: #fafaf8;
+  outline: none;
+  transition: border-color 0.14s;
+  width: 100%;
+}
+
+.campo-area {
+  height: 72px;
+  border: 0.5px solid #d3d1c7;
+  border-radius: 9px;
+  padding: 10px 12px;
+  font-size: 13px;
+  font-family: "DM Sans", sans-serif;
+  color: #444441;
+  background: #fafaf8;
+  outline: none;
+  transition: border-color 0.14s;
+  width: 100%;
+  resize: none;
+}
+
+.campo-entrada:focus,
+.campo-area:focus {
+  border-color: #185fa5;
+  background: #fff;
+}
+
+.campo-linha {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.modal-rodape {
+  padding: 16px 24px 20px;
+  border-top: 0.5px solid #e4e2d9;
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.btn-cancelar {
+  height: 36px;
+  padding: 0 16px;
+  border-radius: 9px;
+  border: 0.5px solid #d3d1c7;
+  background: transparent;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  color: #888780;
+  font-family: "DM Sans", sans-serif;
+  transition: background 0.12s;
+}
+
+.btn-cancelar:hover {
+  background: #f5f4f0;
+}
+
+.btn-salvar {
+  height: 36px;
+  padding: 0 20px;
+  border-radius: 9px;
+  border: none;
+  background: #0f2d52;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 500;
+  font-family: "DM Sans", sans-serif;
+  cursor: pointer;
+  transition: background 0.14s;
+}
+
+.btn-salvar:hover {
+  background: #185fa5;
+}
+
+/* ═══════════════════════════════════════════
+   POPUP DE DETALHE DO EVENTO
+═══════════════════════════════════════════ */
+.popup-evento {
+  position: fixed;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.16);
+  border: 0.5px solid #e4e2d9;
+  width: 280px;
+  z-index: 200;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s;
+}
+
+.popup-evento.aberto {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.popup-barra-cor {
+  height: 4px;
+}
+
+.popup-corpo {
+  padding: 14px 16px;
+}
+
+.popup-titulo {
+  font-size: 14px;
+  font-weight: 600;
+  color: #0f2d52;
   margin-bottom: 8px;
 }
 
-.placeholder-sub {
-  font-size: 13px;
-  color: #64748b;
-  line-height: 1.7;
+.popup-info {
+  font-size: 12px;
+  color: #888780;
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
-.tb-view-radio {
-  display: none;
+.popup-info svg {
+  width: 12px;
+  height: 12px;
+  stroke: #b4b2a9;
+  fill: none;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
 }
 
-.tb-view-radio:checked + .tb-view-btn {
-  background: #ffffff;
-  color: #06b9fc;
+.popup-descricao {
+  font-size: 12px;
+  color: #888780;
+  margin-top: 8px;
+  line-height: 1.5;
+}
+
+.popup-acoes {
+  display: flex;
+  gap: 6px;
+  padding: 10px 16px;
+  border-top: 0.5px solid #f0efe9;
+}
+
+.popup-btn {
+  flex: 1;
+  height: 30px;
+  border-radius: 7px;
+  border: 0.5px solid #d3d1c7;
+  background: transparent;
+  cursor: pointer;
+  font-size: 11px;
   font-weight: 500;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  font-family: "DM Sans", sans-serif;
+  color: #444441;
+  transition: background 0.12s;
 }
-@media (max-width: 768px) {
-  .shell {
-    grid-template-columns: 1fr;
-    grid-template-rows: 58px auto 1fr;
-  }
 
-  .sidebar {
-    grid-row: unset;
-    grid-column: 1;
-    flex-direction: row;
-    overflow-x: auto;
-    height: auto;
-  }
+.popup-btn:hover {
+  background: #f5f4f0;
+}
 
-  .sb-body {
-    flex-direction: row;
-    padding: 8px 0;
-  }
+.popup-btn.vermelho {
+  color: #c0392b;
+  border-color: #fcdada;
+}
 
-  .sb-section-label,
-  .sb-divider,
-  .sb-footer {
-    display: none;
-  }
-
-  .topbar {
-    grid-column: 1;
-    flex-wrap: wrap;
-    height: auto;
-    padding: 10px 16px;
-    gap: 10px;
-  }
-
-  .tb-flex {
-    display: none;
-  }
+.popup-btn.vermelho:hover {
+  background: #fcdada;
 }
