@@ -69,6 +69,15 @@
         padding: var(--spacing-xl) var(--spacing-lg);
       }
 
+      .dashboard-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: var(--spacing-xl);
+        flex-wrap: wrap;
+        gap: var(--spacing-md);
+      }
+
       .page-title {
         font-size: 2rem;
         font-weight: 700;
@@ -77,7 +86,35 @@
 
       .page-subtitle {
         color: var(--color-text-light);
-        margin-bottom: var(--spacing-xl);
+      }
+
+      .user-type-toggle {
+        display: flex;
+        gap: var(--spacing-xs);
+        background-color: var(--color-bg-main);
+        padding: 4px;
+        border-radius: var(--radius-md);
+      }
+
+      .toggle-btn {
+        padding: 0.5rem 1rem;
+        border: none;
+        background: transparent;
+        color: var(--color-text-light);
+        font-weight: 500;
+        cursor: pointer;
+        border-radius: var(--radius-sm);
+        transition: all 0.2s ease;
+        font-size: 0.875rem;
+      }
+
+      .toggle-btn:hover {
+        color: var(--color-text-main);
+      }
+
+      .toggle-btn.active {
+        background-color: var(--color-primary);
+        color: white;
       }
 
       .dashboard-grid {
@@ -119,87 +156,541 @@
         font-size: 0.95rem;
         line-height: 1.4;
       }
+
+      .metrics-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: var(--spacing-md);
+        margin-bottom: var(--spacing-xl);
+      }
+
+      .metric-card {
+        background-color: var(--color-surface);
+        border-radius: var(--radius-lg);
+        padding: var(--spacing-lg);
+        box-shadow: var(--shadow-sm);
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-md);
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.2s ease;
+      }
+
+      .metric-card:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-md);
+      }
+
+      .metric-icon {
+        font-size: 2.5rem;
+        width: 60px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, var(--color-primary), #5a67d8);
+        border-radius: var(--radius-md);
+        flex-shrink: 0;
+      }
+
+      .metric-content {
+        flex: 1;
+      }
+
+      .metric-label {
+        color: var(--color-text-light);
+        font-size: 0.875rem;
+        margin-bottom: 0.25rem;
+      }
+
+      .metric-value {
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--color-text-main);
+        line-height: 1;
+      }
+
+      .chart-section,
+      .activities-section {
+        background-color: var(--color-surface);
+        border-radius: var(--radius-lg);
+        padding: var(--spacing-lg);
+        box-shadow: var(--shadow-sm);
+        margin-bottom: var(--spacing-xl);
+      }
+
+      .section-title {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: var(--color-text-main);
+        margin-bottom: var(--spacing-md);
+      }
+
+      .chart-container {
+        padding: var(--spacing-md) 0;
+      }
+
+      .bar-chart {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-md);
+      }
+
+      .bar-item {
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-md);
+      }
+
+      .bar-label {
+        min-width: 100px;
+        font-weight: 500;
+        color: var(--color-text-main);
+      }
+
+      .bar-wrapper {
+        flex: 1;
+        background-color: var(--color-bg-main);
+        border-radius: var(--radius-sm);
+        height: 32px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .bar-fill {
+        height: 100%;
+        background: linear-gradient(90deg, var(--color-primary), #5a67d8);
+        border-radius: var(--radius-sm);
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding-right: var(--spacing-sm);
+        color: white;
+        font-weight: 600;
+        font-size: 0.875rem;
+        transition: width 0.8s ease;
+      }
+
+      .activities-list {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-sm);
+      }
+
+      .activity-item {
+        padding: var(--spacing-md);
+        background-color: var(--color-bg-main);
+        border-radius: var(--radius-md);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: background-color 0.2s ease;
+      }
+
+      .activity-item:hover {
+        background-color: #e9ecf5;
+      }
+
+      .activity-info {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+      }
+
+      .activity-title {
+        font-weight: 600;
+        color: var(--color-text-main);
+      }
+
+      .activity-details {
+        font-size: 0.875rem;
+        color: var(--color-text-light);
+      }
+
+      .activity-badge {
+        padding: 0.25rem 0.75rem;
+        background-color: var(--color-primary);
+        color: white;
+        border-radius: var(--radius-sm);
+        font-size: 0.75rem;
+        font-weight: 600;
+      }
     </style>
   </head>
   <body>
-<div class="app-layout">
-<aside class="sidebar">
-    <div class="sb-logo">
-        <img src="./assets/images/Logo.png" alt="Logo Estagi.ON" style="height: 50px; width: auto;" />
-    </div>
+    <div class="app-layout">
+      <aside class="sidebar">
+        <div class="sb-logo">
+          <img
+            src="./assets/images/Logo.png"
+            alt="Logo Estagi.ON"
+            style="height: 50px; width: auto"
+          />
+        </div>
 
-    <nav class="sb-body">
-        <div class="sb-section-label">Principal</div>
+        <nav class="sb-body">
+          <div class="sb-section-label">Principal</div>
 
-        <a href="./index.html" class="sb-item active">
+          <a href="./index.html" class="sb-item active">
             <div class="sb-item-icon">
-                <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+              <svg viewBox="0 0 24 24">
+                <rect x="3" y="3" width="7" height="7" rx="1" />
+                <rect x="14" y="3" width="7" height="7" rx="1" />
+                <rect x="3" y="14" width="7" height="7" rx="1" />
+                <rect x="14" y="14" width="7" height="7" rx="1" />
+              </svg>
             </div>
             <span class="sb-item-label">Dashboard</span>
-        </a>
+          </a>
 
-        <a href="./pages/mensagens/index.html" class="sb-item ">
+          <a href="./pages/mensagens/index.html" class="sb-item">
             <div class="sb-item-icon">
-                <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+                />
+              </svg>
             </div>
             <span class="sb-item-label">Mensagens</span>
-        </a>
+          </a>
 
-        <a href="./pages/calendario/index.html" class="sb-item">
+          <a href="./pages/calendario/index.html" class="sb-item">
             <div class="sb-item-icon">
-                <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              <svg viewBox="0 0 24 24">
+                <rect x="3" y="4" width="18" height="18" rx="2" />
+                <line x1="16" y1="2" x2="16" y2="6" />
+                <line x1="8" y1="2" x2="8" y2="6" />
+                <line x1="3" y1="10" x2="21" y2="10" />
+              </svg>
             </div>
             <span class="sb-item-label">Calendário</span>
-        </a>
+          </a>
 
-        <a href="./pages/listagem-vagas/index.html" class="sb-item ">
+          <a href="./pages/listagem-vagas/index.html" class="sb-item">
             <div class="sb-item-icon">
-                <svg viewBox="0 0 24 24"><path d="M4 22V12a8 8 0 0 1 16 0v10"/><line x1="2" y1="22" x2="22" y2="22"/><path d="M10 22v-4a2 2 0 1 1 4 0v4"/></svg>
+              <svg viewBox="0 0 24 24">
+                <path d="M4 22V12a8 8 0 0 1 16 0v10" />
+                <line x1="2" y1="22" x2="22" y2="22" />
+                <path d="M10 22v-4a2 2 0 1 1 4 0v4" />
+              </svg>
             </div>
             <span class="sb-item-label">Vagas</span>
-        </a>
+          </a>
 
-        <div class="sb-divider"></div>
-        <div class="sb-section-label">Conta</div>
+          <div class="sb-divider"></div>
+          <div class="sb-section-label">Conta</div>
 
-        <a href="#" class="sb-item">
+          <a href="./pages/perfil/index.html" class="sb-item">
             <div class="sb-item-icon">
-                <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              <svg viewBox="0 0 24 24">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                <circle cx="12" cy="7" r="4" />
+              </svg>
             </div>
             <span class="sb-item-label">Meu Perfil</span>
-        </a>
-    </nav>
-    <a href="./pages/login/index.html" class="sb-footer">
-        <div class="sb-user-av">AM</div>
-        <div class="sb-user-info">
+          </a>
+        </nav>
+        <a href="./pages/login/index.html" class="sb-footer">
+          <div class="sb-user-av">AM</div>
+          <div class="sb-user-info">
             <div class="sb-user-name">Ana Martins</div>
             <div class="sb-user-role">Aluna · USP</div>
-        </div>
-        <div class="sb-logout-icon">
-            <svg viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16,17 21,12 16,7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
-        </div>
-    </a>
-</aside>
-<div class="main-content">
-<main class="container">
-      <h1 class="page-title">Bem-vindo(a) ao Dashboard</h1>
-      <p class="page-subtitle">
-        Acesso rápido aos módulos principais do sistema.
-      </p>
-
-      <div class="dashboard-grid">
-        <a href="./pages/listagem-vagas/index.html" class="module-card">
-          <h2>Mural de Vagas</h2>
-          <p>Explore e encontre as melhores oportunidades.</p>
+          </div>
+          <div class="sb-logout-icon">
+            <svg viewBox="0 0 24 24">
+              <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+              <polyline points="16,17 21,12 16,7" />
+              <line x1="21" y1="12" x2="9" y2="12" />
+            </svg>
+          </div>
         </a>
+      </aside>
+      <div class="main-content">
+        <main class="container">
+          <div class="dashboard-header">
+            <div>
+              <h1 class="page-title">Dashboard de Métricas</h1>
+              <p class="page-subtitle" id="dashboardSubtitle">
+                Acompanhe suas estatísticas e atividades recentes
+              </p>
+            </div>
+            <div class="user-type-toggle">
+              <button class="toggle-btn active" data-type="estudante">
+                Visão Estudante
+              </button>
+              <button class="toggle-btn" data-type="empresa">
+                Visão Empresa
+              </button>
+            </div>
+          </div>
 
-        <a href="#" class="module-card">
-          <h2>Cadastrar Nova Vaga</h2>
-          <p>Área para empresas publicarem novos estágios.</p>
-        </a>
+          <div class="metrics-grid">
+            <div class="metric-card">
+              <div class="metric-icon">📊</div>
+              <div class="metric-content">
+                <div class="metric-label">Total de Vagas</div>
+                <div class="metric-value" id="totalVagas">-</div>
+              </div>
+            </div>
+
+            <div class="metric-card">
+              <div class="metric-icon">👥</div>
+              <div class="metric-content">
+                <div class="metric-label">Candidaturas Enviadas</div>
+                <div class="metric-value" id="totalCandidaturas">-</div>
+              </div>
+            </div>
+
+            <div class="metric-card">
+              <div class="metric-icon">✅</div>
+              <div class="metric-content">
+                <div class="metric-label">Processos Ativos</div>
+                <div class="metric-value" id="processosAtivos">-</div>
+              </div>
+            </div>
+
+            <div class="metric-card">
+              <div class="metric-icon">📄</div>
+              <div class="metric-content">
+                <div class="metric-label">Currículos Enviados</div>
+                <div class="metric-value" id="curriculosEnviados">-</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="chart-section">
+            <h2 class="section-title">Vagas por Modalidade</h2>
+            <div class="chart-container">
+              <div class="bar-chart" id="modalidadeChart"></div>
+            </div>
+          </div>
+
+          <div class="activities-section">
+            <h2 class="section-title">Vagas Recentes</h2>
+            <div class="activities-list" id="activityList">
+              <div class="activity-item">Carregando...</div>
+            </div>
+          </div>
+
+          <h2 class="section-title" style="margin-top: 3rem">Acesso Rápido</h2>
+          <div class="dashboard-grid">
+            <a href="./pages/listagem-vagas/index.html" class="module-card">
+              <h2>Mural de Vagas</h2>
+              <p>Explore e encontre as melhores oportunidades.</p>
+            </a>
+
+            <a href="./pages/cadastro-vagas/index.html" class="module-card">
+              <h2>Cadastrar Nova Vaga</h2>
+              <p>Área para empresas publicarem novos estágios.</p>
+            </a>
+          </div>
+        </main>
       </div>
-    </main>
-</div>
-</div>
-</body>
+    </div>
+
+    <script>
+      const API_URL = "http://localhost:3000";
+      let currentUserType = "estudante";
+      let cachedData = { vagas: [] };
+
+      async function fetchData() {
+        try {
+          const vagasResponse = await fetch(`${API_URL}/vagas`);
+          const vagas = await vagasResponse.json();
+
+          return { vagas };
+        } catch (error) {
+          console.error("Erro ao buscar dados:", error);
+          return { vagas: [] };
+        }
+      }
+
+      function contarPorModalidade(vagas) {
+        const contagem = {};
+        vagas.forEach((vaga) => {
+          const modalidade = vaga.modalidade || "Não especificado";
+          contagem[modalidade] = (contagem[modalidade] || 0) + 1;
+        });
+        return contagem;
+      }
+
+      function renderizarGrafico(dados, titulo) {
+        const chartSection = document.querySelector(".chart-section h2");
+        chartSection.textContent = titulo;
+
+        const chartContainer = document.getElementById("modalidadeChart");
+        chartContainer.innerHTML = "";
+
+        const total = Object.values(dados).reduce((a, b) => a + b, 0);
+
+        if (total === 0) {
+          chartContainer.innerHTML =
+            '<p style="color: var(--color-text-light); text-align: center;">Nenhum dado disponível</p>';
+          return;
+        }
+
+        Object.entries(dados).forEach(([modalidade, quantidade]) => {
+          const percentual = (quantidade / total) * 100;
+
+          const barItem = document.createElement("div");
+          barItem.className = "bar-item";
+          barItem.innerHTML = `
+        <div class="bar-label">${modalidade}</div>
+        <div class="bar-wrapper">
+          <div class="bar-fill" style="width: ${percentual}%">${quantidade}</div>
+        </div>
+      `;
+          chartContainer.appendChild(barItem);
+        });
+      }
+
+      function renderizarVagasRecentes(vagas, titulo) {
+        const activitiesSection = document.querySelector(
+          ".activities-section h2",
+        );
+        activitiesSection.textContent = titulo;
+
+        const activityList = document.getElementById("activityList");
+        activityList.innerHTML = "";
+
+        if (vagas.length === 0) {
+          activityList.innerHTML =
+            '<div class="activity-item">Nenhuma vaga disponível</div>';
+          return;
+        }
+
+        const vagasRecentes = vagas.slice(0, 5);
+
+        vagasRecentes.forEach((vaga) => {
+          const activityItem = document.createElement("div");
+          activityItem.className = "activity-item";
+          activityItem.innerHTML = `
+        <div class="activity-info">
+          <div class="activity-title">${vaga.titulo}</div>
+          <div class="activity-details">${vaga.empresa} • ${vaga.local}</div>
+        </div>
+        <div class="activity-badge">${vaga.modalidade}</div>
+      `;
+          activityList.appendChild(activityItem);
+        });
+      }
+
+      function atualizarTotalizadoresEstudante(vagas) {
+        const metricsGrid = document.querySelector(".metrics-grid");
+        metricsGrid.innerHTML = `
+      <div class="metric-card">
+        <div class="metric-icon">📊</div>
+        <div class="metric-content">
+          <div class="metric-label">Vagas Disponíveis</div>
+          <div class="metric-value">${vagas.length}</div>
+        </div>
+      </div>
+
+      <div class="metric-card">
+        <div class="metric-icon">📝</div>
+        <div class="metric-content">
+          <div class="metric-label">Candidaturas Enviadas</div>
+          <div class="metric-value">${Math.floor(vagas.length * 0.4)}</div>
+        </div>
+      </div>
+
+      <div class="metric-card">
+        <div class="metric-icon">⏳</div>
+        <div class="metric-content">
+          <div class="metric-label">Processos em Andamento</div>
+          <div class="metric-value">${Math.floor(vagas.length * 0.3)}</div>
+        </div>
+      </div>
+
+      <div class="metric-card">
+        <div class="metric-icon">📄</div>
+        <div class="metric-content">
+          <div class="metric-label">Currículos Enviados</div>
+          <div class="metric-value">${Math.floor(vagas.length * 0.4)}</div>
+        </div>
+      </div>
+    `;
+      }
+
+      function atualizarTotalizadoresEmpresa(vagas) {
+        const metricsGrid = document.querySelector(".metrics-grid");
+        metricsGrid.innerHTML = `
+      <div class="metric-card">
+        <div class="metric-icon">📢</div>
+        <div class="metric-content">
+          <div class="metric-label">Vagas Ativas</div>
+          <div class="metric-value">${vagas.length}</div>
+        </div>
+      </div>
+
+      <div class="metric-card">
+        <div class="metric-icon">👥</div>
+        <div class="metric-content">
+          <div class="metric-label">Total de Candidatos</div>
+          <div class="metric-value">${vagas.length * 12}</div>
+        </div>
+      </div>
+
+      <div class="metric-card">
+        <div class="metric-icon">✅</div>
+        <div class="metric-content">
+          <div class="metric-label">Candidatos Aprovados</div>
+          <div class="metric-value">${Math.floor(vagas.length * 0.5)}</div>
+        </div>
+      </div>
+
+      <div class="metric-card">
+        <div class="metric-icon">📊</div>
+        <div class="metric-content">
+          <div class="metric-label">Taxa de Preenchimento</div>
+          <div class="metric-value">${Math.floor(((vagas.length * 0.5) / vagas.length) * 100)}%</div>
+        </div>
+      </div>
+    `;
+      }
+
+      function atualizarDashboard(userType) {
+        const subtitle = document.getElementById("dashboardSubtitle");
+
+        if (userType === "estudante") {
+          subtitle.textContent =
+            "Acompanhe suas candidaturas e processos seletivos";
+          atualizarTotalizadoresEstudante(cachedData.vagas);
+          renderizarGrafico(
+            contarPorModalidade(cachedData.vagas),
+            "Vagas por Modalidade",
+          );
+          renderizarVagasRecentes(cachedData.vagas, "Vagas Disponíveis");
+        } else {
+          subtitle.textContent = "Gerencie suas vagas e acompanhe candidaturas";
+          atualizarTotalizadoresEmpresa(cachedData.vagas);
+          renderizarGrafico(
+            contarPorModalidade(cachedData.vagas),
+            "Minhas Vagas por Modalidade",
+          );
+          renderizarVagasRecentes(cachedData.vagas, "Minhas Vagas Publicadas");
+        }
+      }
+
+      async function inicializarDashboard() {
+        cachedData = await fetchData();
+        atualizarDashboard(currentUserType);
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        inicializarDashboard();
+
+        const toggleButtons = document.querySelectorAll(".toggle-btn");
+        toggleButtons.forEach((btn) => {
+          btn.addEventListener("click", () => {
+            toggleButtons.forEach((b) => b.classList.remove("active"));
+            btn.classList.add("active");
+            currentUserType = btn.dataset.type;
+            atualizarDashboard(currentUserType);
+          });
+        });
+      });
+    </script>
+  </body>
 </html>

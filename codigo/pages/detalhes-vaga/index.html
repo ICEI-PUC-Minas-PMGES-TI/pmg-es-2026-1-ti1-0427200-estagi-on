@@ -1,98 +1,16 @@
 <!doctype html>
-<html lang="pt-BR">
+<html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Detalhes da Vaga - Estagi.ON</title>
-    <link rel="stylesheet" href="../../assets/css/styles.css" />
-    <script src="../../assets/js/login.js"></script>
-    <style>
-      .vaga-card {
-        max-width: 760px;
-        margin: 30px auto;
-        background: #fff;
-        border: 1px solid #ddd;
-        border-radius: 10px;
-        padding: 30px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-      }
-      .vaga-card h1 {
-        color: #093070;
-        margin-bottom: 4px;
-      }
-      .vaga-empresa {
-        color: #ff7645;
-        font-weight: bold;
-        font-size: 1.1em;
-        margin-bottom: 16px;
-      }
-      .vaga-meta {
-        display: flex;
-        gap: 20px;
-        flex-wrap: wrap;
-        margin-bottom: 20px;
-      }
-      .vaga-meta span {
-        background: #f0f4ff;
-        border-radius: 6px;
-        padding: 4px 12px;
-        font-size: 0.9em;
-        color: #093070;
-      }
-      .vaga-bolsa {
-        font-size: 1.3em;
-        font-weight: bold;
-        color: #198754;
-        margin-bottom: 20px;
-      }
-      .vaga-secao {
-        margin-bottom: 18px;
-      }
-      .vaga-secao h3 {
-        font-size: 1em;
-        color: #093070;
-        border-bottom: 1px solid #eee;
-        padding-bottom: 4px;
-        margin-bottom: 8px;
-      }
-      .requisitos-lista {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-        list-style: none;
-        padding: 0;
-        margin: 0;
-      }
-      .requisitos-lista li {
-        background: #fff3ee;
-        border: 1px solid #ff7645;
-        border-radius: 20px;
-        padding: 3px 12px;
-        font-size: 0.88em;
-        color: #ff7645;
-      }
-      .acoes {
-        display: flex;
-        gap: 12px;
-        margin-top: 24px;
-      }
-      #msg-feedback {
-        margin-top: 14px;
-        font-weight: bold;
-        display: none;
-      }
-      #loading {
-        text-align: center;
-        padding: 40px;
-        color: #888;
-      }
-      #erro {
-        text-align: center;
-        padding: 40px;
-        color: #dc3545;
-        display: none;
-      }
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../assets/css/global.css" />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
 <div class="app-layout">
@@ -154,11 +72,12 @@
     </a>
 </aside>
 <div class="main-content">
-<main>
+<main class="container">
       <div id="loading">Carregando vaga...</div>
       <div id="erro">Vaga não encontrada.</div>
 
       <div class="vaga-card" id="vaga-container" style="display: none">
+        <a href="../../pages/listagem-vagas/index.html" class="voltar">← Voltar para vagas</a>
         <h1 id="vaga-titulo"></h1>
         <div class="vaga-empresa" id="vaga-empresa"></div>
 
@@ -180,20 +99,20 @@
           <ul class="requisitos-lista" id="vaga-requisitos"></ul>
         </div>
 
+        <div class="vaga-secao">
+          <h3>Contato</h3>
+          <p id="vaga-contato"></p>
+        </div>
+
         <div class="acoes">
-          <button class="btn btn-primary" onclick="demonstrarInteresse()">
-            ✅ Tenho interesse
-          </button>
-          <button class="btn btn-outline-danger" onclick="denunciarVaga()">
-            🚩 Denunciar vaga
-          </button>
+          <button class="btn-interesse" onclick="demonstrarInteresse()">Tenho interesse</button>
         </div>
 
         <div id="msg-feedback"></div>
       </div>
     </main>
 
-    <script src="detalhes-vaga.js"></script>
+    <script src="script.js"></script>
 </div>
 </div>
 </body>

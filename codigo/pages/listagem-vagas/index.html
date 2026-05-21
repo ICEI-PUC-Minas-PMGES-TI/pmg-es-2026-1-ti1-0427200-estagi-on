@@ -125,7 +125,6 @@
                   <button class="dropdown-btn" onclick="toggleMenu(this)">
                     Cargo ▼
                   </button>
-
                   <div class="dropdown-content">
                     <a href="#" data-area="Desenvolvedor" onclick="selecionarArea('Desenvolvedor')">Desenvolvedor</a>
                     <a href="#" data-area="RH" onclick="selecionarArea('RH')"> RH</a>
@@ -142,9 +141,18 @@
                     <a href="#" data-cidade="Belo Horizonte" onclick="selecionarCidade('Belo Horizonte')">Belo Horizonte</a>
                   </div>
                 </div>
-                <button id="limpar" class="limpar">Limpar filtros</button>
-              </div>
-
+                  <button class="dropdown-btn" onclick="toggleMenu(this)">    
+                    Modalidade ▼
+                  </button>
+                  <div class="dropdown-content">
+                    <a href="#" data-modalidade="Remoto" onclick="selecionarModalidade('Remoto')">Remoto</a>
+                    <a href="#" data-modalidade="Presencial" onclick="selecionarModalidade('Presencial')">Presencial</a>
+                    <a href="#" data-modalidade="Híbrido" onclick="selecionarModalidade('Híbrido')">Híbrido</a>
+                  </div>
+                  <button id="limpar" class="limpar">Limpar filtros</button>
+                    <div class="dropdown">
+                </div>
+                </div>
               <!-- LISTA -->
               <div class="lista" id="listaVagas">
                 <h3>Lista de vagas</h3>

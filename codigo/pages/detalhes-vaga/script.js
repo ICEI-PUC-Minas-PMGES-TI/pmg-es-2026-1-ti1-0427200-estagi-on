@@ -1,9 +1,3 @@
-const API_VAGAS = '/vagas';
-
-// Resgata o ID da vaga via query string (?id=1)
-const params = new URLSearchParams(window.location.search);
-const vagaId = parseInt(params.get('id'));
-
 function exibirVaga(vaga) {
   document.getElementById('vaga-titulo').textContent = vaga.titulo;
   document.getElementById('vaga-empresa').textContent = vaga.empresa;
@@ -12,6 +6,7 @@ function exibirVaga(vaga) {
   document.getElementById('vaga-carga').textContent = '🕐 ' + vaga.cargaHoraria;
   document.getElementById('vaga-bolsa').textContent = 'Bolsa: R$ ' + vaga.bolsa.toFixed(2) + '/mês';
   document.getElementById('vaga-descricao').textContent = vaga.descricao;
+  document.getElementById('vaga-contato').textContent = '✉️ ' + vaga.contato;
 
   const listaReq = document.getElementById('vaga-requisitos');
   vaga.requisitos.forEach(req => {
@@ -32,61 +27,28 @@ function mostrarFeedback(msg, cor) {
 }
 
 function demonstrarInteresse() {
-  const usuarioJSON = sessionStorage.getItem('usuarioCorrente');
-  const usuario = usuarioJSON ? JSON.parse(usuarioJSON) : { id: 'anonimo' };
-
+  const vaga = JSON.parse(localStorage.getItem('vagaSelecionada'));
   const interesses = JSON.parse(localStorage.getItem('interesses') || '[]');
-  const jaExiste = interesses.find(i => i.vagaId === vagaId && i.usuarioId === usuario.id);
+  const jaExiste = interesses.find(i => i.vagaId === vaga.id);
 
   if (jaExiste) {
-    mostrarFeedback('Você já demonstrou interesse nesta vaga!', '#ff7645');
+    mostrarFeedback('Você já demonstrou interesse nesta vaga!', '#06b9fc');
     return;
   }
 
-  interesses.push({ vagaId, usuarioId: usuario.id, data: new Date().toISOString() });
+  interesses.push({ vagaId: vaga.id, data: new Date().toISOString() });
   localStorage.setItem('interesses', JSON.stringify(interesses));
-  mostrarFeedback('Interesse registrado com sucesso!', '#198754');
+  mostrarFeedback('Interesse registrado com sucesso!', '#0598ce');
 }
 
-function denunciarVaga() {
-  const usuarioJSON = sessionStorage.getItem('usuarioCorrente');
-  const usuario = usuarioJSON ? JSON.parse(usuarioJSON) : { id: 'anonimo' };
-
-  const denuncias = JSON.parse(localStorage.getItem('denuncias') || '[]');
-  const jaExiste = denuncias.find(d => d.vagaId === vagaId && d.usuarioId === usuario.id);
-
-  if (jaExiste) {
-    mostrarFeedback('Você já denunciou esta vaga.', '#ff7645');
-    return;
-  }
-
-  denuncias.push({ vagaId, usuarioId: usuario.id, data: new Date().toISOString() });
-  localStorage.setItem('denuncias', JSON.stringify(denuncias));
-  mostrarFeedback('Vaga denunciada. Obrigado pelo aviso!', '#dc3545');
-}
-
-// Carrega as vagas e encontra pelo ID
 document.addEventListener('DOMContentLoaded', () => {
-  if (!vagaId) {
+  const vaga = JSON.parse(localStorage.getItem('vagaSelecionada'));
+
+  if (!vaga) {
     document.getElementById('loading').style.display = 'none';
     document.getElementById('erro').style.display = 'block';
     return;
   }
 
-  fetch(API_VAGAS)
-    .then(res => res.json())
-    .then(vagas => {
-      const vaga = vagas.find(v => v.id === vagaId);
-      if (!vaga) {
-        document.getElementById('loading').style.display = 'none';
-        document.getElementById('erro').style.display = 'block';
-        return;
-      }
-      exibirVaga(vaga);
-    })
-    .catch(() => {
-      document.getElementById('loading').style.display = 'none';
-      document.getElementById('erro').textContent = 'Erro ao carregar a vaga.';
-      document.getElementById('erro').style.display = 'block';
-    });
+  exibirVaga(vaga);
 });
