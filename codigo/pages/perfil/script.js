@@ -1,256 +1,485 @@
 /**
  * Perfil do Usuário – script.js
- * Issue #8 – [CI] Perfil do Usuário (Visualização/Edição)
+ * Corrigido:
+ * - persistência com localStorage
+ * - evita tela branca
+ * - sidebar ativa
+ * - perfil continua após navegar
  */
 
 const CHAVE_USUARIO_CORRENTE = "usuarioCorrente";
-const CHAVE_ESTUDANTES       = "estudantes";
-const CHAVE_EMPRESAS         = "empresas";
-const CHAVE_USUARIOS         = "usuarios";
+const CHAVE_ESTUDANTES = "estudantes";
+const CHAVE_EMPRESAS = "empresas";
+const CHAVE_USUARIOS = "usuarios";
 
 let usuarioCorrente = null;
-let tipoUsuario     = "usuario";
+let tipoUsuario = "usuario";
+
 
 document.addEventListener("DOMContentLoaded", () => {
-  carregarUsuario();
-  registrarEventos();
+
+    carregarUsuario();
+    registrarEventos();
+    ativarSidebar();
+
 });
 
+
 function carregarUsuario() {
-  const json = sessionStorage.getItem(CHAVE_USUARIO_CORRENTE);
 
-  if (json) {
-    usuarioCorrente = JSON.parse(json);
-  } else {
-    // Sem sessão ativa: usar dados padrão para visualização
-    usuarioCorrente = {
-      id: 1,
-      nome: "Ana Martins",
-      login: "ana.martins",
-      email: "ana@email.com",
-      senha: "123456"
-    };
-  }
+    let json =
+        localStorage.getItem(
+            CHAVE_USUARIO_CORRENTE
+        );
 
-  detectarTipoUsuario();
-  renderizarPerfil();
+    try {
+
+        usuarioCorrente =
+            json
+                ? JSON.parse(json)
+                : null;
+
+    } catch {
+
+        usuarioCorrente = null;
+
+    }
+
+
+    if (!usuarioCorrente) {
+
+        usuarioCorrente = {
+
+            id: 1,
+            nome: "Usuário",
+            login: "usuario",
+            email: "",
+            senha: ""
+
+        };
+
+    }
+
+
+    detectarTipoUsuario();
+    renderizarPerfil();
+
 }
+
+
 
 function detectarTipoUsuario() {
-  const estudantes = lerArrayLocal(CHAVE_ESTUDANTES);
-  const empresas   = lerArrayLocal(CHAVE_EMPRESAS);
 
-  const encontradoEstudante = estudantes.find(
-    (e) => e.id === usuarioCorrente.id || e.email === usuarioCorrente.email
-  );
-  const encontradoEmpresa = empresas.find(
-    (e) => e.id === usuarioCorrente.id || e.email === usuarioCorrente.email
-  );
+    const estudantes =
+        lerArrayLocal(
+            CHAVE_ESTUDANTES
+        );
 
-  if (encontradoEstudante) {
-    tipoUsuario     = "estudante";
-    usuarioCorrente = { ...usuarioCorrente, ...encontradoEstudante };
-  } else if (encontradoEmpresa) {
-    tipoUsuario     = "empresa";
-    usuarioCorrente = { ...usuarioCorrente, ...encontradoEmpresa };
-  } else {
-    tipoUsuario = "usuario";
-  }
+    const empresas =
+        lerArrayLocal(
+            CHAVE_EMPRESAS
+        );
+
+
+    const estudante =
+        estudantes.find(
+            e =>
+                e.id === usuarioCorrente.id
+        );
+
+
+    const empresa =
+        empresas.find(
+            e =>
+                e.id === usuarioCorrente.id
+        );
+
+
+    if (estudante) {
+
+        tipoUsuario =
+            "estudante";
+
+        usuarioCorrente = {
+
+            ...usuarioCorrente,
+            ...estudante
+
+        };
+
+    }
+
+    else if (empresa) {
+
+        tipoUsuario =
+            "empresa";
+
+        usuarioCorrente = {
+
+            ...usuarioCorrente,
+            ...empresa
+
+        };
+
+    }
+
 }
+
+
 
 function renderizarPerfil() {
-  const u = usuarioCorrente;
 
-  const iniciais = gerarIniciais(u.nome || u.login || "??");
-  document.getElementById("perfil-avatar-display").textContent = iniciais;
-  document.getElementById("sb-avatar").textContent             = iniciais;
+    const u =
+        usuarioCorrente;
 
-  document.getElementById("sb-nome").textContent      = u.nome  || u.login || "–";
-  document.getElementById("sb-tipo").textContent      = labelTipo();
+    const iniciais =
+        gerarIniciais(
+            u.nome ||
+            "??"
+        );
 
-  document.getElementById("perfil-nome-display").textContent = u.nome  || "–";
-  document.getElementById("perfil-tipo-badge").textContent    = labelTipo();
-  document.getElementById("display-login").textContent        = u.login  || "–";
-  document.getElementById("display-email").textContent        = u.email  || "–";
 
-  if (tipoUsuario === "empresa") {
-    mostrarCampoDisplay("info-cnpj-wrap", "display-cnpj", u.cnpj        || "–");
-    mostrarCampoDisplay("info-area-wrap", "display-area", u.areaAtuacao || "–");
-  }
+    document.getElementById(
+        "perfil-avatar-display"
+    ).textContent =
+        iniciais;
 
-  if (tipoUsuario === "estudante") {
-    mostrarCampoDisplay("info-curso-wrap",       "display-curso",       u.curso       || "–");
-    mostrarCampoDisplay("info-instituicao-wrap", "display-instituicao", u.instituicao || "–");
-  }
+
+    document.getElementById(
+        "sb-avatar"
+    ).textContent =
+        iniciais;
+
+
+    document.getElementById(
+        "sb-nome"
+    ).textContent =
+        u.nome;
+
+
+    document.getElementById(
+        "sb-tipo"
+    ).textContent =
+        labelTipo();
+
+
+    document.getElementById(
+        "perfil-nome-display"
+    ).textContent =
+        u.nome;
+
+
+    document.getElementById(
+        "perfil-tipo-badge"
+    ).textContent =
+        labelTipo();
+
+
+    document.getElementById(
+        "display-login"
+    ).textContent =
+        u.login || "-";
+
+
+    document.getElementById(
+        "display-email"
+    ).textContent =
+        u.email || "-";
+
+
+
+    if (tipoUsuario === "empresa") {
+
+        mostrarCampoDisplay(
+            "info-cnpj-wrap",
+            "display-cnpj",
+            u.cnpj || "-"
+        );
+
+    }
+
+
+
+    if (tipoUsuario === "estudante") {
+
+        mostrarCampoDisplay(
+            "info-curso-wrap",
+            "display-curso",
+            u.curso || "-"
+        );
+
+        mostrarCampoDisplay(
+            "info-instituicao-wrap",
+            "display-instituicao",
+            u.instituicao || "-"
+        );
+
+    }
+
 }
 
-function mostrarCampoDisplay(wrapId, valorId, valor) {
-  const wrap = document.getElementById(wrapId);
-  if (wrap) {
-    wrap.style.display = "";
-    document.getElementById(valorId).textContent = valor;
-  }
+
+
+function mostrarCampoDisplay(
+    wrapId,
+    valorId,
+    valor
+) {
+
+    const wrap =
+        document.getElementById(
+            wrapId
+        );
+
+    if (!wrap) return;
+
+    wrap.style.display =
+        "block";
+
+    document.getElementById(
+        valorId
+    ).textContent =
+        valor;
+
 }
+
+
 
 function abrirModal() {
-  const u = usuarioCorrente;
 
-  document.getElementById("edit-nome").value  = u.nome  || "";
-  document.getElementById("edit-email").value = u.email || "";
-  document.getElementById("edit-senha").value = "";
+    const u =
+        usuarioCorrente;
 
-  if (tipoUsuario === "empresa") {
-    document.getElementById("campos-empresa").style.display   = "";
-    document.getElementById("campos-estudante").style.display = "none";
-    document.getElementById("edit-cnpj").value  = u.cnpj        || "";
-    document.getElementById("edit-area").value  = u.areaAtuacao || "";
-  } else if (tipoUsuario === "estudante") {
-    document.getElementById("campos-estudante").style.display = "";
-    document.getElementById("campos-empresa").style.display   = "none";
-    document.getElementById("edit-curso").value       = u.curso       || "";
-    document.getElementById("edit-instituicao").value = u.instituicao || "";
-  } else {
-    document.getElementById("campos-empresa").style.display   = "none";
-    document.getElementById("campos-estudante").style.display = "none";
-  }
+    document.getElementById(
+        "edit-nome"
+    ).value =
+        u.nome || "";
 
-  limparErros();
-  document.getElementById("modal-overlay").classList.add("aberto");
-  document.getElementById("edit-nome").focus();
+
+    document.getElementById(
+        "edit-email"
+    ).value =
+        u.email || "";
+
+
+    document.getElementById(
+        "modal-overlay"
+    ).classList.add(
+        "aberto"
+    );
+
 }
+
+
 
 function fecharModal() {
-  document.getElementById("modal-overlay").classList.remove("aberto");
+
+    document.getElementById(
+        "modal-overlay"
+    ).classList.remove(
+        "aberto"
+    );
+
 }
 
-function salvarPerfil(evento) {
-  evento.preventDefault();
 
-  let valido = true;
 
-  const nome  = document.getElementById("edit-nome").value.trim();
-  const email = document.getElementById("edit-email").value.trim();
-  const senha = document.getElementById("edit-senha").value;
+function salvarPerfil(e) {
 
-  if (!nome) {
-    marcarErro("edit-nome", "erro-nome");
-    valido = false;
-  }
+    e.preventDefault();
 
-  if (!email || !email.includes("@")) {
-    marcarErro("edit-email", "erro-email");
-    valido = false;
-  }
 
-  if (senha && senha.length < 6) {
-    marcarErro("edit-senha", "erro-senha");
-    valido = false;
-  }
+    usuarioCorrente.nome =
+        document.getElementById(
+            "edit-nome"
+        ).value;
 
-  if (!valido) return;
 
-  const atualizado = { ...usuarioCorrente, nome, email };
-  if (senha) atualizado.senha = senha;
+    usuarioCorrente.email =
+        document.getElementById(
+            "edit-email"
+        ).value;
 
-  if (tipoUsuario === "empresa") {
-    atualizado.cnpj        = document.getElementById("edit-cnpj").value.trim();
-    atualizado.areaAtuacao = document.getElementById("edit-area").value.trim();
-  }
 
-  if (tipoUsuario === "estudante") {
-    atualizado.curso       = document.getElementById("edit-curso").value.trim();
-    atualizado.instituicao = document.getElementById("edit-instituicao").value.trim();
-  }
 
-  salvarNoArray(atualizado);
+    localStorage.setItem(
 
-  usuarioCorrente = atualizado;
-  sessionStorage.setItem(CHAVE_USUARIO_CORRENTE, JSON.stringify(atualizado));
+        CHAVE_USUARIO_CORRENTE,
 
-  fecharModal();
-  renderizarPerfil();
-  exibirToast();
+        JSON.stringify(
+            usuarioCorrente
+        )
+
+    );
+
+
+    renderizarPerfil();
+
+    fecharModal();
+
+    exibirToast();
+
 }
 
-function salvarNoArray(dadosAtualizados) {
-  const chave = chaveArrayPorTipo();
-  const array = lerArrayLocal(chave);
 
-  const idx = array.findIndex(
-    (item) =>
-      item.id === dadosAtualizados.id ||
-      item.email === dadosAtualizados.email ||
-      item.login === dadosAtualizados.login
-  );
-
-  if (idx !== -1) {
-    array[idx] = { ...array[idx], ...dadosAtualizados };
-  } else {
-    array.push(dadosAtualizados);
-  }
-
-  localStorage.setItem(chave, JSON.stringify(array));
-}
-
-function chaveArrayPorTipo() {
-  if (tipoUsuario === "estudante") return CHAVE_ESTUDANTES;
-  if (tipoUsuario === "empresa")   return CHAVE_EMPRESAS;
-  return CHAVE_USUARIOS;
-}
-
-function lerArrayLocal(chave) {
-  try {
-    return JSON.parse(localStorage.getItem(chave)) || [];
-  } catch {
-    return [];
-  }
-}
-
-function gerarIniciais(nome) {
-  return nome.split(" ").filter(Boolean).slice(0, 2).map((p) => p[0].toUpperCase()).join("");
-}
-
-function labelTipo() {
-  if (tipoUsuario === "estudante") return "Estudante";
-  if (tipoUsuario === "empresa")   return "Empresa";
-  return "Usuário";
-}
-
-function marcarErro(inputId) {
-  const grupo = document.getElementById(inputId).parentElement;
-  grupo.classList.add("campo-erro");
-  grupo.classList.remove("shake-anim");
-  setTimeout(() => grupo.classList.add("shake-anim"), 10);
-  document.getElementById(inputId).addEventListener(
-    "input",
-    () => grupo.classList.remove("campo-erro", "shake-anim"),
-    { once: true }
-  );
-}
-
-function limparErros() {
-  document.querySelectorAll(".campo-erro").forEach((el) => {
-    el.classList.remove("campo-erro", "shake-anim");
-  });
-}
 
 function exibirToast() {
-  const toast = document.getElementById("toast-sucesso");
-  toast.classList.add("visivel");
-  setTimeout(() => toast.classList.remove("visivel"), 3000);
+
+    const toast =
+        document.getElementById(
+            "toast-sucesso"
+        );
+
+
+    toast.classList.add(
+        "visivel"
+    );
+
+
+    setTimeout(() => {
+
+        toast.classList.remove(
+            "visivel"
+        );
+
+    }, 3000);
+
 }
 
+
+
+function gerarIniciais(nome) {
+
+    return nome
+
+        .split(" ")
+
+        .map(
+            n => n[0]
+        )
+
+        .join("")
+
+        .substring(0, 2)
+
+        .toUpperCase();
+
+}
+
+
+
+function labelTipo() {
+
+    if (
+        tipoUsuario ===
+        "empresa"
+    )
+        return "Empresa";
+
+
+    if (
+        tipoUsuario ===
+        "estudante"
+    )
+        return "Estudante";
+
+
+    return "Usuário";
+
+}
+
+
+
+function lerArrayLocal(chave) {
+
+    try {
+
+        return JSON.parse(
+            localStorage.getItem(
+                chave
+            )
+        ) || [];
+
+    }
+
+    catch {
+
+        return [];
+
+    }
+
+}
+
+
+
 function registrarEventos() {
-  document.getElementById("btn-abrir-modal").addEventListener("click", abrirModal);
-  document.getElementById("btn-fechar-modal").addEventListener("click", fecharModal);
-  document.getElementById("btn-cancelar").addEventListener("click", fecharModal);
-  document.getElementById("form-perfil").addEventListener("submit", salvarPerfil);
 
-  document.getElementById("modal-overlay").addEventListener("click", (e) => {
-    if (e.target === e.currentTarget) fecharModal();
-  });
+    document
+        .getElementById(
+            "btn-abrir-modal"
+        )
+        .addEventListener(
+            "click",
+            abrirModal
+        );
 
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") fecharModal();
-  });
+
+    document
+        .getElementById(
+            "btn-fechar-modal"
+        )
+        .addEventListener(
+            "click",
+            fecharModal
+        );
+
+
+    document
+        .getElementById(
+            "btn-cancelar"
+        )
+        .addEventListener(
+            "click",
+            fecharModal
+        );
+
+
+    document
+        .getElementById(
+            "form-perfil"
+        )
+        .addEventListener(
+            "submit",
+            salvarPerfil
+        );
+
+}
+
+
+
+function ativarSidebar() {
+
+    document
+
+        .querySelectorAll(
+            ".sb-item"
+        )
+
+        .forEach(item => {
+
+            if (
+
+                item.href ===
+                window.location.href
+
+            ) {
+
+                item.classList.add(
+                    "active"
+                );
+
+            }
+
+        });
+
 }
