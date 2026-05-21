@@ -110,7 +110,7 @@
 }
 
 .btn-interesse {
-  padding: 10px 20px;
+  padding: 10px 24px;
   background: #06b9fc;
   color: white;
   border: none;
@@ -123,22 +123,6 @@
 
 .btn-interesse:hover {
   background: #0598ce;
-}
-
-.btn-denunciar {
-  padding: 10px 20px;
-  background: transparent;
-  color: #e24b4a;
-  border: 1px solid #e24b4a;
-  border-radius: 6px;
-  font-family: "DM Sans", sans-serif;
-  font-weight: 500;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-
-.btn-denunciar:hover {
-  background: #fff0f0;
 }
 
 #msg-feedback {
