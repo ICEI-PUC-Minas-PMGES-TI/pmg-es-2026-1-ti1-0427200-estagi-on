@@ -6,6 +6,7 @@ function exibirVaga(vaga) {
   document.getElementById('vaga-carga').textContent = '🕐 ' + vaga.cargaHoraria;
   document.getElementById('vaga-bolsa').textContent = 'Bolsa: R$ ' + vaga.bolsa.toFixed(2) + '/mês';
   document.getElementById('vaga-descricao').textContent = vaga.descricao;
+  document.getElementById('vaga-contato').textContent = '✉️ ' + vaga.contato;
 
   const listaReq = document.getElementById('vaga-requisitos');
   vaga.requisitos.forEach(req => {
@@ -38,21 +39,6 @@ function demonstrarInteresse() {
   interesses.push({ vagaId: vaga.id, data: new Date().toISOString() });
   localStorage.setItem('interesses', JSON.stringify(interesses));
   mostrarFeedback('Interesse registrado com sucesso!', '#0598ce');
-}
-
-function denunciarVaga() {
-  const vaga = JSON.parse(localStorage.getItem('vagaSelecionada'));
-  const denuncias = JSON.parse(localStorage.getItem('denuncias') || '[]');
-  const jaExiste = denuncias.find(d => d.vagaId === vaga.id);
-
-  if (jaExiste) {
-    mostrarFeedback('Você já denunciou esta vaga.', '#06b9fc');
-    return;
-  }
-
-  denuncias.push({ vagaId: vaga.id, data: new Date().toISOString() });
-  localStorage.setItem('denuncias', JSON.stringify(denuncias));
-  mostrarFeedback('Vaga denunciada. Obrigado pelo aviso!', '#e24b4a');
 }
 
 document.addEventListener('DOMContentLoaded', () => {
