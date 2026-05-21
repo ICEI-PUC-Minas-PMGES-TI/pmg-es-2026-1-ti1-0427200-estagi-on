@@ -1,25 +1,182 @@
-const formEmpresa = document.getElementById("form-empresa");
+import {
 
-formEmpresa.addEventListener("submit", function (evento) {
-  evento.preventDefault();
+validarEmail,
+validarSenha,
+validarCNPJ,
 
-  const inputCnpj = document.getElementById("cnpj");
-  const grupoCnpj = inputCnpj.parentElement;
+mostrarErro,
+limparErro
 
-  if (inputCnpj.value.trim() === "") {
-    grupoCnpj.classList.add("campo-erro");
+}
 
-    grupoCnpj.classList.remove("shake-anim");
-    setTimeout(() => {
-      grupoCnpj.classList.add("shake-anim");
-    }, 10);
-  } else {
-    grupoCnpj.classList.remove("campo-erro", "shake-anim");
-    alert("Empresa cadastrada com sucesso com as diretrizes do Estagi.ON!");
-    formEmpresa.reset();
-  }
+from
+
+"../../assets/js/validation.js";
+
+
+document
+
+.addEventListener(
+
+"DOMContentLoaded",
+
+()=>{
+
+
+const form =
+document.querySelector(
+"form"
+);
+
+
+if(!form)
+return;
+
+
+
+form.addEventListener(
+
+"submit",
+
+e=>{
+
+e.preventDefault();
+
+
+const nome =
+document.getElementById(
+"nome"
+);
+
+
+const email =
+document.getElementById(
+"email"
+);
+
+
+const senha =
+document.getElementById(
+"senha"
+);
+
+
+const cnpj =
+document.getElementById(
+"cnpj"
+);
+
+
+
+[nome,email,senha,cnpj]
+
+.forEach(
+limparErro
+);
+
+
+
+let valido =
+true;
+
+
+
+if(
+
+nome.value.trim()
+.length < 3
+
+){
+
+mostrarErro(
+
+nome,
+
+"Nome muito curto"
+
+);
+
+valido=false;
+
+}
+
+
+
+if(
+
+!validarEmail(
+email.value
+)
+
+){
+
+mostrarErro(
+
+email,
+
+"E-mail inválido"
+
+);
+
+valido=false;
+
+}
+
+
+
+if(
+
+!validarSenha(
+senha.value
+)
+
+){
+
+mostrarErro(
+
+senha,
+
+"Senha fraca"
+
+);
+
+valido=false;
+
+}
+
+
+
+if(
+
+!validarCNPJ(
+cnpj.value
+)
+
+){
+
+mostrarErro(
+
+cnpj,
+
+"CNPJ inválido"
+
+);
+
+valido=false;
+
+}
+
+
+
+if(valido){
+
+form.submit();
+
+}
+
+
+
 });
 
-document.getElementById("cnpj").addEventListener("input", function () {
-  this.parentElement.classList.remove("campo-erro", "shake-anim");
+
 });

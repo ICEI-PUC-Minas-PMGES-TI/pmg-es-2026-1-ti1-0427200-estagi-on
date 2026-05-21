@@ -74,3 +74,41 @@ textarea,
 select {
   font: inherit;
 }
+.input-erro{
+
+border:
+
+1px solid #ef4444
+!important;
+
+box-shadow:
+
+0 0 0 3px
+
+rgba(
+239,
+68,
+68,
+.15
+);
+
+}
+
+
+
+.erro-texto{
+
+display:block;
+
+margin-top:6px;
+
+font-size:12px;
+
+font-family:
+"DM Sans";
+
+color:
+
+#ef4444;
+
+}

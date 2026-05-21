@@ -1,94 +1,368 @@
 <!doctype html>
+
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cadastro Corporativo – Estagi.ON</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="cadastro-empresas.css" />
-  </head>
-  <body class="fundo-cadastro">
-    <div class="cadastro-container">
-      <div class="cadastro-card">
-        <div class="card-linha-acento"></div>
 
-        <div class="cadastro-cabecalho">
-          <h1 class="cadastro-titulo">Cadastro Corporativo</h1>
-          <p class="cadastro-subtitulo">
-            Insira os dados da sua empresa para acessar a plataforma
-          </p>
-        </div>
+<head>
 
-        <form id="form-empresa">
-          <div class="campo-grupo">
-            <label class="campo-rotulo" for="razao-social"
-              >Razão Social *</label
-            >
-            <input
-              class="campo-entrada"
-              type="text"
-              id="razao-social"
-              placeholder="Ex: TechSolutions Ltda"
-              required
-            />
-          </div>
+<meta charset="UTF-8">
 
-          <div class="campo-grupo">
-            <label class="campo-rotulo" for="cnpj">CNPJ *</label>
-            <input
-              class="campo-entrada"
-              type="text"
-              id="cnpj"
-              placeholder="00.000.000/0000-00"
-            />
-            <span class="erro-mensagem" id="erro-cnpj"
-              >O campo CNPJ não pode estar vazio.</span
-            >
-          </div>
+<meta name="viewport"
+content="width=device-width,initial-scale=1">
 
-          <div class="campo-grupo">
-            <label class="campo-rotulo" for="area-atuacao"
-              >Área de Atuação</label
-            >
-            <input
-              class="campo-entrada"
-              type="text"
-              id="area-atuacao"
-              placeholder="Ex: Tecnologia da Informação"
-            />
-          </div>
+<title>
+Cadastro Empresa
+</title>
 
-          <div class="campo-grupo">
-            <label class="campo-rotulo" for="email">E-mail Corporativo *</label>
-            <input
-              class="campo-entrada"
-              type="email"
-              id="email"
-              placeholder="nome@empresa.com"
-              required
-            />
-          </div>
+<link
+rel="stylesheet"
+href="cadastro-empresas.css">
 
-          <div class="campo-grupo">
-            <label class="campo-rotulo" for="senha">Senha de Acesso *</label>
-            <input
-              class="campo-entrada"
-              type="password"
-              id="senha"
-              placeholder="No mínimo 6 caracteres"
-              required
-            />
-          </div>
 
-          <button type="submit" class="btn-cadastro-corporativo">
-            Criar Conta Corporativa
-          </button>
-        </form>
-      </div>
-    </div>
-  </body>
+<style>
+
+.input-erro{
+
+border:
+1px solid red
+!important;
+
+}
+
+
+.erro-texto{
+
+font-size:12px;
+
+color:red;
+
+display:block;
+
+margin-top:5px;
+
+}
+
+</style>
+
+</head>
+
+
+
+<body
+class="fundo-cadastro">
+
+
+<div
+class="cadastro-container">
+
+<div
+class="cadastro-card">
+
+
+<form
+id="form-empresa">
+
+
+<div class="campo-grupo">
+
+<label>
+
+Razão Social
+
+</label>
+
+<input
+
+id="razao-social"
+
+class="campo-entrada">
+
+</div>
+
+
+
+<div class="campo-grupo">
+
+<label>
+
+CNPJ
+
+</label>
+
+<input
+
+id="cnpj"
+
+class="campo-entrada">
+
+</div>
+
+
+
+<div class="campo-grupo">
+
+<label>
+
+Email
+
+</label>
+
+<input
+
+id="email"
+
+class="campo-entrada">
+
+</div>
+
+
+
+<div class="campo-grupo">
+
+<label>
+
+Senha
+
+</label>
+
+<input
+
+id="senha"
+
+type="password"
+
+class="campo-entrada">
+
+</div>
+
+
+
+<button
+class="btn-cadastro-corporativo">
+
+Cadastrar
+
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+
+
+<script>
+
+function erro(
+input,
+texto
+){
+
+limpar(input);
+
+input.classList.add(
+"input-erro"
+);
+
+
+let span =
+document.createElement(
+"span"
+);
+
+span.className =
+"erro-texto";
+
+span.innerText =
+texto;
+
+input.parentElement
+.appendChild(
+span
+);
+
+}
+
+
+
+function limpar(
+input
+){
+
+input.classList.remove(
+"input-erro"
+);
+
+const e =
+input.parentElement
+.querySelector(
+".erro-texto"
+);
+
+if(e)
+e.remove();
+
+}
+
+
+
+document
+
+.getElementById(
+"form-empresa"
+)
+
+.addEventListener(
+
+"submit",
+
+e=>{
+
+e.preventDefault();
+
+
+const nome =
+document.getElementById(
+"razao-social"
+);
+
+
+const cnpj =
+document.getElementById(
+"cnpj"
+);
+
+
+const email =
+document.getElementById(
+"email"
+);
+
+
+const senha =
+document.getElementById(
+"senha"
+);
+
+
+
+[nome,cnpj,email,senha]
+
+.forEach(
+limpar
+);
+
+
+let valido =
+true;
+
+
+
+if(
+nome.value.length<3
+){
+
+erro(
+
+nome,
+
+"Nome inválido"
+
+);
+
+valido=false;
+
+}
+
+
+
+if(
+
+!/\S+@\S+\.\S+/
+
+.test(
+email.value
+)
+
+){
+
+erro(
+
+email,
+
+"E-mail inválido"
+
+);
+
+valido=false;
+
+}
+
+
+
+if(
+
+cnpj.value
+.replace(/\D/g,'')
+
+.length!==14
+
+){
+
+erro(
+
+cnpj,
+
+"CNPJ inválido"
+
+);
+
+valido=false;
+
+}
+
+
+
+if(
+
+!/^(?=.*[A-Za-z])(?=.*\d).{6,}$/
+
+.test(
+
+senha.value
+
+)
+
+){
+
+erro(
+
+senha,
+
+"Senha fraca"
+
+);
+
+valido=false;
+
+}
+
+
+
+if(valido){
+
+alert(
+"Cadastro realizado"
+);
+
+}
+
+
+});
+
+</script>
+
+
+</body>
+
 </html>
