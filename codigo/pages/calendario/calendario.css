@@ -21,228 +21,17 @@ body {
 /* ═══════════════════════════════════════════
    LAYOUT PRINCIPAL
 ═══════════════════════════════════════════ */
-.pagina {
-  display: grid;
-  grid-template-columns: 240px 1fr;
-  grid-template-rows: 58px 1fr;
+.main-content {
+  display: flex;
+  flex-direction: column;
   height: 100vh;
-}
-
-/* ═══════════════════════════════════════════
-   BARRA LATERAL
-═══════════════════════════════════════════ */
-.lateral {
-  grid-row: 1 / -1;
-  background: #0f2d52;
-  display: flex;
-  flex-direction: column;
   overflow: hidden;
-  position: relative;
-}
-
-.lateral::after {
-  content: "";
-  position: absolute;
-  bottom: -70px;
-  right: -70px;
-  width: 220px;
-  height: 220px;
-  border-radius: 50%;
-  background: #ef9f27;
-  opacity: 0.06;
-  pointer-events: none;
-}
-
-.lateral-logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 24px 20px 20px;
-  border-bottom: 0.5px solid rgba(255, 255, 255, 0.08);
-  flex-shrink: 0;
-}
-
-.lateral-logo-icone {
-  width: 34px;
-  height: 34px;
-  background: #ef9f27;
-  border-radius: 9px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-.lateral-logo-icone svg {
-  width: 18px;
-  height: 18px;
-}
-
-.lateral-logo-nome {
-  font-size: 15px;
-  font-weight: 500;
-  color: #fff;
-  letter-spacing: -0.3px;
-}
-
-.lateral-menu {
-  flex: 1;
-  padding: 16px 0;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  overflow-y: auto;
-  scrollbar-width: none;
-}
-
-.lateral-menu::-webkit-scrollbar {
-  display: none;
-}
-
-.lateral-secao {
-  font-size: 9px;
-  font-weight: 500;
-  color: #378add;
-  letter-spacing: 1.4px;
-  text-transform: uppercase;
-  padding: 10px 20px 6px;
-}
-
-.lateral-item {
-  display: flex;
-  align-items: center;
-  gap: 11px;
-  padding: 10px 20px;
-  cursor: pointer;
-  border-right: 2.5px solid transparent;
-  text-decoration: none;
-  transition:
-    background 0.14s,
-    border-color 0.14s;
-}
-
-.lateral-item:hover {
-  background: rgba(255, 255, 255, 0.06);
-}
-
-.lateral-item.ativo {
-  background: rgba(239, 159, 39, 0.13);
-  border-right-color: #ef9f27;
-}
-
-.lateral-item-icone {
-  width: 20px;
-  height: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-.lateral-item-icone svg {
-  width: 17px;
-  height: 17px;
-  stroke: #85b7eb;
-  fill: none;
-  stroke-width: 1.6;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  transition: stroke 0.14s;
-}
-
-.lateral-item.ativo .lateral-item-icone svg,
-.lateral-item:hover .lateral-item-icone svg {
-  stroke: #fff;
-}
-
-.lateral-item-nome {
-  font-size: 13px;
-  font-weight: 400;
-  color: #85b7eb;
-  transition: color 0.14s;
-  flex: 1;
-}
-
-.lateral-item.ativo .lateral-item-nome,
-.lateral-item:hover .lateral-item-nome {
-  color: #fff;
-}
-
-.lateral-item.ativo .lateral-item-nome {
-  font-weight: 500;
-}
-
-.lateral-divisor {
-  height: 0.5px;
-  background: rgba(255, 255, 255, 0.08);
-  margin: 8px 20px;
-}
-
-.lateral-rodape {
-  flex-shrink: 0;
-  padding: 16px 20px;
-  border-top: 0.5px solid rgba(255, 255, 255, 0.08);
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  cursor: pointer;
-  transition: background 0.12s;
-}
-
-.lateral-rodape:hover {
-  background: rgba(255, 255, 255, 0.04);
-}
-
-.lateral-usuario-avatar {
-  width: 34px;
-  height: 34px;
-  border-radius: 50%;
-  background: #ef9f27;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 12px;
-  font-weight: 500;
-  color: #633806;
-  flex-shrink: 0;
-}
-
-.lateral-usuario-info {
-  flex: 1;
-  min-width: 0;
-}
-
-.lateral-usuario-nome {
-  font-size: 12px;
-  font-weight: 500;
-  color: #fff;
-}
-
-.lateral-usuario-tipo {
-  font-size: 10px;
-  color: #85b7eb;
-  margin-top: 1px;
-}
-
-.lateral-sair-icone {
-  opacity: 0.4;
-}
-
-.lateral-sair-icone svg {
-  width: 15px;
-  height: 15px;
-  stroke: #fff;
-  fill: none;
-  stroke-width: 1.6;
-  stroke-linecap: round;
-  stroke-linejoin: round;
 }
 
 /* ═══════════════════════════════════════════
    TOPO
 ═══════════════════════════════════════════ */
 .topo {
-  grid-column: 2;
   background: #fff;
   border-bottom: 0.5px solid #d3d1c7;
   display: flex;
@@ -250,7 +39,8 @@ body {
   padding: 0 28px;
   gap: 16px;
   height: 58px;
-  position: relative; /* <-- ADICIONE ESTA LINHA */
+  flex-shrink: 0;
+  position: relative;
 }
 
 .topo-titulo {
@@ -346,11 +136,11 @@ body {
    ÁREA DE CONTEÚDO
 ═══════════════════════════════════════════ */
 .conteudo {
-  grid-column: 2;
   background: #f5f4f0;
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  flex: 1;
 }
 
 /* ═══════════════════════════════════════════
