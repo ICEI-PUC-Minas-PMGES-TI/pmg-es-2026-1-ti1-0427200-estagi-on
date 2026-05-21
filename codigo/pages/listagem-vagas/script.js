@@ -1,4 +1,4 @@
-let vagas = [
+let vagasPadrao = [
     { id: 1, titulo: "Estágio em Desenvolvimento Web", empresa: "TechSolutions Ltda", area: "Desenvolvedor", local: "Belo Horizonte - MG", modalidade: "Híbrido", cargaHoraria: "20h semanais", bolsa: 1200, descricao: "Buscamos estudante de TI para atuar no desenvolvimento de interfaces web modernas, participando de projetos reais com equipe ágil.", requisitos: ["HTML/CSS", "JavaScript", "Git"], contato: "rh@techsolutions.com.br" },
     { id: 2, titulo: "Estágio em Análise de Dados", empresa: "DataMind S.A.", area: "Dados", local: "Remoto", modalidade: "Remoto", cargaHoraria: "30h semanais", bolsa: 1500, descricao: "Oportunidade para estudantes de Ciência da Computação, Estatística ou áreas afins para atuar com análise e visualização de dados.", requisitos: ["Python", "Excel", "SQL"], contato: "vagas@datamind.com.br" },
     { id: 3, titulo: "Estágio em UX/UI Design", empresa: "Criativa Agency", area: "Design", local: "São Paulo - SP", modalidade: "Presencial", cargaHoraria: "20h semanais", bolsa: 1000, descricao: "Vaga para estudante com interesse em design de experiência do usuário, criação de protótipos e pesquisa com usuários.", requisitos: ["Figma", "Noções de UX", "Criatividade"], contato: "design@criativaagency.com.br" },
@@ -7,8 +7,15 @@ let vagas = [
     { id: 6, titulo: "Suporte TI", empresa: "NetBase Soluções", area: "Desenvolvedor", local: "Belo Horizonte - MG", modalidade: "Híbrido", cargaHoraria: "20h semanais", bolsa: 950, descricao: "Vaga para estudante de TI para atuar no suporte técnico interno, auxiliando na manutenção de equipamentos e resolução de chamados.", requisitos: ["Windows", "Redes", "Lógica"], contato: "ti@netbase.com.br" },
     { id: 7, titulo: "Designer", empresa: "Pixel Studio", area: "Design", local: "Betim - MG", modalidade: "Remoto", cargaHoraria: "20h semanais", bolsa: 1050, descricao: "Buscamos estudante de Design ou áreas criativas para atuar na produção de peças gráficas digitais e materiais de marketing.", requisitos: ["Photoshop", "Illustrator", "Criatividade"], contato: "contato@pixelstudio.com.br" }
 ]
+if (!localStorage.getItem("vagas")) {
+    localStorage.setItem("vagas", JSON.stringify(vagasPadrao));
+}
+let vagas = JSON.parse(localStorage.getItem("vagas"));
+
 let filtroArea=""
 let filtroCidade=""
+let filtroModalidade=""
+
 
 function selecionarArea(area) {
     if (filtroArea == area){
@@ -31,6 +38,17 @@ function selecionarCidade(cidade) {
     atualizarSelecao();
     aplicarFiltros();
 }
+function selecionarModalidade(modalidade){
+    if (filtroModalidade==modalidade){
+        filtroModalidade=""
+    }
+    else{
+        filtroModalidade=modalidade
+    }
+    atualizarSelecao();
+    aplicarFiltros();
+}
+
 function atualizarSelecao(){
     document.querySelectorAll("[data-area]").forEach(element=>{
         const area = element.getAttribute("data-area");
@@ -51,19 +69,37 @@ function atualizarSelecao(){
             element.classList.remove("ativo")
         }
     })
+        document.querySelectorAll("[data-modalidade]").forEach(element=>{
+        const modalidade = element.getAttribute("data-modalidade");
+        if (modalidade ===filtroModalidade){
+            element.classList.add("ativo")
+        }
+        else {
+            element.classList.remove("ativo");
+        }
+    }
+    )
 }
 // MOSTRAR VAGAS
 function mostrarVagas(lista){
     const container = document.getElementById("listaVagas")
 
     container.innerHTML = "<h3>Lista de vagas</h3>"
-
+    if (lista.length===0){
+        container.innerHTML += `
+            <div class="vaga-aviso" style="text-align: center; padding: 20px; color: #666; font-family: 'DM Sans', sans-serif;">
+                Nenhuma vaga encontrada com os filtros selecionados.
+            </div>
+        `;
+        return;
+    }
     lista.forEach(vaga => {
         container.innerHTML += `
             <div class="vaga" onclick="abrirVaga(${vaga.id})" style="cursor: pointer;">
                 <strong>${vaga.titulo}</strong><br>
                 Área: ${vaga.area} <br>
-                Local: ${vaga.local}
+                Local: ${vaga.local}<br>
+                Modalidade: ${vaga.modalidade}
             </div>
         `
     })
@@ -85,11 +121,26 @@ document.getElementById("busca").addEventListener("input", function(){
 
 
 //  FILTROS
+
+
 function toggleMenu(button) {
+    document.querySelectorAll('.dropdown-content').forEach(menu => {
+        if (menu !== button.nextElementSibling) {
+            menu.classList.remove('show');
+        }
+    });
+
     const menu = button.nextElementSibling;
     menu.classList.toggle("show");
 }
-
+window.onclick = function(event) {
+    // Adicionada a verificação para ignorar cliques dentro do menu (.dropdown-content)
+    if (!event.target.matches('.dropdown-btn') && !event.target.closest('.dropdown-content')) {
+        document.querySelectorAll('.dropdown-content').forEach(menu => {
+            menu.classList.remove('show');
+        });
+    }
+}
 // Aplicar filtros
 function aplicarFiltros() {
     const busca = document.getElementById("busca").value.toLowerCase();
@@ -98,8 +149,9 @@ function aplicarFiltros() {
         const matchBusca = vaga.titulo.toLowerCase().includes(busca);
         const matchArea = filtroArea === "" || vaga.area === filtroArea;
         const matchCidade = filtroCidade === "" || vaga.local === filtroCidade;
+        const matchModalidade=filtroModalidade===""|| vaga.modalidade===filtroModalidade;
 
-        return matchBusca && matchArea && matchCidade;
+        return matchBusca && matchArea && matchCidade && matchModalidade;
     });
 
     mostrarVagas(filtradas);
@@ -111,6 +163,7 @@ document.getElementById("limpar").addEventListener("click", () => {
 
     filtroArea = "";
     filtroCidade = "";
+    filtroModalidade="";
     
     document.getElementById("busca").value = ""
     document.querySelectorAll(".dropdown-content a").forEach(item => {
