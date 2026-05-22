@@ -98,6 +98,7 @@
           </div>
         </a>
       </aside>
+      
       <div class="main-content">
         <main class="container">
           <div class="container-vagas">
@@ -115,29 +116,39 @@
             </div>
 
             <div class="conteudo">
-              <!-- FILTROS -->
+              <!-- FILTROS ADAPTADOS ÀS 7 VAGAS -->
               <div class="filtros">
+                
+                <!-- Cargo / Área -->
                 <div class="dropdown">
                   <button class="dropdown-btn" onclick="toggleMenu(this)">
                     Cargo ▼
                   </button>
                   <div class="dropdown-content">
                     <a href="#" data-area="Desenvolvedor" onclick="selecionarArea('Desenvolvedor')">Desenvolvedor</a>
-                    <a href="#" data-area="RH" onclick="selecionarArea('RH')"> RH</a>
+                    <a href="#" data-area="Dados" onclick="selecionarArea('Dados')">Dados</a>
                     <a href="#" data-area="Design" onclick="selecionarArea('Design')">Designer</a>
+                    <a href="#" data-area="RH" onclick="selecionarArea('RH')">RH</a>
                   </div>
                 </div>
+                
+                <!-- Cidade / Local -->
                 <div class="dropdown">
                   <button class="dropdown-btn" onclick="toggleMenu(this)">
                     Cidade ▼
                   </button>
                   <div class="dropdown-content">
-                    <a href="#" data-cidade="Contagem" onclick="selecionarCidade('Contagem')">Contagem</a>
-                    <a href="#" data-cidade="Betim" onclick="selecionarCidade('Betim')">Betim</a>
-                    <a href="#" data-cidade="Belo Horizonte" onclick="selecionarCidade('Belo Horizonte')">Belo Horizonte</a>
+                    <a href="#" data-cidade="Belo Horizonte - MG" onclick="selecionarCidade('Belo Horizonte - MG')">Belo Horizonte</a>
+                    <a href="#" data-cidade="Betim - MG" onclick="selecionarCidade('Betim - MG')">Betim</a>
+                    <a href="#" data-cidade="Contagem - MG" onclick="selecionarCidade('Contagem - MG')">Contagem</a>
+                    <a href="#" data-cidade="São Paulo - SP" onclick="selecionarCidade('São Paulo - SP')">São Paulo</a>
+                    <a href="#" data-cidade="Remoto" onclick="selecionarCidade('Remoto')">Remoto (Sem Cidade)</a>
                   </div>
                 </div>
-                  <button class="dropdown-btn" onclick="toggleMenu(this)">    
+                
+                <!-- Modalidade -->
+                <div class="dropdown">
+                  <button class="dropdown-btn" onclick="toggleMenu(this)">
                     Modalidade ▼
                   </button>
                   <div class="dropdown-content">
@@ -145,10 +156,12 @@
                     <a href="#" data-modalidade="Presencial" onclick="selecionarModalidade('Presencial')">Presencial</a>
                     <a href="#" data-modalidade="Híbrido" onclick="selecionarModalidade('Híbrido')">Híbrido</a>
                   </div>
-                  <button id="limpar" class="limpar">Limpar filtros</button>
-                    <div class="dropdown">
                 </div>
-                </div>
+                
+                <!-- Botão Limpar -->
+                <button id="limpar" class="limpar">Limpar filtros</button>
+              </div>
+
               <!-- LISTA -->
               <div class="lista" id="listaVagas">
                 <h3>Lista de vagas</h3>
@@ -158,6 +171,7 @@
         </main>
       </div>
     </div>
+    
     <script src="script.js"></script>
     <script src="./../../assets/js/auth.js"></script>
   </body>
