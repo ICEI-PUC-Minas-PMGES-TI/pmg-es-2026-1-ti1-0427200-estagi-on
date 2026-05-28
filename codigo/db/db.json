@@ -59,5 +59,87 @@
       "email": "rommel@gmail.com",
       "id": 3
     }
+  ],
+  "estudantes": [
+    {
+      "id": 1,
+      "nome": "Gustavo Albuquerque",
+      "email": "gustavo@sga.pucminas.br",
+      "senha": "senha123",
+      "curso": "Engenharia de Software",
+      "semestre": 5,
+      "instituicao": "PUC Minas",
+      "habilidades": ["React Native", "TypeScript", "JavaScript"]
+    },
+    {
+      "id": 2,
+      "nome": "Maria Silva Santos",
+      "email": "maria@estudante.com",
+      "senha": "senha123",
+      "curso": "Sistemas de Informação",
+      "semestre": 3,
+      "instituicao": "UFMG",
+      "habilidades": ["Python", "SQL", "HTML/CSS"]
+    }
+  ],
+  "empresas": [
+    {
+      "id": 1,
+      "nome": "NextLetter Tech",
+      "email": "recrutamento@nextletter.com",
+      "senha": "empresa123",
+      "cnpj": "12.345.678/0001-99",
+      "area": "Tecnologia"
+    },
+    {
+      "id": 2,
+      "nome": "TechSolutions Ltda",
+      "email": "rh@techsolutions.com",
+      "senha": "empresa123",
+      "cnpj": "98.765.432/0001-11",
+      "area": "Desenvolvimento de Software"
+    }
+  ],
+  "candidaturas": [
+    {
+      "id": 1,
+      "estudanteId": 1,
+      "vagaId": 1,
+      "status": "Em análise",
+      "dataInscricao": "2026-05-24"
+    },
+    {
+      "id": 2,
+      "estudanteId": 1,
+      "vagaId": 2,
+      "status": "Entrevista agendada",
+      "dataInscricao": "2026-05-20"
+    },
+    {
+      "id": 3,
+      "estudanteId": 2,
+      "vagaId": 1,
+      "status": "Aprovado",
+      "dataInscricao": "2026-05-15"
+    },
+    {
+      "id": 4,
+      "estudanteId": 2,
+      "vagaId": 3,
+      "status": "Currículo enviado",
+      "dataInscricao": "2026-05-22"
+    }
+  ],
+  "vagasSalvas": [
+    {
+      "id": 1,
+      "estudanteId": 1,
+      "vagaId": 3
+    },
+    {
+      "id": 2,
+      "estudanteId": 2,
+      "vagaId": 2
+    }
   ]
 }
