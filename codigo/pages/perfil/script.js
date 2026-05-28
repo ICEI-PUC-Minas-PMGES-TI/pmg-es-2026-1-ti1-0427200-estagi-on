@@ -490,13 +490,34 @@ function ativarSidebar() {
 function renderizarCurriculo() {
     const curriculo = localStorage.getItem('curriculo');
     const display = document.getElementById('display-curriculo');
-    if (curriculo) display.textContent = curriculo;
+    const btnRemover = document.getElementById('btn-remover-curriculo');
+
+    function atualizar() {
+        const nome = localStorage.getItem('curriculo');
+        display.textContent = nome || 'Nenhum arquivo anexado';
+        btnRemover.style.display = nome ? 'inline-flex' : 'none';
+    }
+
+    atualizar();
 
     document.getElementById('input-curriculo').addEventListener('change', function () {
         if (this.files[0]) {
-            localStorage.setItem('curriculo', this.files[0].name);
-            display.textContent = this.files[0].name;
+            const file = this.files[0];
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                localStorage.setItem('curriculo', file.name);
+                localStorage.setItem('curriculoBase64', e.target.result);
+                atualizar();
+            };
+            reader.readAsDataURL(file);
         }
+    });
+
+    btnRemover.addEventListener('click', function () {
+        localStorage.removeItem('curriculo');
+        localStorage.removeItem('curriculoBase64');
+        document.getElementById('input-curriculo').value = '';
+        atualizar();
     });
 }
 

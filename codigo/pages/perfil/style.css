@@ -723,3 +723,25 @@ padding:25px;
 .btn-anexar:hover {
     background: #173d69;
 }
+
+.btn-remover-curriculo {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    background: white;
+    color: #e24b4a;
+    border: 1px solid #e24b4a;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+    white-space: nowrap;
+    font-family: "DM Sans", sans-serif;
+}
+
+.btn-remover-curriculo:hover {
+    background: #e24b4a;
+    color: white;
+}

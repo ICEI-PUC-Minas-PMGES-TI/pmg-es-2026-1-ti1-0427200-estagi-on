@@ -78,7 +78,13 @@ function atualizarBotaoCurriculo() {
 function acaoCurriculo() {
   const curriculo = getCurriculo();
   if (curriculo) {
-    mostrarToast('📄 Currículo anexado: ' + curriculo);
+    const base64 = localStorage.getItem('curriculoBase64');
+    if (base64) {
+      const a = document.createElement('a');
+      a.href = base64;
+      a.target = '_blank';
+      a.click();
+    }
   } else {
     document.getElementById('input-curriculo-vaga').click();
   }
@@ -129,10 +135,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.getElementById('input-curriculo-vaga').addEventListener('change', function () {
     if (this.files[0]) {
-      localStorage.setItem('curriculo', this.files[0].name);
-      atualizarBotaoCurriculo();
-      atualizarBotaoInteresse(vaga.id);
-      mostrarToast('✅ Currículo "' + this.files[0].name + '" anexado com sucesso!');
+      const file = this.files[0];
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        localStorage.setItem('curriculo', file.name);
+        localStorage.setItem('curriculoBase64', e.target.result);
+        atualizarBotaoCurriculo();
+        atualizarBotaoInteresse(vaga.id);
+        mostrarToast('✅ Currículo "' + file.name + '" anexado com sucesso!');
+      };
+      reader.readAsDataURL(file);
     }
   });
 });
