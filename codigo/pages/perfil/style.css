@@ -692,3 +692,34 @@ padding:25px;
     background: #06b9fc;
     color: white;
 }
+
+.info-item--curriculo {
+    grid-column: 1 / -1;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.info-item--curriculo .info-valor {
+    flex: 1;
+}
+
+.btn-anexar {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    background: #0f2d52;
+    color: white;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+    white-space: nowrap;
+}
+
+.btn-anexar:hover {
+    background: #173d69;
+}

@@ -17,6 +17,7 @@ function exibirVaga(vaga) {
 
   atualizarBotaoFavorito(vaga.id);
   atualizarBotaoInteresse(vaga.id);
+  atualizarBotaoCurriculo();
 
   document.getElementById('loading').style.display = 'none';
   document.getElementById('vaga-container').style.display = 'block';
@@ -64,12 +65,33 @@ function toggleFavorito() {
   atualizarBotaoFavorito(vaga.id);
 }
 
+function getCurriculo() {
+  return localStorage.getItem('curriculo') || null;
+}
+
+function atualizarBotaoCurriculo() {
+  const btn = document.getElementById('btn-curriculo');
+  const curriculo = getCurriculo();
+  btn.textContent = curriculo ? '📄 Ver Currículo' : '📄 Anexar Currículo';
+}
+
+function acaoCurriculo() {
+  const curriculo = getCurriculo();
+  if (curriculo) {
+    mostrarToast('📄 Currículo anexado: ' + curriculo);
+  } else {
+    document.getElementById('input-curriculo-vaga').click();
+  }
+}
+
 function atualizarBotaoInteresse(vagaId) {
   const interesses = JSON.parse(localStorage.getItem('interesses') || '[]');
   const temInteresse = interesses.some(i => i.vagaId === vagaId);
   const btn = document.getElementById('btn-interesse');
   btn.textContent = temInteresse ? 'Não tenho interesse' : 'Tenho interesse';
   btn.classList.toggle('btn-sem-interesse', temInteresse);
+  btn.disabled = !temInteresse && !getCurriculo();
+  btn.title = (!temInteresse && !getCurriculo()) ? 'Anexe um currículo antes de demonstrar interesse' : '';
 }
 
 function demonstrarInteresse() {
@@ -104,4 +126,13 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   exibirVaga(vaga);
+
+  document.getElementById('input-curriculo-vaga').addEventListener('change', function () {
+    if (this.files[0]) {
+      localStorage.setItem('curriculo', this.files[0].name);
+      atualizarBotaoCurriculo();
+      atualizarBotaoInteresse(vaga.id);
+      mostrarToast('✅ Currículo "' + this.files[0].name + '" anexado com sucesso!');
+    }
+  });
 });

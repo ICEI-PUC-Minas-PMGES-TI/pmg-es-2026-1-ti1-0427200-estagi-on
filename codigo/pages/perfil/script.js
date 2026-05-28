@@ -23,6 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
     ativarSidebar();
     renderizarFavoritos();
     renderizarInteresses();
+    renderizarCurriculo();
 
 });
 
@@ -484,6 +485,19 @@ function ativarSidebar() {
 
         });
 
+}
+
+function renderizarCurriculo() {
+    const curriculo = localStorage.getItem('curriculo');
+    const display = document.getElementById('display-curriculo');
+    if (curriculo) display.textContent = curriculo;
+
+    document.getElementById('input-curriculo').addEventListener('change', function () {
+        if (this.files[0]) {
+            localStorage.setItem('curriculo', this.files[0].name);
+            display.textContent = this.files[0].name;
+        }
+    });
 }
 
 function renderizarFavoritos() {
