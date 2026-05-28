@@ -1,0 +1,47 @@
+html, body {
+  height: 100%;
+  font-family: "DM Sans", sans-serif;
+  background: #f5f4f0;
+  color: #444441;
+  overflow: hidden;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+  flex: 1;
+}
+
+.topo {
+  background: #fff;
+  border-bottom: 0.5px solid #d3d1c7;
+  display: flex;
+  align-items: center;
+  padding: 0 28px;
+  gap: 16px;
+  height: 58px;
+  flex-shrink: 0;
+}
+
+.topo-titulo {
+  font-family: "DM Serif Display", serif;
+  font-size: 17px;
+  color: #0f2d52;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.topo-espaco {
+  flex: 1;
+}
+
+.conteudo {
+  background: #f5f4f0;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 24px 28px;
+}
