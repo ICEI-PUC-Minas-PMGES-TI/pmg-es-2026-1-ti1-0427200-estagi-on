@@ -21,6 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
     carregarUsuario();
     registrarEventos();
     ativarSidebar();
+    renderizarFavoritos();
 
 });
 
@@ -482,4 +483,25 @@ function ativarSidebar() {
 
         });
 
+}
+
+function renderizarFavoritos() {
+    const vagas = JSON.parse(localStorage.getItem('vagasFavoritas') || '[]');
+    const lista = document.getElementById('lista-favoritos');
+    if (!vagas.length) return;
+    lista.innerHTML = vagas.map(v => `
+        <div class="favorito-item">
+            <div>
+                <div class="favorito-titulo">${v.titulo}</div>
+                <div class="favorito-empresa">${v.empresa}</div>
+            </div>
+            <a href="../detalhes-vaga/index.html" class="favorito-link" data-vaga='${JSON.stringify(v)}'>Ver vaga</a>
+        </div>
+    `).join('');
+
+    lista.querySelectorAll('.favorito-link').forEach(link => {
+        link.addEventListener('click', () => {
+            localStorage.setItem('vagaSelecionada', link.dataset.vaga);
+        });
+    });
 }

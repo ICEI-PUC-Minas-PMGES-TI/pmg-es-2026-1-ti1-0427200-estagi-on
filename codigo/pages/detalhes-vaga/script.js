@@ -25,6 +25,10 @@ function getFavoritos() {
   return JSON.parse(localStorage.getItem('favoritos') || '[]');
 }
 
+function getVagasFavoritas() {
+  return JSON.parse(localStorage.getItem('vagasFavoritas') || '[]');
+}
+
 function atualizarBotaoFavorito(vagaId) {
   const btn = document.getElementById('btn-favoritar');
   const favoritado = getFavoritos().includes(vagaId);
@@ -42,15 +46,20 @@ function mostrarToast(msg) {
 function toggleFavorito() {
   const vaga = JSON.parse(localStorage.getItem('vagaSelecionada'));
   const favoritos = getFavoritos();
+  const vagasFavoritas = getVagasFavoritas();
   const idx = favoritos.indexOf(vaga.id);
   if (idx === -1) {
     favoritos.push(vaga.id);
+    vagasFavoritas.push(vaga);
     mostrarToast('❤️ "' + vaga.titulo + '" adicionada aos favoritos!');
   } else {
     favoritos.splice(idx, 1);
+    const idxVaga = vagasFavoritas.findIndex(v => v.id === vaga.id);
+    if (idxVaga !== -1) vagasFavoritas.splice(idxVaga, 1);
     mostrarToast('🤍 "' + vaga.titulo + '" removida dos favoritos.');
   }
   localStorage.setItem('favoritos', JSON.stringify(favoritos));
+  localStorage.setItem('vagasFavoritas', JSON.stringify(vagasFavoritas));
   atualizarBotaoFavorito(vaga.id);
 }
 

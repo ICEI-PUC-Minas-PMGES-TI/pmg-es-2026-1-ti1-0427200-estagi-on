@@ -635,3 +635,60 @@ padding:25px;
 }
 
 }
+
+/* ===========================
+   FAVORITOS
+=========================== */
+
+.favoritos-titulo {
+    font-family: "DM Serif Display", serif;
+    color: #0f2d52;
+    font-size: 1.2rem;
+    margin-bottom: 16px;
+}
+
+.favoritos-vazio {
+    color: #64748b;
+    font-size: 14px;
+}
+
+.favorito-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 0;
+    border-bottom: 1px solid #edf2f7;
+}
+
+.favorito-item:last-child {
+    border-bottom: none;
+}
+
+.favorito-titulo {
+    font-weight: 600;
+    color: #0f2d52;
+    font-size: 15px;
+}
+
+.favorito-empresa {
+    color: #06b9fc;
+    font-size: 13px;
+    margin-top: 2px;
+}
+
+.favorito-link {
+    font-size: 13px;
+    font-weight: 600;
+    color: #06b9fc;
+    text-decoration: none;
+    padding: 6px 14px;
+    border: 1px solid #06b9fc;
+    border-radius: 8px;
+    transition: background 0.2s, color 0.2s;
+    white-space: nowrap;
+}
+
+.favorito-link:hover {
+    background: #06b9fc;
+    color: white;
+}
