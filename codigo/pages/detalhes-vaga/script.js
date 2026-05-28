@@ -75,17 +75,22 @@ function atualizarBotaoInteresse(vagaId) {
 function demonstrarInteresse() {
   const vaga = JSON.parse(localStorage.getItem('vagaSelecionada'));
   const interesses = JSON.parse(localStorage.getItem('interesses') || '[]');
+  const vagasInteresse = JSON.parse(localStorage.getItem('vagasInteresse') || '[]');
   const idx = interesses.findIndex(i => i.vagaId === vaga.id);
 
   if (idx === -1) {
     interesses.push({ vagaId: vaga.id, data: new Date().toISOString() });
+    vagasInteresse.push(vaga);
     mostrarToast('💼 Interesse registrado em "' + vaga.titulo + '"!');
   } else {
     interesses.splice(idx, 1);
+    const idxVaga = vagasInteresse.findIndex(v => v.id === vaga.id);
+    if (idxVaga !== -1) vagasInteresse.splice(idxVaga, 1);
     mostrarToast('🚫 Interesse removido de "' + vaga.titulo + '".');
   }
 
   localStorage.setItem('interesses', JSON.stringify(interesses));
+  localStorage.setItem('vagasInteresse', JSON.stringify(vagasInteresse));
   atualizarBotaoInteresse(vaga.id);
 }
 
