@@ -32,12 +32,24 @@ function atualizarBotaoFavorito(vagaId) {
   btn.title = favoritado ? 'Remover dos favoritos' : 'Favoritar vaga';
 }
 
+function mostrarToast(msg) {
+  const toast = document.getElementById('toast-favorito');
+  toast.textContent = msg;
+  toast.classList.add('visivel');
+  setTimeout(() => toast.classList.remove('visivel'), 3000);
+}
+
 function toggleFavorito() {
   const vaga = JSON.parse(localStorage.getItem('vagaSelecionada'));
   const favoritos = getFavoritos();
   const idx = favoritos.indexOf(vaga.id);
-  if (idx === -1) favoritos.push(vaga.id);
-  else favoritos.splice(idx, 1);
+  if (idx === -1) {
+    favoritos.push(vaga.id);
+    mostrarToast('❤️ "' + vaga.titulo + '" adicionada aos favoritos!');
+  } else {
+    favoritos.splice(idx, 1);
+    mostrarToast('🤍 "' + vaga.titulo + '" removida dos favoritos.');
+  }
   localStorage.setItem('favoritos', JSON.stringify(favoritos));
   atualizarBotaoFavorito(vaga.id);
 }

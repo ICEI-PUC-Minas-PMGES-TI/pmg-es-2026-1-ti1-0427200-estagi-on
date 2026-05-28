@@ -49,6 +49,28 @@
   stroke: #e24b4a;
 }
 
+.toast-favorito {
+  position: fixed;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: #0f2d52;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.95rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s, transform 0.3s;
+  z-index: 999;
+}
+
+.toast-favorito.visivel {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
 .vaga-card h1 {
   font-family: "DM Serif Display", serif;
   color: #0f2d52;
