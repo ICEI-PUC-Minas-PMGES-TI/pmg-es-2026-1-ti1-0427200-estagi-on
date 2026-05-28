@@ -16,6 +16,7 @@ function exibirVaga(vaga) {
   });
 
   atualizarBotaoFavorito(vaga.id);
+  atualizarBotaoInteresse(vaga.id);
 
   document.getElementById('loading').style.display = 'none';
   document.getElementById('vaga-container').style.display = 'block';
@@ -63,26 +64,29 @@ function toggleFavorito() {
   atualizarBotaoFavorito(vaga.id);
 }
 
-function mostrarFeedback(msg, cor) {
-  const el = document.getElementById('msg-feedback');
-  el.textContent = msg;
-  el.style.color = cor;
-  el.style.display = 'block';
+function atualizarBotaoInteresse(vagaId) {
+  const interesses = JSON.parse(localStorage.getItem('interesses') || '[]');
+  const temInteresse = interesses.some(i => i.vagaId === vagaId);
+  const btn = document.getElementById('btn-interesse');
+  btn.textContent = temInteresse ? 'Não tenho interesse' : 'Tenho interesse';
+  btn.classList.toggle('btn-sem-interesse', temInteresse);
 }
 
 function demonstrarInteresse() {
   const vaga = JSON.parse(localStorage.getItem('vagaSelecionada'));
   const interesses = JSON.parse(localStorage.getItem('interesses') || '[]');
-  const jaExiste = interesses.find(i => i.vagaId === vaga.id);
+  const idx = interesses.findIndex(i => i.vagaId === vaga.id);
 
-  if (jaExiste) {
-    mostrarFeedback('Você já demonstrou interesse nesta vaga!', '#06b9fc');
-    return;
+  if (idx === -1) {
+    interesses.push({ vagaId: vaga.id, data: new Date().toISOString() });
+    mostrarToast('💼 Interesse registrado em "' + vaga.titulo + '"!');
+  } else {
+    interesses.splice(idx, 1);
+    mostrarToast('🚫 Interesse removido de "' + vaga.titulo + '".');
   }
 
-  interesses.push({ vagaId: vaga.id, data: new Date().toISOString() });
   localStorage.setItem('interesses', JSON.stringify(interesses));
-  mostrarFeedback('Interesse registrado com sucesso!', '#0598ce');
+  atualizarBotaoInteresse(vaga.id);
 }
 
 document.addEventListener('DOMContentLoaded', () => {

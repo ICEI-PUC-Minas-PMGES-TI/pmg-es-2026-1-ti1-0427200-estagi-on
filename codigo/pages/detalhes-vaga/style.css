@@ -171,6 +171,16 @@
   background: #0598ce;
 }
 
+.btn-sem-interesse {
+  background: #f1f5f9;
+  color: #64748b;
+  border: 1px solid #cbd5e1;
+}
+
+.btn-sem-interesse:hover {
+  background: #e2e8f0;
+}
+
 #msg-feedback {
   margin-top: 14px;
   font-weight: 500;
