@@ -1,17 +1,9 @@
-/**
- * auth.js
- * Sistema de autenticação global usando sessionStorage
- * Este script é carregado em todas as páginas (exceto login) para exibir dados do usuário na sidebar
- */
-
 document.addEventListener("DOMContentLoaded", () => {
   carregarUsuarioGlobal();
   ativarSidebarGlobal();
+  ocultarMenusPorPermissao();
 });
 
-/**
- * Carrega os dados do usuário ativo e atualiza a sidebar
- */
 function carregarUsuarioGlobal() {
   let usuarioAtivo = null;
   let tipoUsuario = "Visitante";
@@ -25,22 +17,19 @@ function carregarUsuarioGlobal() {
   }
 
   if (usuarioAtivo) {
-    // Determina o tipo de usuário baseado nos campos presentes
-    if (usuarioAtivo.cnpj || usuarioAtivo.area) {
+    if (usuarioAtivo.tipo === "empresa") {
       tipoUsuario = "Empresa";
-    } else if (usuarioAtivo.curso || usuarioAtivo.instituicao || usuarioAtivo.semestre) {
+    } else if (usuarioAtivo.tipo === "estudante") {
       tipoUsuario = "Estudante";
     } else {
       tipoUsuario = "Usuário";
     }
   } else {
-    // Usuário não autenticado (visitante)
     usuarioAtivo = { nome: "Visitante", login: "visitante" };
   }
 
   const iniciais = gerarIniciaisGlobal(usuarioAtivo.nome);
 
-  // Atualiza os elementos da sidebar
   const sbAvatar = document.getElementById("sb-avatar");
   const sbNome = document.getElementById("sb-nome");
   const sbTipo = document.getElementById("sb-tipo");
@@ -50,11 +39,6 @@ function carregarUsuarioGlobal() {
   if (sbTipo) sbTipo.textContent = tipoUsuario;
 }
 
-/**
- * Gera as iniciais do nome do usuário (máximo 2 letras)
- * @param {string} nome - Nome completo do usuário
- * @returns {string} Iniciais em maiúsculas
- */
 function gerarIniciaisGlobal(nome) {
   if (!nome) return "??";
 
@@ -68,15 +52,10 @@ function gerarIniciaisGlobal(nome) {
     .toUpperCase();
 }
 
-/**
- * Ativa o item correto da sidebar baseado na URL atual
- * e configura o logout
- */
 function ativarSidebarGlobal() {
   const isLogin = window.location.href.includes("login");
   if (isLogin) return;
 
-  // Marca o item ativo na sidebar
   document.querySelectorAll(".sb-item").forEach((item) => {
     item.classList.remove("active");
 
@@ -85,7 +64,6 @@ function ativarSidebarGlobal() {
 
     const normalizedHref = href.replace(/^(\.\.\/)+|^(\.\/)/, "");
 
-    // Match exato para evitar conflitos (ex: listagem-vagas vs cadastro-vagas)
     if (
       window.location.href.endsWith(normalizedHref) ||
       (normalizedHref === "index.html" && window.location.href.endsWith("codigo/"))
@@ -94,23 +72,16 @@ function ativarSidebarGlobal() {
     }
   });
 
-  // Configura o botão de logout
   const logoutBtn = document.querySelector(".sb-footer");
   if (logoutBtn) {
     logoutBtn.addEventListener("click", (e) => {
       e.preventDefault();
-      // Limpa a sessão
       sessionStorage.clear();
-      // Redireciona para login
       window.location.href = logoutBtn.href || "./pages/login/index.html";
     });
   }
 }
 
-/**
- * Função auxiliar para obter o usuário ativo em outras páginas
- * @returns {Object|null} Dados do usuário ou null
- */
 function obterUsuarioAtivo() {
   try {
     const json = sessionStorage.getItem("usuarioAtivo");
@@ -121,11 +92,6 @@ function obterUsuarioAtivo() {
   }
 }
 
-/**
- * Função auxiliar para atualizar dados do usuário no sessionStorage
- * @param {Object} dadosAtualizados - Novos dados a serem mesclados
- * @returns {boolean} true se sucesso, false se falha
- */
 function atualizarDadosUsuarioAtivo(dadosAtualizados) {
   try {
     const usuarioAtual = obterUsuarioAtivo();
@@ -134,12 +100,32 @@ function atualizarDadosUsuarioAtivo(dadosAtualizados) {
     const usuarioAtualizado = { ...usuarioAtual, ...dadosAtualizados };
     sessionStorage.setItem("usuarioAtivo", JSON.stringify(usuarioAtualizado));
 
-    // Recarrega a sidebar com os novos dados
     carregarUsuarioGlobal();
 
     return true;
   } catch (error) {
     console.error("Erro ao atualizar usuário ativo:", error);
     return false;
+  }
+}
+
+function ocultarMenusPorPermissao() {
+  const usuario = obterUsuarioAtivo();
+  if (!usuario || !usuario.tipo) return;
+
+  const menuCadastroVagas = document.querySelector('a[href*="cadastro-vagas"]');
+
+  if (usuario.tipo === "estudante") {
+    if (menuCadastroVagas) {
+      const parentCard = menuCadastroVagas.closest(".module-card");
+      const parentItem = menuCadastroVagas.closest(".sb-item");
+
+      if (parentCard) parentCard.style.display = "none";
+      if (parentItem) parentItem.style.display = "none";
+      if (!parentCard && !parentItem) menuCadastroVagas.style.display = "none";
+    }
+  }
+
+  if (usuario.tipo === "empresa") {
   }
 }
