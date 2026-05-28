@@ -23,6 +23,30 @@
   padding: 30px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
   font-family: "DM Sans", sans-serif;
+  position: relative;
+}
+
+.btn-favoritar {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  line-height: 0;
+}
+
+.btn-favoritar svg {
+  fill: none;
+  stroke: #cbd5e1;
+  stroke-width: 2;
+  transition: fill 0.2s, stroke 0.2s;
+}
+
+.btn-favoritar.favoritado svg {
+  fill: #e24b4a;
+  stroke: #e24b4a;
 }
 
 .vaga-card h1 {

@@ -15,8 +15,31 @@ function exibirVaga(vaga) {
     listaReq.appendChild(li);
   });
 
+  atualizarBotaoFavorito(vaga.id);
+
   document.getElementById('loading').style.display = 'none';
   document.getElementById('vaga-container').style.display = 'block';
+}
+
+function getFavoritos() {
+  return JSON.parse(localStorage.getItem('favoritos') || '[]');
+}
+
+function atualizarBotaoFavorito(vagaId) {
+  const btn = document.getElementById('btn-favoritar');
+  const favoritado = getFavoritos().includes(vagaId);
+  btn.classList.toggle('favoritado', favoritado);
+  btn.title = favoritado ? 'Remover dos favoritos' : 'Favoritar vaga';
+}
+
+function toggleFavorito() {
+  const vaga = JSON.parse(localStorage.getItem('vagaSelecionada'));
+  const favoritos = getFavoritos();
+  const idx = favoritos.indexOf(vaga.id);
+  if (idx === -1) favoritos.push(vaga.id);
+  else favoritos.splice(idx, 1);
+  localStorage.setItem('favoritos', JSON.stringify(favoritos));
+  atualizarBotaoFavorito(vaga.id);
 }
 
 function mostrarFeedback(msg, cor) {
