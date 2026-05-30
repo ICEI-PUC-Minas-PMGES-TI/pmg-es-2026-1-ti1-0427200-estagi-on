@@ -14,7 +14,6 @@
   </head>
   <body>
     <div class="app-layout">
-      <!-- BARRA LATERAL -->
       <aside class="sidebar">
         <div class="sb-logo">
           <img
@@ -23,10 +22,8 @@
             style="height: 50px; width: auto"
           />
         </div>
-
         <nav class="sb-body">
           <div class="sb-section-label">Principal</div>
-
           <a href="./../../index.html" class="sb-item">
             <div class="sb-item-icon">
               <svg viewBox="0 0 24 24">
@@ -38,16 +35,16 @@
             </div>
             <span class="sb-item-label">Dashboard</span>
           </a>
-
           <a href="./../../pages/mensagens/index.html" class="sb-item">
             <div class="sb-item-icon">
               <svg viewBox="0 0 24 24">
-                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                <path
+                  d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+                />
               </svg>
             </div>
             <span class="sb-item-label">Mensagens</span>
           </a>
-
           <a href="./../../pages/calendario/index.html" class="sb-item">
             <div class="sb-item-icon">
               <svg viewBox="0 0 24 24">
@@ -59,7 +56,6 @@
             </div>
             <span class="sb-item-label">Calendário</span>
           </a>
-
           <a href="./../../pages/listagem-vagas/index.html" class="sb-item">
             <div class="sb-item-icon">
               <svg viewBox="0 0 24 24">
@@ -70,10 +66,8 @@
             </div>
             <span class="sb-item-label">Vagas</span>
           </a>
-
           <div class="sb-divider"></div>
           <div class="sb-section-label">Conta</div>
-
           <a href="./../../pages/perfil/index.html" class="sb-item">
             <div class="sb-item-icon">
               <svg viewBox="0 0 24 24">
@@ -84,7 +78,6 @@
             <span class="sb-item-label">Meu Perfil</span>
           </a>
         </nav>
-
         <a href="./../../pages/login/index.html" class="sb-footer">
           <div class="sb-user-av" id="sb-avatar">??</div>
           <div class="sb-user-info">
@@ -107,9 +100,145 @@
           <div class="topo-espaco"></div>
         </header>
 
-        <main class="conteudo" id="conteudo">
-          <!-- conteúdo aqui -->
-        </main>
+        <!-- <main class="conteudo">
+          <div class="candidato-card">
+            <input
+              type="radio"
+              name="status-1"
+              id="s1-pendente"
+              class="radio-status"
+              value="pendente"
+              checked
+            />
+            <input
+              type="radio"
+              name="status-1"
+              id="s1-aprovado"
+              class="radio-status"
+              value="aprovado"
+            />
+            <input
+              type="radio"
+              name="status-1"
+              id="s1-reprovado"
+              class="radio-status"
+              value="reprovado"
+            />
+
+            <div class="candidato-avatar">AM</div>
+            <div class="candidato-info">
+              <div class="candidato-nome">Ana Martins</div>
+              <div class="candidato-detalhe">Ciência da Computação</div>
+              <div class="candidato-detalhe">ana.martins@email.com</div>
+              <div class="candidato-data">Candidatou-se em 01/06/2025</div>
+            </div>
+            <div class="candidato-acoes">
+              <span class="status-badge">
+                <span class="badge-texto pendente">Pendente</span>
+                <span class="badge-texto aprovado">Aprovado</span>
+                <span class="badge-texto reprovado">Reprovado</span>
+              </span>
+              <div class="botoes">
+                <label for="s1-aprovado" class="btn-aprovar">✓ Aprovar</label>
+                <label for="s1-reprovado" class="btn-reprovar"
+                  >✕ Reprovar</label
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="candidato-card">
+            <input
+              type="radio"
+              name="status-2"
+              id="s2-pendente"
+              class="radio-status"
+              value="pendente"
+              checked
+            />
+            <input
+              type="radio"
+              name="status-2"
+              id="s2-aprovado"
+              class="radio-status"
+              value="aprovado"
+            />
+            <input
+              type="radio"
+              name="status-2"
+              id="s2-reprovado"
+              class="radio-status"
+              value="reprovado"
+            />
+
+            <div class="candidato-avatar">CS</div>
+            <div class="candidato-info">
+              <div class="candidato-nome">Carlos Silva</div>
+              <div class="candidato-detalhe">Sistemas de Informação</div>
+              <div class="candidato-detalhe">carlos.silva@email.com</div>
+              <div class="candidato-data">Candidatou-se em 02/06/2025</div>
+            </div>
+            <div class="candidato-acoes">
+              <span class="status-badge">
+                <span class="badge-texto pendente">Pendente</span>
+                <span class="badge-texto aprovado">Aprovado</span>
+                <span class="badge-texto reprovado">Reprovado</span>
+              </span>
+              <div class="botoes">
+                <label for="s2-aprovado" class="btn-aprovar">✓ Aprovar</label>
+                <label for="s2-reprovado" class="btn-reprovar"
+                  >✕ Reprovar</label
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="candidato-card">
+            <input
+              type="radio"
+              name="status-3"
+              id="s3-pendente"
+              class="radio-status"
+              value="pendente"
+              checked
+            />
+            <input
+              type="radio"
+              name="status-3"
+              id="s3-aprovado"
+              class="radio-status"
+              value="aprovado"
+            />
+            <input
+              type="radio"
+              name="status-3"
+              id="s3-reprovado"
+              class="radio-status"
+              value="reprovado"
+            />
+
+            <div class="candidato-avatar">BS</div>
+            <div class="candidato-info">
+              <div class="candidato-nome">Beatriz Souza</div>
+              <div class="candidato-detalhe">Engenharia de Software</div>
+              <div class="candidato-detalhe">beatriz.souza@email.com</div>
+              <div class="candidato-data">Candidatou-se em 03/06/2025</div>
+            </div>
+            <div class="candidato-acoes">
+              <span class="status-badge">
+                <span class="badge-texto pendente">Pendente</span>
+                <span class="badge-texto aprovado">Aprovado</span>
+                <span class="badge-texto reprovado">Reprovado</span>
+              </span>
+              <div class="botoes">
+                <label for="s3-aprovado" class="btn-aprovar">✓ Aprovar</label>
+                <label for="s3-reprovado" class="btn-reprovar"
+                  >✕ Reprovar</label
+                >
+              </div>
+            </div>
+          </div>
+        </main> -->
       </div>
     </div>
 
