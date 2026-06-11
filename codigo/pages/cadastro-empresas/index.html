@@ -1,145 +1,107 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cadastro de Empresa | Estagi.ON</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="cadastro-empresas.css" />
-  </head>
-  <body>
-    <div class="login-container">
-      <div class="login-card">
-        <div class="login-header">
-          <img
-            src="../../assets/images/Logo.png"
-            alt="Logo Estagi.ON"
-            class="login-logo"
-          />
-          <h1>Cadastro de Empresa</h1>
-          <p>Crie sua conta corporativa no Estagi.ON</p>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro de Empresa | Estagi.ON</title>
+  <link rel="stylesheet" href="../../assets/css/global.css">
+  <link rel="stylesheet" href="../login/style.css">
+</head>
+<body>
+  <div class="login-container">
+    <div class="login-card">
+      <div class="login-header">
+        <img src="../../assets/images/Logo.png" alt="Logo Estagi.ON" class="login-logo">
+        <h1>Cadastro de Empresa</h1>
+        <p>Crie sua conta corporativa no Estagi.ON</p>
+      </div>
+
+      <form id="form-empresa">
+        <div class="form-group">
+          <label for="razao-social">Razão Social</label>
+          <input type="text" id="razao-social" class="form-input" placeholder="Nome da empresa">
+          <span class="error-message" id="erro-razao"></span>
         </div>
 
-        <form id="form-empresa">
-          <div class="form-group">
-            <label for="razao-social">Razão Social</label>
-            <input
-              type="text"
-              id="razao-social"
-              class="form-input"
-              placeholder="Nome da empresa"
-            />
-            <span class="error-message" id="erro-razao"></span>
-          </div>
-
-          <div class="form-group">
-            <label for="cnpj">CNPJ</label>
-            <input
-              type="text"
-              id="cnpj"
-              class="form-input"
-              placeholder="00.000.000/0000-00"
-            />
-            <span class="error-message" id="erro-cnpj"></span>
-          </div>
-
-          <div class="form-group">
-            <label for="email">E-mail</label>
-            <input
-              type="email"
-              id="email"
-              class="form-input"
-              placeholder="contato@empresa.com"
-            />
-            <span class="error-message" id="erro-email"></span>
-          </div>
-
-          <div class="form-group">
-            <label for="senha">Senha</label>
-            <input
-              type="password"
-              id="senha"
-              class="form-input"
-              placeholder="••••••••"
-            />
-            <span class="error-message" id="erro-senha"></span>
-          </div>
-
-          <button type="submit" class="btn-login">Cadastrar</button>
-        </form>
-
-        <div class="login-footer">
-          <p>Já tem uma conta? <a href="../login/index.html">Entrar</a></p>
+        <div class="form-group">
+          <label for="cnpj">CNPJ</label>
+          <input type="text" id="cnpj" class="form-input" placeholder="00.000.000/0000-00">
+          <span class="error-message" id="erro-cnpj"></span>
         </div>
+
+        <div class="form-group">
+          <label for="email">E-mail</label>
+          <input type="email" id="email" class="form-input" placeholder="contato@empresa.com">
+          <span class="error-message" id="erro-email"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="senha">Senha</label>
+          <input type="password" id="senha" class="form-input" placeholder="••••••••">
+          <span class="error-message" id="erro-senha"></span>
+        </div>
+
+        <button type="submit" class="btn-login">Cadastrar</button>
+      </form>
+
+      <div class="login-footer">
+        <p>Já tem uma conta? <a href="../login/index.html">Entrar</a></p>
       </div>
     </div>
+  </div>
 
-    <script>
-      function mostrarErro(inputId, erroId, texto) {
-        document.getElementById(inputId).classList.add("input-error");
-        document.getElementById(erroId).textContent = texto;
+  <script>
+    function mostrarErro(inputId, erroId, texto) {
+      document.getElementById(inputId).classList.add('input-erro');
+      document.getElementById(erroId).textContent = texto;
+    }
+
+    function limparErros() {
+      ['razao-social', 'cnpj', 'email', 'senha'].forEach(id => {
+        document.getElementById(id).classList.remove('input-erro');
+      });
+      ['erro-razao', 'erro-cnpj', 'erro-email', 'erro-senha'].forEach(id => {
+        document.getElementById(id).textContent = '';
+      });
+    }
+
+    document.getElementById('form-empresa').addEventListener('submit', e => {
+      e.preventDefault();
+      limparErros();
+
+      const razao = document.getElementById('razao-social').value;
+      const cnpj  = document.getElementById('cnpj').value;
+      const email = document.getElementById('email').value;
+      const senha = document.getElementById('senha').value;
+      let valido = true;
+
+      if (razao.length < 3) {
+        mostrarErro('razao-social', 'erro-razao', 'Nome inválido');
+        valido = false;
+      }
+      if (cnpj.replace(/\D/g, '').length !== 14) {
+        mostrarErro('cnpj', 'erro-cnpj', 'CNPJ inválido');
+        valido = false;
+      }
+      if (!/\S+@\S+\.\S+/.test(email)) {
+        mostrarErro('email', 'erro-email', 'E-mail inválido');
+        valido = false;
+      }
+      if (!/^(?=.*[A-Za-z])(?=.*\d).{6,}$/.test(senha)) {
+        mostrarErro('senha', 'erro-senha', 'Senha fraca (mín. 6 caracteres com letras e números)');
+        valido = false;
       }
 
-      function limparErros() {
-        ["razao-social", "cnpj", "email", "senha"].forEach((id) => {
-          document.getElementById(id).classList.remove("input-error");
-        });
-        ["erro-razao", "erro-cnpj", "erro-email", "erro-senha"].forEach(
-          (id) => {
-            document.getElementById(id).textContent = "";
-          },
-        );
+      if (valido) {
+        const usuarios = JSON.parse(localStorage.getItem('usuarios') || '[]');
+        usuarios.push({ nome: razao, email, senha, tipo: 'empresa' });
+        localStorage.setItem('usuarios', JSON.stringify(usuarios));
+        alert('Cadastro realizado com sucesso!');
+        window.location.href = '../login/index.html';
       }
+    });
+  </script>
 
-      document
-        .getElementById("form-empresa")
-        .addEventListener("submit", (e) => {
-          e.preventDefault();
-          limparErros();
-
-          const razao = document.getElementById("razao-social").value;
-          const cnpj = document.getElementById("cnpj").value;
-          const email = document.getElementById("email").value;
-          const senha = document.getElementById("senha").value;
-          let valido = true;
-
-          if (razao.length < 3) {
-            mostrarErro("razao-social", "erro-razao", "Nome inválido");
-            valido = false;
-          }
-          if (cnpj.replace(/\D/g, "").length !== 14) {
-            mostrarErro("cnpj", "erro-cnpj", "CNPJ inválido");
-            valido = false;
-          }
-          if (!/\S+@\S+\.\S+/.test(email)) {
-            mostrarErro("email", "erro-email", "E-mail inválido");
-            valido = false;
-          }
-          if (!/^(?=.*[A-Za-z])(?=.*\d).{6,}$/.test(senha)) {
-            mostrarErro(
-              "senha",
-              "erro-senha",
-              "Senha fraca (mín. 6 caracteres com letras e números)",
-            );
-            valido = false;
-          }
-
-          if (valido) {
-            const empresas = JSON.parse(
-              localStorage.getItem("usuarios") || "[]",
-            );
-            empresas.push({ nome: razao, email, senha, tipo: "empresa" });
-            localStorage.setItem("usuarios", JSON.stringify(empresas));
-            alert("Cadastro realizado com sucesso!");
-            window.location.href = "../login/index.html";
-          }
-        });
-    </script>
-
-    <script src="./../../assets/js/auth.js"></script>
-  </body>
+  <script src="./../../assets/js/auth.js"></script>
+</body>
 </html>
