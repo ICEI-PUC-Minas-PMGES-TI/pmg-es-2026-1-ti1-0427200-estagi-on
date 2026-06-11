@@ -1,369 +1,145 @@
 <!doctype html>
-
 <html lang="pt-BR">
-
-<head>
-
-<meta charset="UTF-8">
-
-<meta name="viewport"
-content="width=device-width,initial-scale=1">
-
-<title>
-Cadastro Empresa
-</title>
-
-<link
-rel="stylesheet"
-href="cadastro-empresas.css">
-
-
-<style>
-
-.input-erro{
-
-border:
-1px solid red
-!important;
-
-}
-
-
-.erro-texto{
-
-font-size:12px;
-
-color:red;
-
-display:block;
-
-margin-top:5px;
-
-}
-
-</style>
-
-</head>
-
-
-
-<body
-class="fundo-cadastro">
-
-
-<div
-class="cadastro-container">
-
-<div
-class="cadastro-card">
-
-
-<form
-id="form-empresa">
-
-
-<div class="campo-grupo">
-
-<label>
-
-Razão Social
-
-</label>
-
-<input
-
-id="razao-social"
-
-class="campo-entrada">
-
-</div>
-
-
-
-<div class="campo-grupo">
-
-<label>
-
-CNPJ
-
-</label>
-
-<input
-
-id="cnpj"
-
-class="campo-entrada">
-
-</div>
-
-
-
-<div class="campo-grupo">
-
-<label>
-
-Email
-
-</label>
-
-<input
-
-id="email"
-
-class="campo-entrada">
-
-</div>
-
-
-
-<div class="campo-grupo">
-
-<label>
-
-Senha
-
-</label>
-
-<input
-
-id="senha"
-
-type="password"
-
-class="campo-entrada">
-
-</div>
-
-
-
-<button
-class="btn-cadastro-corporativo">
-
-Cadastrar
-
-</button>
-
-</form>
-
-</div>
-
-</div>
-
-
-
-<script>
-
-function erro(
-input,
-texto
-){
-
-limpar(input);
-
-input.classList.add(
-"input-erro"
-);
-
-
-let span =
-document.createElement(
-"span"
-);
-
-span.className =
-"erro-texto";
-
-span.innerText =
-texto;
-
-input.parentElement
-.appendChild(
-span
-);
-
-}
-
-
-
-function limpar(
-input
-){
-
-input.classList.remove(
-"input-erro"
-);
-
-const e =
-input.parentElement
-.querySelector(
-".erro-texto"
-);
-
-if(e)
-e.remove();
-
-}
-
-
-
-document
-
-.getElementById(
-"form-empresa"
-)
-
-.addEventListener(
-
-"submit",
-
-e=>{
-
-e.preventDefault();
-
-
-const nome =
-document.getElementById(
-"razao-social"
-);
-
-
-const cnpj =
-document.getElementById(
-"cnpj"
-);
-
-
-const email =
-document.getElementById(
-"email"
-);
-
-
-const senha =
-document.getElementById(
-"senha"
-);
-
-
-
-[nome,cnpj,email,senha]
-
-.forEach(
-limpar
-);
-
-
-let valido =
-true;
-
-
-
-if(
-nome.value.length<3
-){
-
-erro(
-
-nome,
-
-"Nome inválido"
-
-);
-
-valido=false;
-
-}
-
-
-
-if(
-
-!/\S+@\S+\.\S+/
-
-.test(
-email.value
-)
-
-){
-
-erro(
-
-email,
-
-"E-mail inválido"
-
-);
-
-valido=false;
-
-}
-
-
-
-if(
-
-cnpj.value
-.replace(/\D/g,'')
-
-.length!==14
-
-){
-
-erro(
-
-cnpj,
-
-"CNPJ inválido"
-
-);
-
-valido=false;
-
-}
-
-
-
-if(
-
-!/^(?=.*[A-Za-z])(?=.*\d).{6,}$/
-
-.test(
-
-senha.value
-
-)
-
-){
-
-erro(
-
-senha,
-
-"Senha fraca"
-
-);
-
-valido=false;
-
-}
-
-
-
-if(valido){
-
-alert(
-"Cadastro realizado"
-);
-
-}
-
-
-});
-
-</script>
-
-
-  <script src="./../../assets/js/auth.js"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cadastro de Empresa | Estagi.ON</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="cadastro-empresas.css" />
+  </head>
+  <body>
+    <div class="login-container">
+      <div class="login-card">
+        <div class="login-header">
+          <img
+            src="../../assets/images/Logo.png"
+            alt="Logo Estagi.ON"
+            class="login-logo"
+          />
+          <h1>Cadastro de Empresa</h1>
+          <p>Crie sua conta corporativa no Estagi.ON</p>
+        </div>
+
+        <form id="form-empresa">
+          <div class="form-group">
+            <label for="razao-social">Razão Social</label>
+            <input
+              type="text"
+              id="razao-social"
+              class="form-input"
+              placeholder="Nome da empresa"
+            />
+            <span class="error-message" id="erro-razao"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="cnpj">CNPJ</label>
+            <input
+              type="text"
+              id="cnpj"
+              class="form-input"
+              placeholder="00.000.000/0000-00"
+            />
+            <span class="error-message" id="erro-cnpj"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="email">E-mail</label>
+            <input
+              type="email"
+              id="email"
+              class="form-input"
+              placeholder="contato@empresa.com"
+            />
+            <span class="error-message" id="erro-email"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="senha">Senha</label>
+            <input
+              type="password"
+              id="senha"
+              class="form-input"
+              placeholder="••••••••"
+            />
+            <span class="error-message" id="erro-senha"></span>
+          </div>
+
+          <button type="submit" class="btn-login">Cadastrar</button>
+        </form>
+
+        <div class="login-footer">
+          <p>Já tem uma conta? <a href="../login/index.html">Entrar</a></p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function mostrarErro(inputId, erroId, texto) {
+        document.getElementById(inputId).classList.add("input-error");
+        document.getElementById(erroId).textContent = texto;
+      }
+
+      function limparErros() {
+        ["razao-social", "cnpj", "email", "senha"].forEach((id) => {
+          document.getElementById(id).classList.remove("input-error");
+        });
+        ["erro-razao", "erro-cnpj", "erro-email", "erro-senha"].forEach(
+          (id) => {
+            document.getElementById(id).textContent = "";
+          },
+        );
+      }
+
+      document
+        .getElementById("form-empresa")
+        .addEventListener("submit", (e) => {
+          e.preventDefault();
+          limparErros();
+
+          const razao = document.getElementById("razao-social").value;
+          const cnpj = document.getElementById("cnpj").value;
+          const email = document.getElementById("email").value;
+          const senha = document.getElementById("senha").value;
+          let valido = true;
+
+          if (razao.length < 3) {
+            mostrarErro("razao-social", "erro-razao", "Nome inválido");
+            valido = false;
+          }
+          if (cnpj.replace(/\D/g, "").length !== 14) {
+            mostrarErro("cnpj", "erro-cnpj", "CNPJ inválido");
+            valido = false;
+          }
+          if (!/\S+@\S+\.\S+/.test(email)) {
+            mostrarErro("email", "erro-email", "E-mail inválido");
+            valido = false;
+          }
+          if (!/^(?=.*[A-Za-z])(?=.*\d).{6,}$/.test(senha)) {
+            mostrarErro(
+              "senha",
+              "erro-senha",
+              "Senha fraca (mín. 6 caracteres com letras e números)",
+            );
+            valido = false;
+          }
+
+          if (valido) {
+            const empresas = JSON.parse(
+              localStorage.getItem("usuarios") || "[]",
+            );
+            empresas.push({ nome: razao, email, senha, tipo: "empresa" });
+            localStorage.setItem("usuarios", JSON.stringify(empresas));
+            alert("Cadastro realizado com sucesso!");
+            window.location.href = "../login/index.html";
+          }
+        });
+    </script>
+
+    <script src="./../../assets/js/auth.js"></script>
   </body>
-
 </html>
