@@ -1,61 +1,51 @@
 document.addEventListener("DOMContentLoaded", () => {
   carregarUsuarioGlobal();
   ativarSidebarGlobal();
+  ocultarMenusPorPermissao();
 });
 
 function carregarUsuarioGlobal() {
-  let json = localStorage.getItem("usuarioCorrente");
-  let usuarioCorrente = null;
+  let usuarioAtivo = null;
   let tipoUsuario = "Visitante";
 
   try {
-    usuarioCorrente = json ? JSON.parse(json) : null;
-  } catch {
-    usuarioCorrente = null;
+    const json = sessionStorage.getItem("usuarioAtivo");
+    usuarioAtivo = json ? JSON.parse(json) : null;
+  } catch (error) {
+    console.error("Erro ao carregar usuário ativo:", error);
+    usuarioAtivo = null;
   }
 
-  if (usuarioCorrente) {
-    try {
-      const estudantes = JSON.parse(localStorage.getItem("estudantes") || "[]");
-      const empresas = JSON.parse(localStorage.getItem("empresas") || "[]");
-
-      const estudante = estudantes.find((e) => e.id === usuarioCorrente.id);
-      const empresa = empresas.find((e) => e.id === usuarioCorrente.id);
-
-      if (estudante) {
-        tipoUsuario = "Estudante";
-        usuarioCorrente = { ...usuarioCorrente, ...estudante };
-      } else if (empresa) {
-        tipoUsuario = "Empresa";
-        usuarioCorrente = { ...usuarioCorrente, ...empresa };
-      } else {
-        tipoUsuario = "Usuário";
-      }
-    } catch (e) {
+  if (usuarioAtivo) {
+    if (usuarioAtivo.tipo === "empresa") {
+      tipoUsuario = "Empresa";
+    } else if (usuarioAtivo.tipo === "estudante") {
+      tipoUsuario = "Estudante";
+    } else {
       tipoUsuario = "Usuário";
     }
   } else {
-    usuarioCorrente = { nome: "Visitante", login: "visitante" };
+    usuarioAtivo = { nome: "Visitante", login: "visitante" };
   }
 
-  const iniciais = gerarIniciaisGlobal(usuarioCorrente.nome);
+  const iniciais = gerarIniciaisGlobal(usuarioAtivo.nome);
 
-  // Atualiza a sidebar de qualquer página!
   const sbAvatar = document.getElementById("sb-avatar");
   const sbNome = document.getElementById("sb-nome");
   const sbTipo = document.getElementById("sb-tipo");
 
-  // Na página de perfil, vamos deixar o script de lá (perfil/script.js) rodar também, em paralelo. Mas
-  // a gente atualiza do mesmo jeito para padronização.
   if (sbAvatar) sbAvatar.textContent = iniciais;
-  if (sbNome) sbNome.textContent = usuarioCorrente.nome;
+  if (sbNome) sbNome.textContent = usuarioAtivo.nome;
   if (sbTipo) sbTipo.textContent = tipoUsuario;
 }
 
 function gerarIniciaisGlobal(nome) {
   if (!nome) return "??";
+
   return nome
+    .trim()
     .split(" ")
+    .filter((n) => n.length > 0)
     .map((n) => n[0])
     .join("")
     .substring(0, 2)
@@ -66,7 +56,6 @@ function ativarSidebarGlobal() {
   const isLogin = window.location.href.includes("login");
   if (isLogin) return;
 
-  // Ajustamos o link ativo da sidebar
   document.querySelectorAll(".sb-item").forEach((item) => {
     item.classList.remove("active");
 
@@ -75,20 +64,68 @@ function ativarSidebarGlobal() {
 
     const normalizedHref = href.replace(/^(\.\.\/)+|^(\.\/)/, "");
 
-    // Match exato para evitar que a página "listagem-vagas" se confunda com "cadastro-vagas"
     if (
       window.location.href.endsWith(normalizedHref) ||
-      (normalizedHref === "index.html" &&
-        window.location.href.endsWith("codigo/"))
+      (normalizedHref === "index.html" && window.location.href.endsWith("codigo/"))
     ) {
       item.classList.add("active");
     }
   });
 
   const logoutBtn = document.querySelector(".sb-footer");
-  if (logoutBtn && logoutBtn.href && logoutBtn.href.includes("login")) {
-    logoutBtn.addEventListener("click", () => {
-      localStorage.removeItem("usuarioCorrente");
+  if (logoutBtn) {
+    logoutBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      sessionStorage.clear();
+      window.location.href = logoutBtn.href || "./pages/login/index.html";
     });
+  }
+}
+
+function obterUsuarioAtivo() {
+  try {
+    const json = sessionStorage.getItem("usuarioAtivo");
+    return json ? JSON.parse(json) : null;
+  } catch (error) {
+    console.error("Erro ao obter usuário ativo:", error);
+    return null;
+  }
+}
+
+function atualizarDadosUsuarioAtivo(dadosAtualizados) {
+  try {
+    const usuarioAtual = obterUsuarioAtivo();
+    if (!usuarioAtual) return false;
+
+    const usuarioAtualizado = { ...usuarioAtual, ...dadosAtualizados };
+    sessionStorage.setItem("usuarioAtivo", JSON.stringify(usuarioAtualizado));
+
+    carregarUsuarioGlobal();
+
+    return true;
+  } catch (error) {
+    console.error("Erro ao atualizar usuário ativo:", error);
+    return false;
+  }
+}
+
+function ocultarMenusPorPermissao() {
+  const usuario = obterUsuarioAtivo();
+  if (!usuario || !usuario.tipo) return;
+
+  const menuCadastroVagas = document.querySelector('a[href*="cadastro-vagas"]');
+
+  if (usuario.tipo === "estudante") {
+    if (menuCadastroVagas) {
+      const parentCard = menuCadastroVagas.closest(".module-card");
+      const parentItem = menuCadastroVagas.closest(".sb-item");
+
+      if (parentCard) parentCard.style.display = "none";
+      if (parentItem) parentItem.style.display = "none";
+      if (!parentCard && !parentItem) menuCadastroVagas.style.display = "none";
+    }
+  }
+
+  if (usuario.tipo === "empresa") {
   }
 }

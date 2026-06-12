@@ -105,6 +105,12 @@
       <div id="erro">Vaga não encontrada.</div>
 
       <div class="vaga-card" id="vaga-container" style="display: none">
+        <div id="toast-favorito" class="toast-favorito"></div>
+        <button class="btn-favoritar" id="btn-favoritar" onclick="toggleFavorito()" title="Favoritar vaga">
+          <svg id="icone-coracao" viewBox="0 0 24 24" width="24" height="24">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+          </svg>
+        </button>
         <a href="../../pages/listagem-vagas/index.html" class="voltar">← Voltar para vagas</a>
         <h1 id="vaga-titulo"></h1>
         <div class="vaga-empresa" id="vaga-empresa"></div>
@@ -133,10 +139,12 @@
         </div>
 
         <div class="acoes">
-          <button class="btn-interesse" onclick="demonstrarInteresse()">Tenho interesse</button>
+          <button class="btn-interesse" id="btn-interesse" onclick="demonstrarInteresse()">Tenho interesse</button>
+          <button class="btn-curriculo" id="btn-curriculo" onclick="acaoCurriculo()">📄 Anexar Currículo</button>
+          <input type="file" id="input-curriculo-vaga" accept=".pdf,.doc,.docx" style="display:none" />
         </div>
 
-        <div id="msg-feedback"></div>
+        <div id="msg-feedback" style="display:none"></div>
       </div>
     </main>
 

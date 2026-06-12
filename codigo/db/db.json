@@ -7,7 +7,11 @@
       "descricao": "Buscamos estudante de TI para atuar no desenvolvimento de interfaces web modernas, participando de projetos reais com equipe ágil.",
       "bolsa": 1200,
       "cargaHoraria": "20h semanais",
-      "requisitos": ["HTML/CSS", "JavaScript", "Git"],
+      "requisitos": [
+        "HTML/CSS",
+        "JavaScript",
+        "Git"
+      ],
       "local": "Belo Horizonte - MG",
       "modalidade": "Híbrido",
       "empresaId": 1
@@ -19,7 +23,11 @@
       "descricao": "Oportunidade para estudantes de Ciência da Computação, Estatística ou áreas afins para atuar com análise e visualização de dados.",
       "bolsa": 1500,
       "cargaHoraria": "30h semanais",
-      "requisitos": ["Python", "Excel", "SQL"],
+      "requisitos": [
+        "Python",
+        "Excel",
+        "SQL"
+      ],
       "local": "Remoto",
       "modalidade": "Remoto",
       "empresaId": 1
@@ -31,7 +39,11 @@
       "descricao": "Vaga para estudante com interesse em design de experiência do usuário, criação de protótipos e pesquisa com usuários.",
       "bolsa": 1000,
       "cargaHoraria": "20h semanais",
-      "requisitos": ["Figma", "Noções de UX", "Criatividade"],
+      "requisitos": [
+        "Figma",
+        "Noções de UX",
+        "Criatividade"
+      ],
       "local": "São Paulo - SP",
       "modalidade": "Presencial",
       "empresaId": 1
@@ -58,6 +70,116 @@
       "nome": "Rommel",
       "email": "rommel@gmail.com",
       "id": 3
+    }
+  ],
+  "estudantes": [
+    {
+      "id": 1,
+      "nome": "Gustavo Albuquerque",
+      "email": "gustavo@sga.pucminas.br",
+      "senha": "senha123",
+      "curso": "Engenharia de Software",
+      "semestre": 5,
+      "instituicao": "PUC Minas",
+      "habilidades": [
+        "React Native",
+        "TypeScript",
+        "JavaScript"
+      ]
+    },
+    {
+      "id": 2,
+      "nome": "Maria Silva Santos",
+      "email": "maria@estudante.com",
+      "senha": "senha123",
+      "curso": "Sistemas de Informação",
+      "semestre": 3,
+      "instituicao": "UFMG",
+      "habilidades": [
+        "Python",
+        "SQL",
+        "HTML/CSS"
+      ]
+    },
+    {
+      "nome": "Gustavo Albuquerque Lourenço Mattos de Castro",
+      "email": "gustavoGustavo@sga.pucminas.br",
+      "curso": "Eng sft",
+      "instituicao": "PuCCCCC",
+      "semestre": 3,
+      "senha": "Senha fortissima@22",
+      "habilidades": [],
+      "id": 3
+    },
+    {
+      "nome": "Gustavo Albuquerque Lourenço Mattos de Castro",
+      "email": "gustavooo@sga.pucminas.br",
+      "curso": "Eng sft",
+      "instituicao": "PuCCCCC",
+      "semestre": 5,
+      "senha": "senha123",
+      "habilidades": [],
+      "id": 4
+    }
+  ],
+  "empresas": [
+    {
+      "id": 1,
+      "nome": "NextLetter Tech",
+      "email": "recrutamento@nextletter.com",
+      "senha": "empresa123",
+      "cnpj": "12.345.678/0001-99",
+      "area": "Tecnologia"
+    },
+    {
+      "id": 2,
+      "nome": "TechSolutions Ltda",
+      "email": "rh@techsolutions.com",
+      "senha": "empresa123",
+      "cnpj": "98.765.432/0001-11",
+      "area": "Desenvolvimento de Software"
+    }
+  ],
+  "candidaturas": [
+    {
+      "id": 1,
+      "estudanteId": 1,
+      "vagaId": 1,
+      "status": "Em análise",
+      "dataInscricao": "2026-05-24"
+    },
+    {
+      "id": 2,
+      "estudanteId": 1,
+      "vagaId": 2,
+      "status": "Entrevista agendada",
+      "dataInscricao": "2026-05-20"
+    },
+    {
+      "id": 3,
+      "estudanteId": 2,
+      "vagaId": 1,
+      "status": "Aprovado",
+      "dataInscricao": "2026-05-15"
+    },
+    {
+      "id": 4,
+      "estudanteId": 2,
+      "vagaId": 3,
+      "status": "Currículo enviado",
+      "dataInscricao": "2026-05-22"
+    }
+  ],
+  "vagasSalvas": [
+    {
+      "id": 1,
+      "estudanteId": 1,
+      "vagaId": 3
+    },
+    {
+      "id": 2,
+      "estudanteId": 2,
+      "vagaId": 2
     }
   ]
 }

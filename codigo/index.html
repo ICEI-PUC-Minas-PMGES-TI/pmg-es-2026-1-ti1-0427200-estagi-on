@@ -466,6 +466,13 @@
           </div>
 
           <div class="activities-section">
+            <h2 class="section-title">Situação de Vagas - Processos Ativos</h2>
+            <div class="activities-list" id="processosAtivos">
+              <div class="activity-item">Carregando processos...</div>
+            </div>
+          </div>
+
+          <div class="activities-section">
             <h2 class="section-title">Vagas Recentes</h2>
             <div class="activities-list" id="activityList">
               <div class="activity-item">Carregando...</div>
@@ -491,17 +498,21 @@
     <script>
       const API_URL = "http://localhost:3000";
       let currentUserType = "estudante";
-      let cachedData = { vagas: [] };
+      let cachedData = { vagas: [], candidaturas: [] };
 
       async function fetchData() {
         try {
           const vagasResponse = await fetch(`${API_URL}/vagas`);
           const vagas = await vagasResponse.json();
 
-          return { vagas };
+          // Busca candidaturas para exibir processos ativos
+          const candidaturasResponse = await fetch(`${API_URL}/candidaturas`);
+          const candidaturas = await candidaturasResponse.json();
+
+          return { vagas, candidaturas };
         } catch (error) {
           console.error("Erro ao buscar dados:", error);
-          return { vagas: [] };
+          return { vagas: [], candidaturas: [] };
         }
       }
 
@@ -544,12 +555,59 @@
         });
       }
 
-      function renderizarVagasRecentes(vagas, titulo) {
-        const activitiesSection = document.querySelector(
-          ".activities-section h2",
-        );
-        activitiesSection.textContent = titulo;
+      function renderizarProcessosAtivos(candidaturas, vagas) {
+        const processosList = document.getElementById("processosAtivos");
+        processosList.innerHTML = "";
 
+        // Obtém o usuário logado
+        const usuarioAtivo = obterUsuarioAtivo();
+
+        if (!usuarioAtivo || !usuarioAtivo.id) {
+          processosList.innerHTML =
+            '<div class="activity-item">Faça login para ver seus processos.</div>';
+          return;
+        }
+
+        // Filtra candidaturas do estudante logado
+        const minhasCandidaturas = candidaturas.filter(
+          (c) => c.estudanteId === usuarioAtivo.id
+        );
+
+        if (minhasCandidaturas.length === 0) {
+          processosList.innerHTML =
+            '<div class="activity-item">Você ainda não se candidatou a nenhuma vaga.</div>';
+          return;
+        }
+
+        // Renderiza cada candidatura
+        minhasCandidaturas.forEach((candidatura) => {
+          const vaga = vagas.find((v) => v.id === candidatura.vagaId);
+          if (!vaga) return;
+
+          // Define cor do badge baseado no status
+          let badgeColor = "var(--color-primary)";
+          if (candidatura.status.toLowerCase().includes("aprovado")) {
+            badgeColor = "#22c55e";
+          } else if (candidatura.status.toLowerCase().includes("entrevista")) {
+            badgeColor = "#f59e0b";
+          } else if (candidatura.status.toLowerCase().includes("recusado")) {
+            badgeColor = "#ef4444";
+          }
+
+          const activityItem = document.createElement("div");
+          activityItem.className = "activity-item";
+          activityItem.innerHTML = `
+        <div class="activity-info">
+          <div class="activity-title">${vaga.titulo}</div>
+          <div class="activity-details">${vaga.empresa} • Inscrito em ${new Date(candidatura.dataInscricao).toLocaleDateString("pt-BR")}</div>
+        </div>
+        <div class="activity-badge" style="background-color: ${badgeColor}">${candidatura.status}</div>
+      `;
+          processosList.appendChild(activityItem);
+        });
+      }
+
+      function renderizarVagasRecentes(vagas, titulo) {
         const activityList = document.getElementById("activityList");
         activityList.innerHTML = "";
 
@@ -660,6 +718,7 @@
             contarPorModalidade(cachedData.vagas),
             "Vagas por Modalidade",
           );
+          renderizarProcessosAtivos(cachedData.candidaturas || [], cachedData.vagas);
           renderizarVagasRecentes(cachedData.vagas, "Vagas Disponíveis");
         } else {
           subtitle.textContent = "Gerencie suas vagas e acompanhe candidaturas";
@@ -668,6 +727,7 @@
             contarPorModalidade(cachedData.vagas),
             "Minhas Vagas por Modalidade",
           );
+          renderizarProcessosAtivos(cachedData.candidaturas || [], cachedData.vagas);
           renderizarVagasRecentes(cachedData.vagas, "Minhas Vagas Publicadas");
         }
       }

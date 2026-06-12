@@ -1,259 +1,139 @@
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-body.fundo-cadastro {
+body {
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: "DM Sans", sans-serif;
-  background: linear-gradient(135deg, #0f2d52 0%, #1a4a7a 50%, #0d3b6e 100%);
+  background-color: #f8fafc;
   padding: 24px;
-  position: relative;
-  overflow: hidden;
 }
 
-body.fundo-cadastro::before,
-body.fundo-cadastro::after {
-  content: "";
-  position: fixed;
-  border-radius: 50%;
-  opacity: 0.07;
-  background: #fff;
-  pointer-events: none;
-}
-body.fundo-cadastro::before {
-  width: 500px;
-  height: 500px;
-  top: -150px;
-  right: -150px;
-}
-body.fundo-cadastro::after {
-  width: 350px;
-  height: 350px;
-  bottom: -100px;
-  left: -100px;
-}
-
-.cadastro-container {
+.login-container {
   width: 100%;
-  max-width: 480px;
-  position: relative;
-  z-index: 1;
+  max-width: 460px;
 }
 
-@keyframes surgirDeBaixo {
-  from {
-    opacity: 0;
-    transform: translateY(32px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.cadastro-card {
-  background: rgb(15, 45, 82);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 20px;
-  box-shadow:
-    0 24px 64px rgba(0, 0, 0, 0.22),
-    0 4px 16px rgba(0, 0, 0, 0.1);
-  padding: 44px 40px 40px;
-  animation: surgirDeBaixo 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
-}
-
-.cadastro-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 32px 72px rgba(0, 0, 0, 0.26);
-}
-
-.cadastro-cabecalho {
-  text-align: center;
-  margin-bottom: 32px;
-}
-
-.logo-icon {
-  width: 60px;
-  height: 60px;
-  background: linear-gradient(135deg, #0f2d52, #1a6fc4);
+.login-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
   border-radius: 16px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  padding: 40px 36px;
+}
+
+.login-header {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.login-logo {
+  height: 48px;
+  width: auto;
   margin-bottom: 16px;
-  box-shadow: 0 8px 20px rgba(15, 45, 82, 0.3);
 }
 
-.logo-icon i {
-  font-size: 26px;
-  color: #fff;
-}
-
-.cadastro-titulo {
-  font-family: "DM Serif Display", serif;
-  font-size: 26px;
-  color: #fff;
+.login-header h1 {
+  font-size: 22px;
+  font-weight: 600;
+  color: #0f172a;
   margin-bottom: 6px;
-  letter-spacing: -0.3px;
 }
 
-.cadastro-subtitulo {
+.login-header p {
   font-size: 14px;
-  color: rgba(255, 255, 255, 0.7);
-  line-height: 1.5;
+  color: #64748b;
 }
 
-.cadastro-subtitulo strong {
-  color: #7ec8f7;
+.form-group {
+  margin-bottom: 16px;
 }
 
-.campo-grupo {
-  margin-bottom: 18px;
-}
-
-.campo-rotulo {
+.form-group label {
   display: block;
   font-size: 13px;
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.85);
+  color: #374151;
   margin-bottom: 6px;
-  letter-spacing: 0.1px;
 }
 
-.campo-icone {
-  position: relative;
-  display: flex;
-  align-items: center;
-}
-
-.campo-icone i {
-  position: absolute;
-  left: 14px;
-  color: #9ca3af;
-  font-size: 14px;
-  pointer-events: none;
-  transition: color 0.25s ease;
-}
-
-.campo-entrada {
+.form-input {
   width: 100%;
-  height: 46px;
-  padding: 0 14px 0 40px;
-  border: 1.5px solid #e5e7eb;
+  height: 44px;
+  padding: 0 14px;
+  border: 1.5px solid #e2e8f0;
   border-radius: 10px;
-  font-family: "DM Sans", sans-serif;
   font-size: 14px;
-  color: #111827;
-  background: #f9fafb;
+  color: #0f172a;
+  background: #f8fafc;
   outline: none;
-  transition: all 0.25s ease;
-  opacity: 0.5;
+  transition: all 0.2s ease;
 }
 
-.campo-entrada::placeholder {
+.form-input::placeholder {
   color: #b0bac4;
 }
 
-.campo-entrada:focus {
-  border-color: #1a6fc4;
+.form-input:focus {
+  border-color: #06b9fc;
   background: #fff;
-  box-shadow: 0 0 0 3.5px rgba(26, 111, 196, 0.12);
-  transform: translateY(-1px);
+  box-shadow: 0 0 0 3px rgba(6, 185, 252, 0.12);
 }
 
-.campo-icone:focus-within i {
-  color: #1a6fc4;
-}
-
-.campo-erro .campo-entrada {
+.form-input.input-error {
   border-color: #ef4444;
   background: #fff5f5;
   box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
 }
 
-.erro-mensagem {
-  display: none;
+.error-message {
+  display: block;
   font-size: 12px;
   color: #ef4444;
-  margin-top: 5px;
-  padding-left: 2px;
+  margin-top: 4px;
+  min-height: 16px;
 }
 
-.campo-erro .erro-mensagem {
-  display: block;
-}
-
-.btn-cadastro-corporativo,
-.btn-salvar.btn-largo {
+.btn-login {
   width: 100%;
-  height: 48px;
+  height: 46px;
   margin-top: 8px;
   border: none;
-  border-radius: 12px;
-  background: linear-gradient(135deg, #0f2d52 0%, #1a6fc4 100%);
+  border-radius: 10px;
+  background: #06b9fc;
   color: #fff;
-  font-family: "DM Sans", sans-serif;
   font-size: 15px;
   font-weight: 500;
-  letter-spacing: 0.2px;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  box-shadow: 0 4px 14px rgba(15, 45, 82, 0.35);
   transition: all 0.2s ease;
 }
 
-.btn-cadastro-corporativo:hover,
-.btn-salvar.btn-largo:hover {
-  background: linear-gradient(135deg, #0d2647 0%, #1560ad 100%);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(15, 45, 82, 0.4);
+.btn-login:hover {
+  background: #0598ce;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(6, 185, 252, 0.3);
 }
 
-.btn-cadastro-corporativo:active,
-.btn-salvar.btn-largo:active {
-  transform: scale(0.98) translateY(0);
-  box-shadow: 0 2px 8px rgba(15, 45, 82, 0.3);
+.btn-login:active {
+  transform: scale(0.98);
 }
 
-@keyframes tremer {
-  0%,
-  100% {
-    transform: translateX(0);
-  }
-  20%,
-  60% {
-    transform: translateX(-5px);
-  }
-  40%,
-  80% {
-    transform: translateX(5px);
-  }
+.login-footer {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+  color: #64748b;
 }
 
-.shake-anim {
-  animation: tremer 0.4s ease-in-out;
+.login-footer a {
+  color: #06b9fc;
+  font-weight: 500;
+}
+
+.login-footer a:hover {
+  text-decoration: underline;
 }
 
 @media (max-width: 520px) {
-  .cadastro-card {
-    padding: 32px 24px 28px;
-  }
-  .cadastro-titulo {
-    font-size: 22px;
+  .login-card {
+    padding: 28px 20px;
   }
 }
