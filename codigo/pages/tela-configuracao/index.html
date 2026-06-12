@@ -36,9 +36,7 @@
           <a href="./../../pages/mensagens/index.html" class="sb-item">
             <div class="sb-item-icon">
               <svg viewBox="0 0 24 24">
-                <path
-                  d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
-                />
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
               </svg>
             </div>
             <span class="sb-item-label">Mensagens</span>
@@ -96,6 +94,7 @@
           </div>
         </a>
       </aside>
+
       <main class="main-content">
         <div class="conteudo">
           <section class="topo">
@@ -121,15 +120,18 @@
 
               <div class="campo">
                 <label for="email">E-mail</label>
-                <input
-                  type="email"
-                  id="email"
-                  placeholder="Digite seu e-mail"
-                />
+                <input type="email" id="email" placeholder="Digite seu e-mail" />
               </div>
 
+              <!-- 
+                Campos extras gerados pelo script.js conforme o tipo do usuário:
+                Estudante: Curso, Instituição, Semestre, Habilidades
+                Empresa:   CNPJ, Área de Atuação
+              -->
+              <div id="campos-extras"></div>
+
               <div class="campo">
-                <label for="email-confirmacao">Confirme seu e-mail</label>
+                <label for="email-confirmacao">Confirme seu e-mail para alterar a senha</label>
                 <input
                   type="email"
                   id="email-confirmacao"
@@ -173,12 +175,16 @@
                   Salvar alterações
                 </button>
               </div>
+
             </form>
           </section>
         </div>
       </main>
     </div>
+
     <div id="mensagem"></div>
+
+    <script src="/codigo/assets/js/auth.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
