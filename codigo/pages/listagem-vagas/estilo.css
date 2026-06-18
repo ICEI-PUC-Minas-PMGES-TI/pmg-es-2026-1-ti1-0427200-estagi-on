@@ -172,12 +172,14 @@ button#limpar:hover {
   background: var(--color-surface, #ffffff);
   color: var(--color-text-main, #0f172a);
   padding: 1.5rem;
+  padding-top: 2.8rem;
   margin-bottom: 1rem;
   border-radius: var(--radius-lg, 16px);
   border: 1px solid #e2e8f0;
   box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
   font-family: "DM Sans", sans-serif;
   transition: all 0.2s ease;
+  position: relative;
 }
 
 .vaga:hover {
@@ -199,4 +201,70 @@ button#limpar:hover {
 /* quando estiver ativo */
 .dropdown-content a.ativo::before {
   background-color: #06b9fc;
+}
+
+.badge-novo {
+  position: absolute;
+  top: 0.75rem;
+  left: 1rem;
+  background: #06b9fc;
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-family: "DM Sans", sans-serif;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  z-index: 1;
+}
+
+
+.btn-favorito {
+  position: absolute;
+  top: 0.6rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: #cbd5e1;
+  transition: color 0.2s ease, transform 0.2s ease;
+  line-height: 1;
+  padding: 0;
+  z-index: 1;
+}
+
+.btn-favorito:hover {
+  color: #ef4444;
+  transform: scale(1.2);
+}
+
+.btn-favorito.favoritado {
+  color: #ef4444;
+}
+
+
+#toast {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: #06b9fc;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 999px;
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  box-shadow: 0 4px 12px rgba(6, 185, 252, 0.4);
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+#toast.visivel {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
 }
