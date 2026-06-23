@@ -2,41 +2,32 @@
 
 > **Documento de Apoio ao README.md**
 > 
-> Este documento fornece detalhes técnicos complementares para a fase de implementação.
+> Este documento fornece detalhes técnicos sobre a implementação atual do Estagi.ON, que utiliza JSON Server como backend.
 
 ---
 
-## 1. Contexto Técnico da Implementação
-
-### Stack Tecnológico Confirmado
+## 1. Stack Tecnológico Atual
 
 A solução **Estagi.ON** foi desenvolvida utilizando a seguinte arquitetura:
 
-#### **Frontend**
-- **Framework**: React.js (v18+)
-- **Linguagem**: JavaScript (ES6+)
-- **Estilo**: CSS3 + Bootstrap 5
-- **Gerenciamento de Estado**: Context API / Redux (conforme implementação)
-- **Requisições HTTP**: Axios / Fetch API
-- **Build Tool**: Webpack (via Create React App)
+### **Frontend**
+- **Linguagem:** HTML5 + CSS3 + JavaScript (ES6+)
+- **Framework CSS:** CSS3 puro com variáveis customizadas
+- **Requisições HTTP:** Fetch API
+- **Armazenamento:** SessionStorage (para autenticação)
+- **Sem dependências externas** - Desenvolvido com tecnologias nativas do navegador
 
-#### **Backend**
-- **Runtime**: Node.js (v14 ou superior)
-- **Framework Web**: Express.js
-- **Linguagem**: JavaScript (Node.js)
-- **Autenticação**: JWT (JSON Web Tokens) + bcrypt
-- **Validação**: Joi ou express-validator
+### **Backend**
+- **Runtime:** Node.js (v14 ou superior)
+- **API:** JSON Server (módulo npm)
+- **Linguagem:** JavaScript (Node.js)
+- **Autenticação:** Simples (email + senha)
+- **Banco de Dados:** Arquivo `db.json` (JSON estruturado)
 
-#### **Banco de Dados**
-- **Banco Relacional**: PostgreSQL (v12+)
-- **Alternativa NoSQL**: MongoDB (se adotado)
-- **ORM/ODM**: Sequelize (PostgreSQL) ou Mongoose (MongoDB)
-
-#### **Infraestrutura e Deploy**
-- **Controle de Versão**: Git + GitHub
-- **Hospedagem Backend**: Heroku / AWS / DigitalOcean (a definir)
-- **Hospedagem Frontend**: Vercel / Netlify / GitHub Pages
-- **Variáveis de Ambiente**: arquivo `.env` + dotenv
+### **Infraestrutura e Deploy**
+- **Controle de Versão:** Git + GitHub
+- **Ambiente Local:** Node.js + JSON Server
+- **Porta Padrão:** 3000 (Frontend e Backend compartilham a mesma porta)
 
 ---
 
@@ -47,435 +38,562 @@ A solução **Estagi.ON** foi desenvolvida utilizando a seguinte arquitetura:
 ```
 pmg-es-2026-1-ti1-0427200-estagi-on/
 │
-├── docs/                          # Documentação
-│   ├── README.md                  # Documento principal
-│   ├── IMPLEMENTATION_GUIDE.md    # Este arquivo
-│   ├── files/                     # Documentos auxiliares (PDFs, etc)
-│   └── images/                    # Imagens da documentação
+├── docs/                              # Documentação
+│   ├── README.md                      # Documento principal
+│   ├── IMPLEMENTATION_GUIDE.md        # Este arquivo
+│   ├── files/                         # Documentos auxiliares (PDFs)
+│   └── images/                        # Imagens da documentação
 │
-├── codigo/                        # Código-fonte
-│   ├── backend/                   # API Node.js + Express
-│   │   ├── src/
-│   │   │   ├── config/            # Configurações (DB, JWT, etc)
-│   │   │   ├── controllers/       # Controladores (lógica de negócio)
-│   │   │   ├── models/            # Modelos de dados (Sequelize/Mongoose)
-│   │   │   ├── routes/            # Rotas da API
-│   │   │   ├── middleware/        # Middlewares (autenticação, validação)
-│   │   │   └── utils/             # Funções auxiliares
-│   │   ├── .env.example           # Template de variáveis de ambiente
-│   │   ├── package.json
-│   │   └── server.js              # Arquivo principal
+├── codigo/                            # Código-fonte (raiz do projeto)
+│   ├── index.js                       # Servidor JSON Server
+│   ├── package.json                   # Configurações Node.js
+│   ├── db/
+│   │   └── db.json                    # Base de dados (estruturas de dados)
 │   │
-│   └── frontend/                  # Aplicação React
-│       ├── public/                # Assets estáticos
-│       ├── src/
-│       │   ├── components/        # Componentes reutilizáveis
-│       │   ├── pages/             # Páginas/telas da aplicação
-│       │   ├── services/          # Serviços (requisições à API)
-│       │   ├── context/           # Context API (estado global)
-│       │   ├── styles/            # Arquivos CSS globais
-│       │   └── App.jsx            # Componente raiz
-│       ├── .env.example
-│       ├── package.json
-│       └── index.js
-│
-└── README.md                       # Arquivo raiz do repositório
+│   ├── public/                        # Frontend (arquivos estáticos)
+│   │   ├── index.html                 # Página principal (dashboard)
+│   │   ├── assets/
+│   │   │   ├── css/
+│   │   │   │   ├── global.css         # Estilos globais
+│   │   │   │   ├── sidebar.css        # Estilos da navegação
+│   │   │   │   └── (outros arquivos .css)
+│   │   │   ├── js/
+│   │   │   │   ├── login.js           # Lógica de autenticação
+│   │   │   │   ├── authGuard.js       # Proteção de rotas
+│   │   │   │   ├── validation.js      # Validação de formulários
+│   │   │   │   └── (outros arquivos .js)
+│   │   │   ├── images/
+│   │   │   │   ├── logo.png
+│   │   │   │   └── (outras imagens)
+│   │   │   └── fonts/
+│   │   │       └── (fontes customizadas)
+│   │   │
+│   │   └── pages/
+│   │       ├── login/
+│   │       │   ├── index.html
+│   │       │   └── style.css
+│   │       ├── listagem-vagas/
+│   │       │   ├── index.html
+│   │       │   ├── estilo.css
+│   │       │   └── script.js
+│   │       ├── cadastro-vagas/
+│   │       │   ├── index.html
+│   │       │   ├── style.css
+│   │       │   └── script.js
+│   │       ├── perfil/
+│   │       │   ├── index.html
+│   │       │   └── style.css
+│   │       └── (outras páginas)
+│   │
+│   └── README.md                      # Instruções do backend
 
+└── README.md                          # Arquivo raiz do repositório
 ```
 
 ---
 
-## 3. Variáveis de Ambiente
+## 3. Estrutura do Banco de Dados (db.json)
 
-### Backend (.env)
+O arquivo `db/db.json` contém toda a estrutura de dados da aplicação em formato JSON:
 
-```env
-# Configuração do Servidor
-PORT=5000
-NODE_ENV=development
+### **Coleções Principais:**
 
-# Banco de Dados
-DATABASE_URL=postgresql://usuario:senha@localhost:5432/estagi_on_db
-# Alternativa MongoDB:
-# MONGODB_URI=mongodb://usuario:senha@localhost:27017/estagi_on
-
-# Segurança
-JWT_SECRET=sua_chave_secreta_super_segura_aqui_mude_em_producao
-JWT_EXPIRY=7d
-
-# Encriptação de Senhas
-BCRYPT_ROUNDS=10
-
-# CORS
-CORS_ORIGIN=http://localhost:3000
-
-# Email (Notificações)
-SMTP_HOST=smtp.gmail.com
-SMTP_PORT=587
-SMTP_USER=seu_email@gmail.com
-SMTP_PASS=sua_senha_app_google
-
-# APIs Externas (Opcional)
-GOOGLE_CALENDAR_API_KEY=sua_chave_api
-
-# Logging
-LOG_LEVEL=info
-```
-
-### Frontend (.env)
-
-```env
-REACT_APP_API_URL=http://localhost:5000/api
-REACT_APP_ENV=development
-```
-
----
-
-## 4. Configuração do Banco de Dados
-
-### Migrations (Sequelize - PostgreSQL)
-
-As migrations devem ser criadas na sequência:
-
-1. **Usuários**
-```sql
-CREATE TABLE usuarios (
-  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-  email VARCHAR(255) UNIQUE NOT NULL,
-  login VARCHAR(100) UNIQUE NOT NULL,
-  nome VARCHAR(255) NOT NULL,
-  senha VARCHAR(255) NOT NULL,
-  tipo ENUM('estudante', 'empresa', 'admin') NOT NULL,
-  ativo BOOLEAN DEFAULT true,
-  criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  atualizado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-```
-
-2. **Perfis de Estudante**
-```sql
-CREATE TABLE perfis_estudante (
-  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-  usuario_id UUID UNIQUE NOT NULL REFERENCES usuarios(id) ON DELETE CASCADE,
-  curso VARCHAR(255) NOT NULL,
-  semestre INTEGER NOT NULL,
-  bio TEXT,
-  foto_perfil VARCHAR(255),
-  criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  atualizado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-```
-
-3. **Perfis de Empresa**
-```sql
-CREATE TABLE perfis_empresa (
-  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-  usuario_id UUID UNIQUE NOT NULL REFERENCES usuarios(id) ON DELETE CASCADE,
-  razao_social VARCHAR(255) NOT NULL,
-  cnpj VARCHAR(18) UNIQUE,
-  descricao TEXT,
-  logo VARCHAR(255),
-  website VARCHAR(255),
-  criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  atualizado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-```
-
-4. **Vagas**
-```sql
-CREATE TABLE vagas (
-  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-  empresa_id UUID NOT NULL REFERENCES perfis_empresa(id) ON DELETE CASCADE,
-  titulo VARCHAR(255) NOT NULL,
-  descricao TEXT NOT NULL,
-  requisitos TEXT[] NOT NULL,
-  curso_alvo VARCHAR(255),
-  semestre_minimo INTEGER,
-  modelo_trabalho VARCHAR(50), -- remoto, presencial, hibrido
-  localizacao VARCHAR(255),
-  salario DECIMAL(10, 2),
-  data_publicacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  data_encerramento TIMESTAMP,
-  ativa BOOLEAN DEFAULT true,
-  atualizado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-```
-
-5. **Candidaturas**
-```sql
-CREATE TABLE candidaturas (
-  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-  vaga_id UUID NOT NULL REFERENCES vagas(id) ON DELETE CASCADE,
-  estudante_id UUID NOT NULL REFERENCES perfis_estudante(id) ON DELETE CASCADE,
-  data_candidatura TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  status VARCHAR(50) DEFAULT 'em_avaliacao', -- em_avaliacao, aceita, recusada, desistencia
-  feedback TEXT,
-  data_atualizacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  UNIQUE(vaga_id, estudante_id)
-);
-```
-
-6. **Notificações**
-```sql
-CREATE TABLE notificacoes (
-  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-  usuario_id UUID NOT NULL REFERENCES usuarios(id) ON DELETE CASCADE,
-  tipo VARCHAR(50) NOT NULL,
-  titulo VARCHAR(255) NOT NULL,
-  mensagem TEXT NOT NULL,
-  data_criacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  lida BOOLEAN DEFAULT false
-);
+```json
+{
+  "estudantes": [
+    {
+      "id": 1,
+      "nome": "Kaio Borges",
+      "email": "kaio@example.com",
+      "senha": "senha123",
+      "curso": "Engenharia de Software",
+      "semestre": 5,
+      "instituicao": "PUC Minas",
+      "habilidades": ["JavaScript", "React", "Node.js"],
+      "bio": "Apaixonado por tecnologia"
+    }
+  ],
+  "empresas": [
+    {
+      "id": 1,
+      "nome": "Tech Company",
+      "email": "contato@techcompany.com",
+      "senha": "empresa123",
+      "cnpj": "12.345.678/0001-90",
+      "area": "Tecnologia",
+      "descricao": "Empresa de desenvolvimento de software"
+    }
+  ],
+  "vagas": [
+    {
+      "id": 1,
+      "titulo": "Estagiário de Desenvolvimento Backend",
+      "descricao": "Buscamos estagiários para trabalhar com Node.js...",
+      "empresa_id": 1,
+      "requisitos": ["Node.js", "JavaScript", "SQL"],
+      "curso_alvo": "Engenharia de Software",
+      "semestre_minimo": 3,
+      "modelo_trabalho": "híbrido",
+      "localizacao": "Belo Horizonte, MG",
+      "salario": "R$ 1.500,00",
+      "data_publicacao": "2026-06-01",
+      "data_encerramento": "2026-07-01",
+      "ativa": true
+    }
+  ],
+  "candidaturas": [
+    {
+      "id": 1,
+      "vaga_id": 1,
+      "estudante_id": 1,
+      "data_candidatura": "2026-06-15",
+      "status": "em_avaliacao",
+      "feedback": null
+    }
+  ],
+  "notificacoes": [
+    {
+      "id": 1,
+      "usuario_id": 1,
+      "tipo": "candidatura_aceita",
+      "titulo": "Parabéns!",
+      "mensagem": "Sua candidatura foi aceita!",
+      "data_criacao": "2026-06-20",
+      "lida": false
+    }
+  ]
+}
 ```
 
 ---
 
-## 5. API REST - Endpoints Principais
+## 4. API REST - Endpoints JSON Server
 
-### Autenticação
+O JSON Server gera automaticamente endpoints RESTful para cada coleção:
 
-| Método | Endpoint | Descrição |
-|--------|----------|-----------|
-| POST | `/api/auth/register` | Criar nova conta (estudante/empresa) |
-| POST | `/api/auth/login` | Fazer login |
-| POST | `/api/auth/logout` | Fazer logout |
-| POST | `/api/auth/refresh-token` | Renovar token JWT |
-| POST | `/api/auth/password-reset` | Recuperar senha |
-
-### Usuários e Perfis
+### **Estudantes**
 
 | Método | Endpoint | Descrição |
 |--------|----------|-----------|
-| GET | `/api/usuarios/perfil` | Obter perfil do usuário autenticado |
-| PUT | `/api/usuarios/perfil` | Atualizar perfil |
-| GET | `/api/usuarios/:id` | Obter dados de um usuário |
-| DELETE | `/api/usuarios/:id` | Deletar conta |
+| GET | `/estudantes` | Listar todos os estudantes |
+| GET | `/estudantes?email=kaio@example.com` | Buscar estudante por email |
+| GET | `/estudantes/:id` | Obter detalhes de um estudante |
+| POST | `/estudantes` | Criar novo estudante |
+| PUT | `/estudantes/:id` | Atualizar estudante |
+| DELETE | `/estudantes/:id` | Deletar estudante |
 
-### Vagas (Estudantes)
-
-| Método | Endpoint | Descrição |
-|--------|----------|-----------|
-| GET | `/api/vagas` | Listar vagas (com filtros) |
-| GET | `/api/vagas/:id` | Obter detalhes da vaga |
-| GET | `/api/vagas/filtrar?curso=X&semestre=Y&modelo=Z` | Filtrar vagas |
-
-### Vagas (Empresas)
+### **Empresas**
 
 | Método | Endpoint | Descrição |
 |--------|----------|-----------|
-| POST | `/api/vagas` | Criar nova vaga |
-| PUT | `/api/vagas/:id` | Editar vaga |
-| DELETE | `/api/vagas/:id` | Deletar vaga |
-| GET | `/api/vagas/empresa/:id` | Listar vagas da empresa |
+| GET | `/empresas` | Listar todas as empresas |
+| GET | `/empresas?email=contato@company.com` | Buscar empresa por email |
+| GET | `/empresas/:id` | Obter detalhes de uma empresa |
+| POST | `/empresas` | Criar nova empresa |
+| PUT | `/empresas/:id` | Atualizar empresa |
+| DELETE | `/empresas/:id` | Deletar empresa |
 
-### Candidaturas
-
-| Método | Endpoint | Descrição |
-|--------|----------|-----------|
-| POST | `/api/candidaturas` | Candidatar-se a uma vaga |
-| GET | `/api/candidaturas/estudante` | Listar candidaturas do estudante |
-| GET | `/api/candidaturas/vaga/:id` | Listar candidatos de uma vaga |
-| PUT | `/api/candidaturas/:id/status` | Atualizar status (aceita/recusa) |
-| DELETE | `/api/candidaturas/:id` | Cancelar candidatura |
-
-### Notificações
+### **Vagas**
 
 | Método | Endpoint | Descrição |
 |--------|----------|-----------|
-| GET | `/api/notificacoes` | Listar notificações do usuário |
-| PUT | `/api/notificacoes/:id/marcar-lida` | Marcar como lida |
-| DELETE | `/api/notificacoes/:id` | Deletar notificação |
+| GET | `/vagas` | Listar todas as vagas |
+| GET | `/vagas/:id` | Obter detalhes da vaga |
+| GET | `/vagas?curso_alvo=Engenharia de Software` | Filtrar vagas por curso |
+| GET | `/vagas?empresa_id=1` | Listar vagas de uma empresa |
+| POST | `/vagas` | Criar nova vaga |
+| PUT | `/vagas/:id` | Editar vaga |
+| DELETE | `/vagas/:id` | Deletar vaga |
+
+### **Candidaturas**
+
+| Método | Endpoint | Descrição |
+|--------|----------|-----------|
+| GET | `/candidaturas` | Listar todas as candidaturas |
+| GET | `/candidaturas?estudante_id=1` | Candidaturas de um estudante |
+| GET | `/candidaturas?vaga_id=1` | Candidatos de uma vaga |
+| POST | `/candidaturas` | Criar candidatura |
+| PUT | `/candidaturas/:id` | Atualizar candidatura |
+| DELETE | `/candidaturas/:id` | Deletar candidatura |
+
+### **Notificações**
+
+| Método | Endpoint | Descrição |
+|--------|----------|-----------|
+| GET | `/notificacoes` | Listar notificações |
+| GET | `/notificacoes?usuario_id=1` | Notificações de um usuário |
+| POST | `/notificacoes` | Criar notificação |
+| PUT | `/notificacoes/:id` | Atualizar notificação |
+| DELETE | `/notificacoes/:id` | Deletar notificação |
 
 ---
 
-## 6. Fluxo de Autenticação
+## 5. Fluxo de Autenticação
 
 ```
-┌─────────────────────────────────────────────────────┐
-│ 1. Usuário acessa a aplicação                       │
-│    → Verifica localStorage para JWT existente       │
-└────────────────┬────────────────────────────────────┘
-                 │
-         ┌───────▼──────────┐
-         │ JWT válido?      │
-         └───┬──────────┬───┘
-         NÃO │          │ SIM
-         ┌───▼───┐      │
-         │ Login │      │
-         └───┬───┘      │
-             │          │
-      ┌──────▼──────────▼──────────┐
-      │ 2. Enviar credenciais      │
-      │    POST /api/auth/login    │
-      └──────┬─────────────────────┘
+┌──────────────────────────────────────────────────┐
+│ 1. Usuário acessa a aplicação                    │
+│    → Verifica sessionStorage para usuarioAtivo   │
+└────────────┬──────────────────────────────────────┘
              │
-      ┌──────▼──────────────────────┐
-      │ 3. Backend valida e gera    │
-      │    JWT (Header: HS256)      │
-      └──────┬─────────────────────┘
-             │
-      ┌──────▼──────────────────────┐
-      │ 4. Frontend armazena JWT    │
-      │    no localStorage          │
-      └──────┬─────────────────────┘
-             │
-      ┌──────▼──────────────────────┐
-      │ 5. Requisições posteriores  │
-      │    incluem JWT no header:   │
-      │    Authorization: Bearer... │
-      └──────┬─────────────────────┘
-             │
-      ┌──────▼──────────────────────┐
-      │ 6. Backend valida JWT       │
-      │    em cada requisição       │
-      └────────────────────────────┘
+     ┌───────▼──────────┐
+     │ usuarioAtivo     │
+     │ no session?      │
+     └───┬────────────┬─┘
+     NÃO │            │ SIM
+     ┌───▼───┐        │
+     │ Login │        │
+     └───┬───┘        │
+         │            │
+  ┌──────▼────────────▼──────────┐
+  │ 2. Buscar usuário no JSON    │
+  │    GET /estudantes?email=... │
+  │    GET /empresas?email=...   │
+  └──────┬─────────────────────┘
+         │
+  ┌──────▼──────────────────────┐
+  │ 3. Validar senha             │
+  │    (comparação em memória)   │
+  └──────┬─────────────────────┘
+         │
+  ┌──────▼──────────────────────┐
+  │ 4. Salvar no sessionStorage: │
+  │    usuarioAtivo = {          │
+  │      id, nome, email,        │
+  │      tipo, ...               │
+  │    }                         │
+  └──────┬─────────────────────┘
+         │
+  ┌──────▼──────────────────────┐
+  │ 5. Redirecionar para index   │
+  │    ou página inicial         │
+  └──────┬─────────────────────┘
+         │
+  ┌──────▼──────────────────────┐
+  │ 6. Cada requisição verifica  │
+  │    o sessionStorage          │
+  │    (proteção via authGuard)  │
+  └──────────────────────────────┘
+```
+
+### **Arquivo: `assets/js/login.js`**
+
+```javascript
+async function processaFormLogin(event) {
+  event.preventDefault();
+  
+  const email = document.getElementById("username").value;
+  const senha = document.getElementById("password").value;
+  
+  // Busca em estudantes
+  const estudanteResponse = await fetch(
+    `http://localhost:3000/estudantes?email=${email}`
+  );
+  const estudantes = await estudanteResponse.json();
+  
+  if (estudantes.length > 0 && estudantes[0].senha === senha) {
+    sessionStorage.setItem("usuarioAtivo", JSON.stringify(estudantes[0]));
+    window.location.href = "../../index.html";
+  } else {
+    // Busca em empresas
+    const empresaResponse = await fetch(
+      `http://localhost:3000/empresas?email=${email}`
+    );
+    const empresas = await empresaResponse.json();
+    
+    if (empresas.length > 0 && empresas[0].senha === senha) {
+      sessionStorage.setItem("usuarioAtivo", JSON.stringify(empresas[0]));
+      window.location.href = "../../index.html";
+    }
+  }
+}
 ```
 
 ---
 
-## 7. Procedimentos de Setup
+## 6. Procedimentos de Setup
 
-### Pré-requisitos Globais
+### **Pré-requisitos**
 
 ```bash
 # Node.js (verificar versão)
 node --version  # v14+
 
-# npm ou yarn
+# npm (gerenciador de pacotes)
 npm --version
 
-# Git
+# Git (controle de versão)
 git --version
-
-# PostgreSQL (local ou remoto)
-psql --version
 ```
 
-### Setup do Backend
+### **Instalação e Execução**
+
+#### **Passo 1: Clone o repositório**
 
 ```bash
-# 1. Navegar para a pasta backend
-cd codigo/backend
+git clone https://github.com/ICEI-PUC-Minas-PMGES-TI/pmg-es-2026-1-ti1-0427200-estagi-on.git
+cd pmg-es-2026-1-ti1-0427200-estagi-on/codigo
+```
 
-# 2. Instalar dependências
+#### **Passo 2: Instale as dependências**
+
+```bash
 npm install
+```
 
-# 3. Copiar e configurar .env
-cp .env.example .env
-# Editar .env com as credenciais reais
+Isso instalará:
+- `json-server` - API RESTful automática
+- Outras dependências definidas em `package.json`
 
-# 4. Executar migrations
-npm run migrate:up
+#### **Passo 3: Inicie o servidor**
 
-# 5. Seed do banco (opcional)
-npm run seed
-
-# 6. Iniciar servidor
+```bash
 npm start
-# Server rodando em http://localhost:5000
 ```
 
-### Setup do Frontend
-
-```bash
-# 1. Navegar para a pasta frontend
-cd codigo/frontend
-
-# 2. Instalar dependências
-npm install
-
-# 3. Copiar e configurar .env
-cp .env.example .env
-
-# 4. Iniciar aplicação
-npm start
-# App rodando em http://localhost:3000
+**Saída esperada:**
+```
+JSON Server is running em http://localhost:3000
 ```
 
-### Testes
+#### **Passo 4: Acesse a aplicação**
 
-```bash
-# Backend
-cd codigo/backend
-npm run test          # Testes unitários
-npm run test:e2e      # Testes E2E
+Abra seu navegador e navegue para:
+- **Frontend:** http://localhost:3000
+- **API REST:** http://localhost:3000/estudantes (ou outras coleções)
 
-# Frontend
-cd codigo/frontend
-npm run test          # Testes dos componentes
-npm run test:coverage # Cobertura de testes
+### **Login de Teste**
+
+Use as credenciais padrão do `db.json`:
+
+**Estudante:**
+- Email: `kaio@example.com`
+- Senha: `senha123`
+
+**Empresa:**
+- Email: `contato@techcompany.com`
+- Senha: `empresa123`
+
+---
+
+## 7. Estrutura de Componentes e Módulos
+
+### **Frontend - Organização por Página**
+
+#### **1. Login (`pages/login/`)**
+- `index.html` - Formulário de login
+- `style.css` - Estilos da página
+- Integrado com `login.js` para autenticação
+
+#### **2. Dashboard Principal (`public/index.html`)**
+- Página inicial após login
+- Navegação via sidebar
+- Protegido por `authGuard.js`
+
+#### **3. Listagem de Vagas (`pages/listagem-vagas/`)**
+- `index.html` - Interface de listagem
+- `estilo.css` - Estilos
+- `script.js` - Filtros e busca
+- Funcionalidades:
+  - Busca por título
+  - Filtros por curso, semestre, modelo de trabalho
+  - Listagem de vagas ativas
+  - Candidatura
+
+#### **4. Cadastro de Vagas (`pages/cadastro-vagas/`)**
+- `index.html` - Formulário de criação
+- `style.css` - Estilos
+- `script.js` - Validação e envio
+- Apenas para usuários do tipo "empresa"
+
+#### **5. Perfil do Usuário (`pages/perfil/`)**
+- Visualizar e editar dados pessoais
+- Atualizar informações acadêmicas/empresariais
+
+### **Frontend - Módulos Globais**
+
+#### **`assets/js/authGuard.js`**
+- Protege todas as rotas
+- Verifica `sessionStorage` para `usuarioAtivo`
+- Redireciona para login se não autenticado
+- Verifica permissões por tipo de usuário
+
+#### **`assets/js/login.js`**
+- Processa autenticação
+- Busca usuário na API
+- Salva sessão no `sessionStorage`
+
+#### **`assets/js/validation.js`**
+- `validarEmail()` - Valida formato de email
+- `validarSenha()` - Valida força de senha
+- `validarCNPJ()` - Valida CNPJ
+- `mostrarErro()` e `limparErro()` - UI de validação
+
+#### **`assets/css/global.css`**
+- Variáveis CSS globais (cores, espaçamentos, tipografia)
+- Reset e estilos base
+- Definições de tema
+
+#### **`assets/css/sidebar.css`**
+- Estilos da navegação lateral
+- Responsividade
+
+---
+
+## 8. Fluxos de Funcionalidades Principais
+
+### **Funcionalidade 1: Login**
+
+```
+1. Usuário acessa /codigo/pages/login/index.html
+2. Preenche email e senha
+3. JavaScript dispara processaFormLogin()
+4. Busca em /estudantes ou /empresas
+5. Compara senha (texto plano)
+6. Salva no sessionStorage
+7. Redireciona para index.html
+```
+
+### **Funcionalidade 2: Listar Vagas (Estudante)**
+
+```
+1. GET /vagas (lista todas)
+2. Aplicar filtros via JavaScript:
+   - Curso
+   - Semestre mínimo
+   - Modelo de trabalho
+   - Localização
+3. Renderizar cards na página
+4. Opção de candidatar-se:
+   - POST /candidaturas
+   - Cria registro com status "em_avaliacao"
+```
+
+### **Funcionalidade 3: Publicar Vaga (Empresa)**
+
+```
+1. Empresa preenche formulário
+2. Validação JavaScript
+3. POST /vagas
+4. Nova vaga criada no db.json
+5. ID da empresa vinculado
+6. Vaga aparece para estudantes
+```
+
+### **Funcionalidade 4: Acompanhar Candidatura**
+
+```
+1. GET /candidaturas?estudante_id={id}
+2. Mostrar lista com status:
+   - em_avaliacao
+   - aceita
+   - recusada
+3. Empresa pode atualizar status:
+   - PUT /candidaturas/{id}
+4. Notificações são criadas automaticamente
 ```
 
 ---
 
-## 8. Deploy em Produção
+## 9. Desenvolvimento e Manutenção
 
-### Backend (Heroku)
+### **Adicionando Novas Rotas**
 
-```bash
-# 1. Login no Heroku
-heroku login
+1. Crie nova página em `public/pages/nova-rota/index.html`
+2. Adicione `authGuard.js` via `<script>`
+3. Implemente lógica em arquivo JavaScript separado
+4. Chame endpoints JSON Server conforme necessário
 
-# 2. Criar app
-heroku create estagi-on-api
+### **Adicionando Novos Dados**
 
-# 3. Adicionar variáveis de ambiente
-heroku config:set JWT_SECRET=sua_chave_secreta
-heroku config:set DATABASE_URL=postgres://seu_banco_prod
+1. Edite `db/db.json`
+2. Adicione novo objeto à coleção desejada
+3. JSON Server detecta mudança automaticamente
+4. Novos IDs são gerados automaticamente pelo JSON Server
 
-# 4. Deploy
-git push heroku main
-
-# 5. Verificar logs
-heroku logs --tail
-```
-
-### Frontend (Vercel)
+### **Testando API Localmente**
 
 ```bash
-# 1. Instalar Vercel CLI
-npm install -g vercel
+# Listar todos os estudantes
+curl http://localhost:3000/estudantes
 
-# 2. Deploy
-vercel
+# Buscar estudante por email
+curl "http://localhost:3000/estudantes?email=kaio@example.com"
 
-# 3. Configurar variáveis de ambiente no dashboard Vercel
-# REACT_APP_API_URL=https://estagi-on-api.herokuapp.com/api
+# Criar nova vaga (POST)
+curl -X POST http://localhost:3000/vagas \
+  -H "Content-Type: application/json" \
+  -d '{"titulo":"Novo Estágio", "empresa_id":1, ...}'
+
+# Atualizar candidatura (PUT)
+curl -X PUT http://localhost:3000/candidaturas/1 \
+  -H "Content-Type: application/json" \
+  -d '{"status":"aceita"}'
 ```
 
 ---
 
-## 9. Checklist de Entrega
+## 10. Limitações Conhecidas e Considerações Futuras
 
-- [ ] README.md completo em `/docs`
-- [ ] Arquivo `.env.example` no backend
-- [ ] Arquivo `.env.example` no frontend
-- [ ] Migrations do banco criadas e testadas
-- [ ] Seeds (dados de exemplo) criados
-- [ ] API funcional em desenvolvimento
-- [ ] Frontend conectado à API
-- [ ] Testes unitários implementados
-- [ ] Documentação de API (Swagger/OpenAPI)
-- [ ] Script de inicialização única (`npm run setup`)
-- [ ] GitHub com commits regulares e mensagens descritivas
-- [ ] Vídeo de apresentação publicado no YouTube
-- [ ] PDF gerado do README.md
+### **Limitações Atuais**
+
+- ⚠️ **Autenticação:** Senhas armazenadas em texto plano no JSON
+- ⚠️ **Segurança:** Sem JWT ou tokens de sessão seguro
+- ⚠️ **Escalabilidade:** JSON Server não é adequado para produção em larga escala
+- ⚠️ **Concorrência:** Sem locking de dados no db.json
+
+### **Sugestões para Evoluir**
+
+1. **Migrar para Express.js + bcrypt:**
+   - Criptografar senhas
+   - Implementar JWT
+   - Adicionar middlewares de segurança
+
+2. **Integrar Banco de Dados Relacional:**
+   - PostgreSQL com Sequelize
+   - Migrations automáticas
+   - Índices e constraints
+
+3. **Adicionar Validação Completa:**
+   - Backend validation (não apenas frontend)
+   - Sanitização de inputs
+   - Rate limiting
+
+4. **Melhorar UX:**
+   - Transições e animações
+   - Notificações em tempo real
+   - Paginação de resultados
 
 ---
 
-## 10. Referências Técnicas
+## 11. Checklist de Entrega
 
-- [Express.js Documentation](https://expressjs.com/)
-- [React Official Docs](https://react.dev/)
-- [Sequelize ORM](https://sequelize.org/)
-- [PostgreSQL Documentation](https://www.postgresql.org/docs/)
-- [JWT Best Practices](https://tools.ietf.org/html/rfc7519)
-- [REST API Design Guidelines](https://restfulapi.net/)
-- [Heroku Deployment Guide](https://devcenter.heroku.com/)
-- [Vercel Deployment Guide](https://vercel.com/docs)
+- [x] Frontend funcional em HTML/CSS/JavaScript puro
+- [x] Backend com JSON Server
+- [x] Autenticação simples (email + senha)
+- [x] CRUD de vagas
+- [x] Sistema de candidaturas
+- [x] Filtros e buscas
+- [x] Proteção básica de rotas
+- [x] Responsividade (mobile-friendly)
+- [x] Código bem organizado em módulos
+- [ ] (Futuro) Testes automatizados
+- [ ] (Futuro) CI/CD pipeline
+- [ ] (Futuro) Deploy em produção
 
 ---
 
-**Última atualização:** Junho de 2026
-**Responsável:** Equipe Estagi.ON
+## 12. Referências Técnicas
 
+- [JSON Server Documentation](https://github.com/typicode/json-server)
+- [Fetch API - MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
+- [SessionStorage - MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage)
+- [CSS Variables - MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/--*)
+- [REST API Best Practices](https://restfulapi.net/)
+- [Node.js Documentation](https://nodejs.org/docs/)
+
+---
+
+**Última atualização:** Junho de 2026  
+**Responsável:** Equipe Estagi.ON  
+**Status:** Documentação refletindo a implementação atual com JSON Server
