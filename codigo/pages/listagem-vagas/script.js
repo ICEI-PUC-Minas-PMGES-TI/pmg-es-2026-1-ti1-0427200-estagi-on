@@ -126,7 +126,7 @@ function toggleFavorito(event, id) {
     mostrarToast("Vaga removida dos favoritos.");
     } else {
     favoritos.push(id);
-    mostrarToast("Vaga favoritada com sucesso! ❤️");
+    mostrarToast("Vaga favoritada com sucesso ");
     }
 
     localStorage.setItem("favoritos", JSON.stringify(favoritos));
