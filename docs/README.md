@@ -371,7 +371,7 @@ Esta seção apresenta as funcionalidades da solução.
 ##### Funcionalidade 1 - Cadastro de Usuários e Autenticação
 
 Permite que estudantes e empresas se registrem e façam login na plataforma, com validação de dados e segurança.
->>>>>>> 73e13193de8a18f04b20aef527525c57c59b8b6e
+
 
 * **Estrutura de dados:** [Usuários](#ed_usuarios)
 * **Instruções de acesso:**
@@ -379,6 +379,9 @@ Permite que estudantes e empresas se registrem e façam login na plataforma, com
   * Selecione o tipo de usuário (Estudante ou Empresa)
   * Preencha os dados solicitados e confirme
   * Acesse a plataforma com suas credenciais
+  * **Tela da funcionalidade:**
+
+  ![Usuários](images/funcionalidades/usuario.png)
 
 ##### Funcionalidade 2 - Publicação e Gestão de Vagas (Empresas)
 
@@ -389,8 +392,11 @@ Permite que empresas criem, editem e excluam vagas de estágio com descrição, 
   * Abra o site e efetue o login como Empresa
   * Acesse o menu principal e escolha "Gerenciar Vagas"
   * Clique em "Nova Vaga" e preencha os detalhes
-  * Salve e a vaga será visível para estudantes
-
+  * Clique em "Criar" para criar nova vaga
+  * Clique em "Atualizar" para atualizar a vaga ja criada
+  * Clique em "Limpar" para tirar as vagas
+* **Tela da funcionalidade:**
+  ![Vagas](images/funcionalidades/Cadastro_vagas.png)
 ##### Funcionalidade 3 - Busca e Filtro de Vagas (Estudantes)
 
 Permite que estudantes busquem vagas com filtros por curso, semestre, modelo de trabalho e localização.
@@ -413,17 +419,43 @@ Permite que estudantes se candidatem a vagas e acompanhem o status de suas candi
 * **Estrutura de dados:** [Candidaturas](#ed_candidaturas)
 * **Instruções de acesso:**
   * Visualize uma vaga de seu interesse
+  * Mande o curriculo para a empresa
   * Clique em "Candidatar-se"
   * Acompanhe o status no Dashboard ou na seção "Minhas Candidaturas"
+* **Tela da funcionalidade:**
+![Candidaturas](images/funcionalidades/Candidaturas.png)
 
 ##### Funcionalidade 5 - Dashboard e Notificações
 
 Oferece uma visão centralizada do progresso das candidaturas e notificações de atualizações.
 
-* **Estrutura de dados:** [Notificações](#ed_notificacoes)
+* **Estrutura de dados:** [Notificações](#ed_Notificacoes)
 * **Instruções de acesso:**
-  * Abra o site e efetue o login
+  * No menu principal entre em dashboard
+  * A versão é diferente se logar como aluno ou como empresa
+  * O dashboard mostra a situação das vagas cadastradas
+  * Tem um atalho para entrar na lista de vagas
+* **Tela da funcionalidade:**
+![Dashboard](images/funcionalidades/Dashboard.png)
 
+##### Funcionalidade 6 - Calendário
+* **Estrutura de dados:** [Calendário](#ed_Calendario)
+* **Instruções de acesso:**
+  * No menu principal entre em calendário
+  * Ao clicar em uma data é possivel criar um evento
+  * O evento fica salvo no dia selecionado como uma forma de orientar o usuário
+  * É possível criar um novo evento ao clicar no botao "Novo evento" no canto superior direito
+* **Tela da funcionalidade:**
+![Dashboard](images/funcionalidades/Calendario.png)
+
+##### Funcionalidade 7 - Mensagens
+* **Estrutura de dados:** [Mensagens](#ed_Mensagens)
+* **Instruções de acesso:**
+  * No menu principal entre em mensagens
+  * Ao clicar no contato é possivel trocar mensagens com o outro usuário seja empresa ou estudante
+  * Também é possível buscar algum usuário para mandar a mensagem
+* **Tela da funcionalidade:**
+![Dashboard](images/funcionalidades/Mensagem.png)
 
 ## Estruturas de Dados
 
@@ -435,20 +467,22 @@ Registro dos usuários do sistema utilizados para login e para o perfil do siste
 
 ```json
 {
-  "id": "eed55b91-45be-4f2c-81bc-7686135503f9",
-  "email": "kaio@example.com",
-  "login": "kaio.borges",
-  "nome": "Kaio Borges",
-  "senha": "encrypted_password",
-  "tipo": "estudante",
-  "perfil": {
-    "curso": "Engenharia de Software",
-    "semestre": 5,
-    "competencias": ["JavaScript", "React", "Node.js"],
-    "bio": "Apaixonado por tecnologia..."
-  },
-  "criado_em": "2026-01-15T10:30:00Z",
-  "atualizado_em": "2026-06-20T14:45:00Z"
+  "Usuarios"{
+    "id": "eed55b91-45be-4f2c-81bc-7686135503f9",
+    "email": "kaio@example.com",
+    "login": "kaio.borges",
+    "nome": "Kaio Borges",
+    "senha": "encrypted_password",
+    "tipo": "estudante",
+    "perfil": {
+      "curso": "Engenharia de Software",
+      "semestre": 5,
+      "competencias": ["JavaScript", "React", "Node.js"],
+      "bio": "Apaixonado por tecnologia..."
+    },
+    "criado_em": "2026-01-15T10:30:00Z",
+    "atualizado_em": "2026-06-20T14:45:00Z"
+  }
 }
 ```
 
@@ -459,19 +493,21 @@ Dados relacionados às vagas de estágio publicadas.
 ```json
 
 {
-  "id": "vaga-001",
-  "titulo": "Estagiário de Desenvolvimento Backend",
-  "descricao": "Buscamos estagiários para trabalhar com Node.js e PostgreSQL...",
-  "empresa_id": "emp-001",
-  "requisitos": ["Node.js", "JavaScript", "SQL"],
-  "curso_alvo": "Engenharia de Software",
-  "semestre_minimo": 3,
-  "modelo_trabalho": "híbrido",
-  "localizacao": "Belo Horizonte, MG",
-  "salario": "R$ 1.500,00",
-  "data_publicacao": "2026-06-01T09:00:00Z",
-  "data_encerramento": "2026-07-01T18:00:00Z",
-  "ativa": true
+  "Vagas"{
+    "id": "vaga-001",
+    "titulo": "Estagiário de Desenvolvimento Backend",
+    "descricao": "Buscamos estagiários para trabalhar com Node.js e PostgreSQL...",
+    "empresa_id": "emp-001",
+    "requisitos": ["Node.js", "JavaScript", "SQL"],
+    "curso_alvo": "Engenharia de Software",
+    "semestre_minimo": 3,
+    "modelo_trabalho": "híbrido",
+    "localizacao": "Belo Horizonte, MG",
+    "salario": "R$ 1.500,00",
+    "data_publicacao": "2026-06-01T09:00:00Z",
+    "data_encerramento": "2026-07-01T18:00:00Z",
+    "ativa": true
+  }
 }
 ```
 
@@ -481,13 +517,15 @@ Registro de candidaturas de estudantes a vagas.
 
 ```json
 {
-  "id": "cand-001",
-  "vaga_id": "vaga-001",
-  "estudante_id": "est-001",
-  "data_candidatura": "2026-06-15T11:20:00Z",
-  "status": "em_avaliacao",
-  "feedback": null,
-  "data_atualizacao": "2026-06-15T11:20:00Z"
+  "Candidaturas"{
+    "id": "cand-001",
+    "vaga_id": "vaga-001",
+   "estudante_id": "est-001",
+    "data_candidatura": "2026-06-15T11:20:00Z",
+    "status": "em_avaliacao",
+    "feedback": null,
+    "data_atualizacao": "2026-06-15T11:20:00Z"
+  }
 }
 ```
 
@@ -497,27 +535,45 @@ Notificações enviadas aos usuários sobre atualizações de candidaturas e vag
 
 ```json
 {
-  "id": "notif-001",
-  "usuario_id": "est-001",
-  "tipo": "candidatura_aceita",
-  "titulo": "Parabéns!",
-  "mensagem": "Sua candidatura para 'Estagiário de Desenvolvimento Backend' foi aceita!",
-  "data_criacao": "2026-06-20T14:00:00Z",
-  "lida": false
+  "Notificacoes"{
+    "id": "notif-001",
+    "usuario_id": "est-001",
+    "tipo": "candidatura_aceita",
+    "titulo": "Parabéns!",
+    "mensagem": "Sua candidatura para 'Estagiário de Desenvolvimento Backend' foi aceita!",
+    "data_criacao": "2026-06-20T14:00:00Z",
+    "lida": false
+  }
 }
 ```
 
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Apresente as estruturas de dados utilizadas na solução tanto para dados utilizados na essência da aplicação quanto outras estruturas que foram criadas para algum tipo de configuração.
->
-> Nomeie a estrutura, coloque uma descrição sucinta e apresente um exemplo em formato JSON.
->>>>>>> 73e13193de8a18f04b20aef527525c57c59b8b6e
->
-> **Orientações:**
->
-> * [JSON Introduction](https://www.w3schools.com/js/js_json_intro.asp)
-> * [Trabalhando com JSON - Aprendendo desenvolvimento web | MDN](https://developer.mozilla.org/pt-BR/docs/Learn/JavaScript/Objects/JSON)
+##### Estrutura de Dados - Calendário
+```json
+{
+  "Calendario"{
+    "id": "1",
+    "titulo": "Entrevista - TechSolutions",
+    "descricao": "Entrevista para Estágio.",
+    "data": "2026-06-03",
+    "horaInicio": "10:00",
+    "horaFim": "11:00",
+    "tipo": "entrevista",
+    "modalidade": "Online",
+  }
+}
+```
+##### Estrutura de Dados - Mensagens
+```json
+{
+  "Mensagens"{
+    "id": 2,
+    "nome": "TechCorp",
+    "tipo": "Empresa",
+    "ultimaMensagem": "Olá! Temos interesse em sua candidatura.",
+    "iniciais": "TC",
+  }
+}
+```
 
 ## Módulos e APIs
 
@@ -550,12 +606,6 @@ Esta seção apresenta os módulos e APIs utilizados na solução.
 * Google Calendar API - Para integração com calendário (opcional)
 
 
-=======
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Apresente os módulos e APIs utilizados no desenvolvimento da solução. Inclua itens como: (1) Frameworks, bibliotecas, módulos, etc. utilizados no desenvolvimento da solução; (2) APIs utilizadas de terceiros.
-
----
 
 # Como Executar
 
@@ -656,7 +706,7 @@ Para mais detalhes, consulte as instruções de contribuição em `/docs` (se ho
 Este projeto está licenciado sob a Licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 
 ---
->>>>>>> 73e13193de8a18f04b20aef527525c57c59b8b6e
+
 
 # Referências
 
