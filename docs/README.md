@@ -457,18 +457,7 @@ Registro dos usuários do sistema utilizados para login e para o perfil do siste
 Dados relacionados às vagas de estágio publicadas.
 
 ```json
-<<<<<<< HEAD
-  {
-    id: "eed55b91-45be-4f2c-81bc-7686135503f9",
-    email: "admin@abc.com",
-    id: "eed55b91-45be-4f2c-81bc-7686135503f9",
-    login: "admin",
-    nome: "Administrador do Sistema",
-    senha: "123"
-  }
-``` 
 
-=======
 {
   "id": "vaga-001",
   "titulo": "Estagiário de Desenvolvimento Backend",
@@ -560,7 +549,7 @@ Esta seção apresenta os módulos e APIs utilizados na solução.
 * Gmail API - Para envio de notificações por email
 * Google Calendar API - Para integração com calendário (opcional)
 
-<<<<<<< HEAD
+
 =======
 > ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
 >
