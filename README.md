@@ -1,7 +1,6 @@
 # Estagi.ON
 O objetivo geral deste trabalho é desenvolver um software capaz de melhorar a conexão entre estudantes universitários e empresas, buscando reduzir as dificuldades encontradas na busca e oferta de vagas de estágio.
 
-## repositorio do GitHub: https://github.com/ICEI-PUC-Minas-PMGES-TI/pmg-es-2026-1-ti1-0427200-estagi-on.git
 
 ## Alunos integrantes da equipe
 
