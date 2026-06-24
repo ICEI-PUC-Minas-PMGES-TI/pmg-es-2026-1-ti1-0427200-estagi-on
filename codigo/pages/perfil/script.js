@@ -101,9 +101,9 @@ function mostrarCampoDisplay(wrapId, valorId, valor) {
 }
 
 function abrirModal() {
-  document.getElementById("modal-overlay").classList.add("aberto");
+  window.location.href = "../tela-configuracao/index.html";
 }
-
+  
 /**
  * Fecha o modal de edição
  */
