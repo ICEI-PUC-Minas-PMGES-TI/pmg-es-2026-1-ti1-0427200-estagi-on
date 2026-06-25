@@ -1,31 +1,38 @@
 cff-version: 1.0.1
 message: Please cite this software using these metadata.
-title: 
+title: Estagi.On
 authors:
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names:
+  - family-names: Gabriel de Oliveira Fonseca Santos
+    given-names: Arthur
+  - family-names: Moraes Braga Araujo
+    given-names: Arthur
+  - family-names: Fernandes Alcantra 
+    given-names: Enzo
+  - family-names: Albuquerque Lourenço Mattos de Castro
+    given-names: Gustavo
+  - family-names: Pedro Marques Faria
+    given-names: Juan
+  - family-names: Arthur de Sena Ribeiro
+    given-names: Pedro
   - name-suffix: Professor
     affiliation: PUC Minas
-    family-names: 
-    given-names: 
+    family-names: Rhain da Silva Jandre
+    given-names: Caroline
   - name-suffix: Professor
     affiliation: PUC Minas
-    family-names: 
-    given-names: 
+    family-names: de Quadros Maia Filho
+    given-names: Danilo
+ - name-suffix: Professor
+    affiliation: PUC Minas
+    family-names: Augusto de Faria Barros
+    given-names: Diego
 keywords:
-  - 
-  - 
-repository-code: 
+  - Estagio
+  - Emprego
+  - Universitario
+  - Vagas
+  - Recrutadores
+repository-code: https://github.com/ICEI-PUC-Minas-PMGES-TI/pmg-es-2026-1-ti1-0427200-estagi-on.git
 license: CC-BY-4.0
 version: 1.0.0
-date-released: 2022-07-14
+date-released: 2026-06-28
