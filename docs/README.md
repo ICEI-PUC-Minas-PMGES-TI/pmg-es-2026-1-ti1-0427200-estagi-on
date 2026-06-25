@@ -41,7 +41,7 @@ O **Estagi.ON** busca ser uma plataforma dedicada a conectar estudantes e empres
 
 # Contexto
 
-Estudantes universitários enfrentam dificuldades para encontrar vagas de estágio compatíveis com sua área, devido à dispersão de oportunidades em diferentes plataformas e a dificuldade de encontrá-las rapidamente. A aplicação será feita por meio de um aplicativo que intermediará o estagiário e a empresa.
+A transição de estudantes universitários para o mercado de trabalho é dificultada pela fragmentação de informações, portais de emprego generalistas misturam níveis de experiência e ignoram critérios essencialmente acadêmicos. O Estagi.ON resolve essa lacuna ao centralizar a comunicação entre estudantes e empresas em uma plataforma dedicada exclusivamente a estágios.
 
 ## Problema
 
@@ -53,7 +53,7 @@ O problema central identificado está na **ineficiência da conexão entre estud
 ## Objetivos
 
 ### Objetivo Geral
-Desenvolver um software capaz de **melhorar a conexão entre estudantes universitários e empresas**, buscando reduzir as dificuldades encontradas na busca e oferta de vagas de estágio.
+Desenvolver uma plataforma digital dedicada a otimizar e centralizar o recrutamento de estagiários,conectando estudantes universitários a empresas por meio de filtros inteligentes e perfis acadêmicos padronizados.
 
 ### Objetivos Específicos
 1. **Desenvolver um sistema de filtros avançado** (curso, semestre, modelo de trabalho, localização, competências) para ajudar estudantes a encontrar vagas compatíveis
@@ -65,12 +65,7 @@ Desenvolver um software capaz de **melhorar a conexão entre estudantes universi
 
 ## Justificativa
 
-A motivação para desenvolver esta aplicação está na **importância dos estágios para a formação acadêmica e profissional dos estudantes**, além das dificuldades enfrentadas na busca por oportunidades. O estágio é a principal porta de entrada para o mercado de trabalho. 
-
-Ao reduzir o tempo gasto na busca e triagem, aumentamos as chances de:
-- **Estudantes** conseguirem oportunidades compatíveis com seu perfil acadêmico
-- **Empresas** receberem candidatos mais bem alinhados com suas necessidades
-- **Instituições de ensino** acompanharem melhor a empregabilidade de seus alunos
+O estágio é o principal pilar prático da formação superior, mas a falta de canais focados no mapeamento de competências iniciais prejudica a inserção profissional dos jovens. Essa dificuldade é evidenciada no estudo de Rocha-de-Oliveira et al. (2011), "A Inserção de Jovens Universitários no Mercado de Trabalho", que aponta que os estudantes enfrentam barreiras como a falta de clareza nos perfis de vagas e a burocracia na mediação de contratos. O desenvolvimento do Estagi.ON justifica-se pela urgência de um algoritmo direcionado (curso, período e habilidades), reduzindo o tempo de triagem para as empresas e combatendo o "mercado invisível" de vagas para os estudantes.
 
 ## Público-Alvo
 
@@ -166,28 +161,8 @@ Nessa fase, transformamos os insights e validações obtidos em soluções tang�
 
 Com base na análise das personas foram identificadas as seguintes histórias de usuários:
 
-![](images/Hist.usuario.jpg)
+![](images/Hist.usuarios.jpg)
 
-### 1. Perfil de Coordenação
-- **Eu como:** Coordenador de carreiras universitárias
-- **Preciso de:** Ter acesso a um banco de talentos com perfis completos dos alunos, incluindo projetos acadêmicos, habilidades e histórico de formação
-- **Para:** Indicar estudantes mais preparados às empresas e aumentar as chances de contratação dos universitários
-
-### 2. Perfil de Empregabilidade
-- **Eu como:** Responsável pela empregabilidade dos estudantes
-- **Preciso de:** Visualizar um dashboard com o progresso dos alunos nos processos seletivos de estágio
-- **Para:** Entender em qual etapa os candidatos estão e oferecer orientações para melhorar suas chances de aprovação
-
-### 3. Perfil de Integração Institucional
-- **Eu como:** Coordenador de carreiras da universidade
-- **Preciso de:** Uma plataforma que conecte diretamente empresas e universitários da instituição
-- **Para:** Facilitar a divulgação de vagas de estágio e aproximar o mercado de trabalho dos alunos
-
-### 4. Histórias de Usuário Adicionais
-- Como **estudante**, quero criar um perfil com curso e semestre para que empresas entendam meu nível
-- Como **estudante**, quero filtrar vagas por modelo de trabalho (remoto/presencial/híbrido)
-- Como **estudante**, quero acompanhar o status das minhas candidaturas
-- Como **recrutador**, quero publicar vagas com requisitos mínimos e filtrar candidatos por curso e semestre
 
 ## Proposta de Valor
 
@@ -292,7 +267,7 @@ O fluxo é cíclico e seguro. Independente da tela em que o usuário esteja (Das
 
 ![Protótipo interativo](images/Protótipo-interativo.jpeg)
 
-Acesse o [protótipo interativo no Figma](https://figma.com/) para uma experiência de alta fidelidade da interface.
+Link para o acesso do protótipo interativo: https://www.figma.com/site/DKoE4yuXm3fAfH3mWurSu5/Untitled?node-id=0-1&p=f&t=95fNcAG2oIM7k2im-0
 
 ---
 
@@ -326,7 +301,7 @@ Relação de ferramentas empregadas pelo grupo durante o projeto.
 
 Divisão de papéis no grupo e apresentação da estrutura da ferramenta de controle de tarefas (Kanban).
 
-![Kanban](images/Gerenciamento.png)
+![Kanban](images/Kanban.png)
 
 O processo de Design Thinking foi aplicado nas etapas iniciais do projeto, com foco na compreensão do problema e das necessidades dos usuários. Foram realizadas atividades de empatia e definição do problema, seguidas por sessões de brainstorming e ideação. 
 
