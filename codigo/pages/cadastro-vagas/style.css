@@ -32,14 +32,9 @@ header {
   margin: 0 2rem 2rem;
 }
 
-.vagas, .salarios, .empresa, .turno {
+.vagas, .bolsa, .empresa, .carga-horaria, .modalidade, .local {
   width: 50%;
   box-sizing: border-box;
-  padding: 10px;
-}
-
-.localizacao {
-  width: 50%;
   padding: 10px;
 }
 
@@ -56,7 +51,12 @@ h2 {
   margin-bottom: 0.5rem;
 }
 
-.espaco-vaga, .espaco-salario, .espaco-empresa, .espaco-turno, .espaco-localizacao {
+.espaco-vaga,
+.espaco-bolsa,
+.espaco-empresa,
+.espaco-carga-horaria,
+.espaco-modalidade,
+.espaco-local {
   width: 90%;
   height: 40px;
   padding: 0.5rem 1rem;
@@ -64,14 +64,41 @@ h2 {
   border-radius: var(--radius-md, 12px);
   font-family: inherit;
   font-size: 0.875rem;
+  background-color: white;
+  color: var(--color-text-main, #0f172a);
   transition: border-color 0.2s ease;
+  box-sizing: border-box;
 }
 
-.espaco-vaga:focus, .espaco-salario:focus, .espaco-empresa:focus,
-.espaco-turno:focus, .espaco-localizacao:focus,
-.espaco-descricao:focus, .espaco-requisitos:focus {
+.espaco-vaga:focus,
+.espaco-bolsa:focus,
+.espaco-empresa:focus,
+.espaco-carga-horaria:focus,
+.espaco-modalidade:focus,
+.espaco-local:focus,
+.espaco-descricao:focus,
+.espaco-requisitos:focus {
   outline: none;
   border-color: var(--color-primary, #06b9fc);
+}
+
+/* Campo "Empresa" é somente leitura: visual levemente diferenciado */
+.espaco-empresa[readonly] {
+  background-color: #f1f5f9;
+  color: var(--color-text-light, #64748b);
+  cursor: not-allowed;
+}
+
+/* Select de Modalidade segue o mesmo padrão visual dos inputs */
+.espaco-modalidade {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 16px;
+  cursor: pointer;
 }
 
 .espaco-descricao, .espaco-requisitos {
@@ -84,6 +111,7 @@ h2 {
   font-size: 0.875rem;
   resize: vertical;
   transition: border-color 0.2s ease;
+  box-sizing: border-box;
 }
 
 .secao-botao {
@@ -118,6 +146,15 @@ h2 {
   background-color: var(--color-primary-dark, #0598ce);
   transform: translateY(-1px);
   box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+}
+
+.criar:disabled,
+.atualizar:disabled {
+  background-color: #cbd5e1;
+  color: #94a3b8;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
 }
 
 .atualizar {

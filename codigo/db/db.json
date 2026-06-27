@@ -1,7 +1,7 @@
 {
   "vagas": [
     {
-      "id": 1,
+      "id": "1",
       "titulo": "Estágio em Desenvolvimento Web",
       "empresa": "TechSolutions Ltda",
       "descricao": "Buscamos estudante de TI para atuar no desenvolvimento de interfaces web modernas, participando de projetos reais com equipe ágil.",
@@ -17,7 +17,7 @@
       "empresaId": 1
     },
     {
-      "id": 2,
+      "id": "2",
       "titulo": "Estágio em Análise de Dados",
       "empresa": "DataMind S.A.",
       "descricao": "Oportunidade para estudantes de Ciência da Computação, Estatística ou áreas afins para atuar com análise e visualização de dados.",
@@ -33,7 +33,7 @@
       "empresaId": 1
     },
     {
-      "id": 3,
+      "id": "3",
       "titulo": "Estágio em UX/UI Design",
       "empresa": "Criativa Agency",
       "descricao": "Vaga para estudante com interesse em design de experiência do usuário, criação de protótipos e pesquisa com usuários.",
@@ -51,14 +51,14 @@
   ],
   "usuarios": [
     {
-      "id": 1,
+      "id": "1",
       "login": "admin",
       "senha": "123",
       "nome": "Administrador do Sistema",
       "email": "admin@abc.com"
     },
     {
-      "id": 2,
+      "id": "2",
       "login": "user",
       "senha": "123",
       "nome": "Usuario Comum",
@@ -69,12 +69,12 @@
       "senha": "123",
       "nome": "Rommel",
       "email": "rommel@gmail.com",
-      "id": 3
+      "id": "3"
     }
   ],
   "estudantes": [
     {
-      "id": 1,
+      "id": "1",
       "nome": "Gustavo Albuquerque",
       "email": "gustavo@sga.pucminas.br",
       "senha": "senha123",
@@ -84,11 +84,11 @@
       "habilidades": [
         "React Native",
         "TypeScript",
-        "JavaScript"
+        "CSS"
       ]
     },
     {
-      "id": 2,
+      "id": "2",
       "nome": "Maria Silva Santos",
       "email": "maria@estudante.com",
       "senha": "senha123",
@@ -109,7 +109,7 @@
       "semestre": 3,
       "senha": "Senha fortissima@22",
       "habilidades": [],
-      "id": 3
+      "id": "3"
     },
     {
       "nome": "Gustavo Albuquerque Lourenço Mattos de Castro",
@@ -119,12 +119,63 @@
       "semestre": 5,
       "senha": "senha123",
       "habilidades": [],
-      "id": 4
+      "id": "4"
+    },
+    {
+      "nome": "Pedro Arthur",
+      "email": "pedro@gmail.com",
+      "curso": "Engenharia de Software",
+      "instituicao": "PUC",
+      "semestre": 4,
+      "senha": "fff123",
+      "habilidades": [],
+      "id": "vxmaC-FICYg",
+      "tipo": "estudante"
+    },
+    {
+      "nome": "Pedro",
+      "email": "pedroarthursena95@gmail.com",
+      "curso": "Engenharia de Software",
+      "instituicao": "PUC Minas",
+      "semestre": 1,
+      "senha": "senha123",
+      "habilidades": [],
+      "id": "fBATaU_aJQI"
+    },
+    {
+      "nome": "Pedro Arthur de Sena",
+      "email": "pedroarthursena95@gmail.com",
+      "curso": "Engenharia de Software",
+      "instituicao": "PUC Minas",
+      "semestre": 1,
+      "senha": "senha123",
+      "habilidades": [],
+      "id": "7_uA2VdzeHA"
+    },
+    {
+      "nome": "Pedro Arthur",
+      "email": "pedro@gmail.com",
+      "curso": "Engenharia de Software",
+      "instituicao": "PUC Minas",
+      "semestre": 1,
+      "senha": "senha123",
+      "habilidades": [],
+      "id": "9IwfUQveBl0"
+    },
+    {
+      "nome": "Pedro Arthur",
+      "email": "pedroa@gmail.com",
+      "curso": "Engenharia de Software",
+      "instituicao": "PUC Minas",
+      "semestre": 2,
+      "senha": "senha123",
+      "habilidades": [],
+      "id": "2bFjPOhhNV0"
     }
   ],
   "empresas": [
     {
-      "id": 1,
+      "id": "1",
       "nome": "NextLetter Tech",
       "email": "recrutamento@nextletter.com",
       "senha": "empresa123",
@@ -132,7 +183,7 @@
       "area": "Tecnologia"
     },
     {
-      "id": 2,
+      "id": "2",
       "nome": "TechSolutions Ltda",
       "email": "rh@techsolutions.com",
       "senha": "empresa123",
@@ -142,28 +193,28 @@
   ],
   "candidaturas": [
     {
-      "id": 1,
+      "id": "1",
       "estudanteId": 1,
       "vagaId": 1,
       "status": "Em análise",
       "dataInscricao": "2026-05-24"
     },
     {
-      "id": 2,
+      "id": "2",
       "estudanteId": 1,
       "vagaId": 2,
       "status": "Entrevista agendada",
       "dataInscricao": "2026-05-20"
     },
     {
-      "id": 3,
+      "id": "3",
       "estudanteId": 2,
       "vagaId": 1,
       "status": "Aprovado",
       "dataInscricao": "2026-05-15"
     },
     {
-      "id": 4,
+      "id": "4",
       "estudanteId": 2,
       "vagaId": 3,
       "status": "Currículo enviado",
@@ -172,14 +223,15 @@
   ],
   "vagasSalvas": [
     {
-      "id": 1,
+      "id": "1",
       "estudanteId": 1,
       "vagaId": 3
     },
     {
-      "id": 2,
+      "id": "2",
       "estudanteId": 2,
       "vagaId": 2
     }
-  ]
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }

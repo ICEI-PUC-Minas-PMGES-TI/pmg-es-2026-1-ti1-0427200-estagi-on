@@ -104,32 +104,41 @@
 
         <section class="secao-preencher">
             <div class="vagas">
-                <h2 class="titulo-vaga">Vaga: </h2>
-                <input class="espaco-vaga" id="input-vaga">
+                <h2 class="titulo-vaga">Título da Vaga: </h2>
+                <input class="espaco-vaga" id="input-titulo" placeholder="Ex: Estágio em Desenvolvimento Web">
             </div>
-            <div class="salarios">
-                <h2 class="titulo-salario">Salário: </h2>
-                <input class="espaco-salario" id="input-salario">
+            <div class="bolsa">
+                <h2 class="titulo-bolsa">Bolsa (R$): </h2>
+                <input class="espaco-bolsa" id="input-bolsa" type="number" min="0" step="0.01" placeholder="Ex: 1200">
             </div>
             <div class="empresa">
                 <h2 class="titulo-empresa">Empresa: </h2>
-                <input class="espaco-empresa" id="input-empresa">
+                <input class="espaco-empresa" id="input-empresa" readonly>
             </div>
-            <div class="turno">
-                <h2 class="titulo-turno">Turno: </h2>
-                <input class="espaco-turno" id="input-turno">
+            <div class="carga-horaria">
+                <h2 class="titulo-carga-horaria">Carga Horária: </h2>
+                <input class="espaco-carga-horaria" id="input-carga-horaria" placeholder="Ex: 20h semanais">
             </div>
-            <div class="localizacao">
-                <h2 class="localizacao">Localização: </h2>
-                <input class="espaco-localizacao" id="input-localizacao">
+            <div class="modalidade">
+                <h2 class="titulo-modalidade">Modalidade: </h2>
+                <select class="espaco-modalidade" id="input-modalidade">
+                    <option value="">Selecione...</option>
+                    <option value="Presencial">Presencial</option>
+                    <option value="Remoto">Remoto</option>
+                    <option value="Híbrido">Híbrido</option>
+                </select>
+            </div>
+            <div class="local">
+                <h2 class="titulo-local">Local: </h2>
+                <input class="espaco-local" id="input-local" placeholder="Ex: Belo Horizonte - MG">
             </div>
             <div class="descricao">
                 <h2 class="titulo-descricao">Descrição: </h2>
                 <textarea class="espaco-descricao" id="input-descricao"></textarea>
             </div>
             <div class="requisitos">
-                <h2 class="titulo-requisitos">Requisitos: </h2>
-                <textarea class="espaco-requisitos" id="input-requisitos"></textarea>
+                <h2 class="titulo-requisitos">Requisitos (separe por vírgula): </h2>
+                <textarea class="espaco-requisitos" id="input-requisitos" placeholder="Ex: HTML/CSS, JavaScript, Git"></textarea>
             </div>
         </section>
 
@@ -137,8 +146,8 @@
 
         <section class="secao-botao">
             <div class="botoes">
-                <button class="criar" onclick="criarVaga()">Criar</button>
-                <button class="atualizar" onclick="atualizarVaga()">Atualizar</button>
+                <button class="criar" id="btn-criar" onclick="criarVaga()">Criar</button>
+                <button class="atualizar" id="btn-atualizar" onclick="atualizarVaga()" disabled>Atualizar</button>
                 <button class="limpar" onclick="limparFormulario()">Limpar</button>
             </div>
         </section>
@@ -148,10 +157,10 @@
                 <thead>
                     <tr>
                         <th>Título</th>
-                        <th>Empresa</th>
-                        <th>Salário</th>
-                        <th>Turno</th>
-                        <th>Localização</th>
+                        <th>Bolsa</th>
+                        <th>Carga Horária</th>
+                        <th>Modalidade</th>
+                        <th>Local</th>
                         <th>Descrição</th>
                         <th>Requisitos</th>
                         <th>Ações</th>
@@ -165,8 +174,8 @@
       </div>
     </div>
 
+    <script src="./../../assets/js/auth.js"></script>
     <script src="script.js"></script>
-  <script src="./../../assets/js/auth.js"></script>
   </body>
 
 </html>
