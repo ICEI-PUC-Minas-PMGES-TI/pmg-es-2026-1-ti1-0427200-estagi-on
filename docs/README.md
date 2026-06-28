@@ -161,7 +161,7 @@ Nessa fase, transformamos os insights e validações obtidos em soluções tang�
 
 Com base na análise das personas foram identificadas as seguintes histórias de usuários:
 
-![](images/Hist.usuarios.jpg)
+![](images/Hist_usuarios.jpg)
 
 
 ## Proposta de Valor
@@ -334,7 +334,10 @@ Observação: Verifique os arquivos em `/codigo` para a implementação atual e 
 
 O vídeo a seguir traz uma apresentação do problema que a equipe está tratando e a proposta de solução.
 
-[![Vídeo do projeto](images/video.png)](https://www.youtube.com/embed/70gGoFyGeqQ)
+[![Assista ao vídeo do Estagi.ON](https://img.youtube.com/vi/ApZLozau38o/0.jpg)](https://youtu.be/ApZLozau38o?si=Kvp_r30uGzdn0rAN)
+Ao clicar na imagem você ja é automaticamente direcionado para o video, o qual o link é:
+https://youtu.be/ApZLozau38o?si=Kvp_r30uGzdn0rAN
+
 
 
 
