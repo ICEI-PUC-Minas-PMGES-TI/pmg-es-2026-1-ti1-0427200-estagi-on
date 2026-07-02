@@ -43,13 +43,21 @@ function configurarFormulario() {
     limparErros();
     errorDiv.style.display = "none";
 
-    if (!validarEmail(email)) {
-      mostrarErroInput(emailInput, "E-mail inválido");
+    if (tipoSelecionado === "estudante") {
+      if (!validarEmail(email)) {
+        mostrarErroInput(emailInput, "E-mail inválido");
+        return;
+      }
+    } else if (!email) {
+      mostrarErroInput(emailInput, "Informe o e-mail ou login da empresa");
       return;
     }
 
     if (!validarSenha(senha)) {
-      mostrarErroInput(senhaInput, "Senha deve ter no mínimo 6 caracteres e 1 número");
+      mostrarErroInput(
+        senhaInput,
+        "Senha deve ter no mínimo 6 caracteres e 1 número",
+      );
       return;
     }
 
@@ -60,11 +68,17 @@ function configurarFormulario() {
         sessionStorage.setItem("usuarioAtivo", JSON.stringify(usuario));
         window.location.href = "../../index.html";
       } else {
-        mostrarErroGeral(errorDiv, "E-mail ou senha incorretos. Verifique suas credenciais.");
+        mostrarErroGeral(
+          errorDiv,
+          "E-mail ou senha incorretos. Verifique suas credenciais.",
+        );
       }
     } catch (error) {
       console.error("Erro ao autenticar:", error);
-      mostrarErroGeral(errorDiv, "Erro ao conectar com o servidor. Tente novamente.");
+      mostrarErroGeral(
+        errorDiv,
+        "Erro ao conectar com o servidor. Tente novamente.",
+      );
     }
   });
 }
@@ -72,8 +86,21 @@ function configurarFormulario() {
 async function autenticarUsuario(email, senha, tipo) {
   try {
     const endpoint = tipo === "estudante" ? "estudantes" : "empresas";
-    const response = await fetch(`${API_URL}/${endpoint}?email=${encodeURIComponent(email)}`);
-    const usuarios = await response.json();
+    let usuarios = [];
+
+    if (tipo === "empresa" && !validarEmail(email)) {
+      const responseLogin = await fetch(
+        `${API_URL}/${endpoint}?login=${encodeURIComponent(email)}`,
+      );
+      usuarios = await responseLogin.json();
+    }
+
+    if (usuarios.length === 0) {
+      const response = await fetch(
+        `${API_URL}/${endpoint}?email=${encodeURIComponent(email)}`,
+      );
+      usuarios = await response.json();
+    }
 
     if (usuarios.length === 0) {
       return null;
@@ -98,6 +125,7 @@ async function autenticarUsuario(email, senha, tipo) {
             habilidades: usuario.habilidades || [],
           }
         : {
+            login: usuario.login,
             cnpj: usuario.cnpj,
             area: usuario.area,
           }),

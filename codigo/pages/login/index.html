@@ -1,64 +1,94 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login | Estagi.ON</title>
-  <link rel="stylesheet" href="../../assets/css/global.css">
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <div class="login-container">
-    <div class="login-card">
-      <div class="login-header">
-        <img src="../../assets/images/Logo.png" alt="Logo Estagi.ON" class="login-logo">
-        <h1>Bem-vindo ao Estagi.ON</h1>
-        <p>Faça login para continuar</p>
-      </div>
-
-      <div class="user-type-toggle">
-        <button type="button" class="toggle-option active" data-tipo="estudante">
-          <svg viewBox="0 0 24 24" width="20" height="20">
-            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-            <circle cx="12" cy="7" r="4"/>
-          </svg>
-          Sou Estudante
-        </button>
-        <button type="button" class="toggle-option" data-tipo="empresa">
-          <svg viewBox="0 0 24 24" width="20" height="20">
-            <rect x="3" y="3" width="18" height="18" rx="2"/>
-            <path d="M3 9h18"/>
-            <path d="M9 21V9"/>
-          </svg>
-          Sou Empresa
-        </button>
-      </div>
-
-      <form id="login-form">
-        <div class="form-group">
-          <label for="email">E-mail</label>
-          <input type="email" id="email" class="form-input" placeholder="seu@email.com" required>
-          <span class="error-message" id="error-email"></span>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login | Estagi.ON</title>
+    <link rel="stylesheet" href="../../assets/css/global.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="login-container">
+      <div class="login-card">
+        <div class="login-header">
+          <img
+            src="../../assets/images/Logo.png"
+            alt="Logo Estagi.ON"
+            class="login-logo"
+          />
+          <h1>Bem-vindo ao Estagi.ON</h1>
+          <p>Faça login para continuar</p>
         </div>
 
-        <div class="form-group">
-          <label for="senha">Senha</label>
-          <input type="password" id="senha" class="form-input" placeholder="••••••••" required>
-          <span class="error-message" id="error-senha"></span>
+        <div class="user-type-toggle">
+          <button
+            type="button"
+            class="toggle-option active"
+            data-tipo="estudante"
+          >
+            <svg viewBox="0 0 24 24" width="20" height="20">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+              <circle cx="12" cy="7" r="4" />
+            </svg>
+            Sou Estudante
+          </button>
+          <button type="button" class="toggle-option" data-tipo="empresa">
+            <svg viewBox="0 0 24 24" width="20" height="20">
+              <rect x="3" y="3" width="18" height="18" rx="2" />
+              <path d="M3 9h18" />
+              <path d="M9 21V9" />
+            </svg>
+            Sou Empresa
+          </button>
         </div>
 
-        <div class="alert alert-error" id="login-error" style="display: none;"></div>
+        <form id="login-form">
+          <div class="form-group">
+            <label for="email">E-mail ou login</label>
+            <input
+              type="text"
+              id="email"
+              class="form-input"
+              placeholder="seu@email.com ou login da empresa"
+              required
+            />
+            <span class="error-message" id="error-email"></span>
+          </div>
 
-        <button type="submit" class="btn-login">Entrar</button>
-      </form>
+          <div class="form-group">
+            <label for="senha">Senha</label>
+            <input
+              type="password"
+              id="senha"
+              class="form-input"
+              placeholder="••••••••"
+              required
+            />
+            <span class="error-message" id="error-senha"></span>
+          </div>
 
-      <div class="login-footer">
-        <p>Estudante? <a href="../cadastro-estudantes/index.html">Cadastre-se</a></p>
-        <p>Empresa? <a href="../cadastro-empresas/index.html">Cadastre sua empresa</a></p>
+          <div
+            class="alert alert-error"
+            id="login-error"
+            style="display: none"
+          ></div>
+
+          <button type="submit" class="btn-login">Entrar</button>
+        </form>
+
+        <div class="login-footer">
+          <p>
+            Estudante?
+            <a href="../cadastro-estudantes/index.html">Cadastre-se</a>
+          </p>
+          <p>
+            Empresa?
+            <a href="../cadastro-empresas/index.html">Cadastre sua empresa</a>
+          </p>
+        </div>
       </div>
     </div>
-  </div>
 
-  <script src="script.js"></script>
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>

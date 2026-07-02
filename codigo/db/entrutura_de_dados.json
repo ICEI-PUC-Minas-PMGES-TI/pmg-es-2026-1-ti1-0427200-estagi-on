@@ -12,6 +12,7 @@
     {
       "id": 1,
       "nome": "NextLetter Tech",
+      "login": "nextletter.tech",
       "email": "recrutamento@nextletter.com",
       "senha": "senha_empresa_456",
       "cnpj": "12.345.678/0001-99",
@@ -26,11 +27,7 @@
       "descricao": "Vaga para atuar no desenvolvimento de aplicações mobile utilizando o framework React Native.",
       "bolsa": 1500,
       "modalidade": "Híbrido",
-      "requisitos": [
-        "React",
-        "APIs REST",
-        "Lógica de Programação"
-      ]
+      "requisitos": ["React", "APIs REST", "Lógica de Programação"]
     }
   ],
   "candidaturas": [

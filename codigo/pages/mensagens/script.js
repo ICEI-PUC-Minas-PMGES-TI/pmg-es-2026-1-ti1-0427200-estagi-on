@@ -88,8 +88,18 @@ function selecionarContato(contatoId, contatoData) {
     .querySelector(`[data-contact-id="${contatoId}"]`)
     .classList.add("active");
 
-  contactName.textContent = contatoData.nome;
-  contactType.textContent = `${contatoData.tipo}`;
+  const chatHeader = document.querySelector(".chat-header");
+  if (chatHeader) {
+    chatHeader.style.display = "block";
+  }
+
+  if (contactName) {
+    contactName.textContent = contatoData.nome;
+  }
+
+  if (contactType) {
+    contactType.textContent = `${contatoData.tipo}`;
+  }
 
   messageInput.disabled = false;
   sendButton.disabled = false;

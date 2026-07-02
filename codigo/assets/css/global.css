@@ -23,7 +23,10 @@
   --color-primary: #06b9fc;
   --color-primary-dark: #0598ce;
   --color-secondary: #1e293b;
+  --color-bg-main: #f1f5f9;
+  --color-border: #e2e8f0;
 
+  --font-family: "Inter", system-ui, -apple-system, sans-serif;
   --font-family-base: "Inter", system-ui, -apple-system, sans-serif;
 
   --spacing-xs: 0.5rem;
@@ -37,6 +40,7 @@
   --shadow-lg:
     0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
 
+  --radius-sm: 8px;
   --radius-md: 12px;
   --radius-lg: 16px;
 }
@@ -74,41 +78,16 @@ textarea,
 select {
   font: inherit;
 }
-.input-erro{
 
-border:
-
-1px solid #ef4444
-!important;
-
-box-shadow:
-
-0 0 0 3px
-
-rgba(
-239,
-68,
-68,
-.15
-);
-
+.input-erro {
+  border: 1px solid #ef4444 !important;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15);
 }
 
-
-
-.erro-texto{
-
-display:block;
-
-margin-top:6px;
-
-font-size:12px;
-
-font-family:
-"DM Sans";
-
-color:
-
-#ef4444;
-
+.erro-texto {
+  display: block;
+  margin-top: 6px;
+  font-size: 12px;
+  font-family: "DM Sans";
+  color: #ef4444;
 }
